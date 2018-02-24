@@ -1,0 +1,10 @@
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\bin\Debug\Lab 13 Craps.exe.config
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\bin\Debug\Lab 13 Craps.exe
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\bin\Debug\Lab 13 Craps.pdb
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\bin\Debug\Lab 13 Craps.xml
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab_13_Craps.Form1.resources
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab_13_Craps.Resources.resources
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab 13 Craps.vbproj.GenerateResource.Cache
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab 13 Craps.exe
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab 13 Craps.xml
+C:\Users\w1551716\OneDrive\Lab 13 Craps\Lab 13 Craps\obj\Debug\Lab 13 Craps.pdb
