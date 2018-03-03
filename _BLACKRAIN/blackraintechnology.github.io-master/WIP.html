@@ -1,0 +1,89 @@
+
+<!DOCTYPE html> 
+
+<html lang="en">
+<head>
+     <title>Blackrain Journal - Entry</title>
+	 <link rel="stylesheet" href="style.css">
+	 
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li> Account Value </li>
+			<li> Gross </li>
+			<li> Net </li>
+			<li> Trades </li>
+			<li> Win% </li>
+		</ul>
+			<div class="logo"> Blackrain </div>
+	</div>
+	<div class="tabs">
+
+		 <ul>
+			
+			<li><a href="index.html"><span>Home</span></a></li>
+			<li><a href="view1.html"><span>Entry</span></a></li>
+			<li><a href="journal.html"><span>Journal</span></a></li>
+			<li><a href="analytics.html"><span>Analytics</span></a></li>
+			<li><a href="chart.html"><span>Chart</span></a></li>
+			<li><a href="sessions.html"><span>Trade Sessions</span></a></li>
+			
+		</ul>
+	</div>
+	<div style="width:80%; margin:auto;">
+	   <div class="entry_column"  style="box-shadow: 5px 5px 5px #225522; border-right:solid; border:solid; border-width:thin; float:left; padding:0px; display:table; margin:20px;">
+		
+			<div id="inner_entry" style="padding:10px;">
+				<h2> Trade Entry </h2>
+				<table>
+					<tr>
+					<td valign="top">
+						*Ticker
+						<input type="text" id="ticker" class="wide">
+						*Date Purchased
+						<input type="text" id="entry_date" class="wide">
+						*Entry Price
+						<input type="text" id="entry" class="wide">
+						*Quantity
+						<input type="text" id="quantity" class="wide">
+						Date Sold
+						<input type="text" id="exit_date" class="wide">
+					</td><td  valign="top" style="padding-left: 10px;">
+						Exit Price
+						<input type="text" id="exit" class="wide">
+						Trader's Fee
+						<input type="text" id="fee" class="wide">
+						Notes
+						<textarea name="notes" style="height:100px;"></textarea>
+					</td>
+					</tr>
+				</table>
+				<h6 > * Required field </h6>
+				<h5 style="color:red;" id="error_output">  </h5>
+			</div>
+			<div class="tabs" style="text-align:right;">
+				<ul>
+					
+					<li><a onClick='dummy()'><span>Add</span></a></li>
+					<li><a><span>Edit</span></a></li>
+					<li><a><span>Cancel</span></a></li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div id="output_box" style="overflow:scroll;box-shadow: 5px 5px 5px #225522;border:solid; border-width:thin; float:left; width:600px; height:250px; padding:20px; margin:20px;">
+			No entries yet.
+		</div>
+		</div>
+
+<script src="journal.js">
+
+	
+	
+	
+</script>
+		
+</body>
+</html>
