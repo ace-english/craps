@@ -1,9 +1,11 @@
 public interface Craps_Interface{
 	
 	/*functions stubs go here
-	 * Examples:
-	 * 
-	 * boolean foo(int argument);
-	 * int bar();
 	 */
+	
+	
+	public void placeBet(int betAmount);	//returns false if insufficient funds
+
+
+
 }
