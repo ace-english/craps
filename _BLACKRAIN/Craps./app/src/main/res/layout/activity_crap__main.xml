@@ -48,11 +48,19 @@
         android:layout_height="43dp"
         android:text="@string/Button5"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.568" />
+=======
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button6"
@@ -64,7 +72,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.568" />
+=======
+        app:layout_constraintVertical_bias="0.888" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button7"
@@ -72,11 +84,19 @@
         android:layout_height="43dp"
         android:text="@string/Button7"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.72" />
+=======
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button8"
@@ -84,11 +104,19 @@
         android:layout_height="43dp"
         android:text="@string/Button8"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.72" />
+=======
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button9"
@@ -96,11 +124,19 @@
         android:layout_height="43dp"
         android:text="@string/Button9"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.72" />
+=======
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button"
@@ -120,11 +156,19 @@
         android:layout_height="43dp"
         android:text="@string/Button10"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.88" />
+=======
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
     <Button
         android:id="@+id/button2"
@@ -138,6 +182,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.435" />
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/editText"
         style="@android:style/Widget.AutoCompleteTextView"
@@ -169,5 +214,7 @@
         tools:layout_editor_absoluteX="58dp"
         tools:layout_editor_absoluteY="110dp" />
 
+=======
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
 </android.support.constraint.ConstraintLayout>
