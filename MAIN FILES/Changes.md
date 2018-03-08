@@ -3,5 +3,5 @@
 I'm not quite sure what return type we need/want for the FieldBetPayout but we can discuss more about it when we need to implement it.
 </p>
 
-####Thursday March 8th
-This is what commits are for.
+<p>-Thursday March 8th-</p>
+<p>This is what commits are for.</p>
