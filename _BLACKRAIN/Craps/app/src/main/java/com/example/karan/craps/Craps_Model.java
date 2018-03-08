@@ -7,9 +7,7 @@ public class Craps_Model implements Craps_Interface{
 	
 	public CrapsModel(){
 		wallet=500;
-		passLineBet=0;
-		counter=1;
-		comeOutRoll=false;
+		newGame();
 	}
 	
 	public boolean placeBet(int betAmount)	//returns false if insufficient funds
@@ -23,8 +21,13 @@ public class Craps_Model implements Craps_Interface{
 		return false;
 	}
 	
-	public boolean newGame(); // This will clear last game and create a new one.
-
+	public boolean newGame() // This will clear last game and create a new one.
+	{
+		counter=0;
+		passLineBet=0;
+		comeOutRoll=false;
+		return true;
+	}
 	public boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 
 	public boolean winGame()	// This will excutute a Win if the Dice rolls went the players way.
