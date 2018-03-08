@@ -15,6 +15,19 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
     /*initailizer Area for buttons, text view, booleans, edit text, etc*/
     private Button button3;
+<<<<<<< HEAD
+    private Button button;
+    private Button button2;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button10;
+
+=======
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 
 
 /*Area for creating the onclick listeners and objects for use in the program*/
@@ -24,6 +37,31 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.activity_crap__main);
 
         button3 = (Button) findViewById(R.id.button3);
+<<<<<<< HEAD
+        button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+
+        button.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button7.setOnClickListener(this);
+        button8.setOnClickListener(this);
+        button9.setOnClickListener(this);
+        button10.setOnClickListener(this);
+
+
+=======
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
     }
 
     @Override
@@ -38,4 +76,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
             else Verify.setText("Incorrect");
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
 }

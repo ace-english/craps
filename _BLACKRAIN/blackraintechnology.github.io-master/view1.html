@@ -1,0 +1,86 @@
+
+<!DOCTYPE html> 
+
+<html lang="en">
+<head>
+     <title>Blackrain Journal - Entry</title>
+	 <link rel="stylesheet" href="style.css">
+	 
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li> Account Value </li>
+			<li> Gross </li>
+			<li> Net </li>
+			<li> Trades </li>
+			<li> Win% </li>
+		</ul>
+			<div class="logo"> Blackrain </div>
+	</div>
+	<div class="tabs">
+
+		 <ul>
+			
+			<li><a href="index.html"><span>Home</span></a></li>
+			<li><a href="view1.html"><span>Entry</span></a></li>
+			<li><a href="journal.html"><span>Journal</span></a></li>
+			<li><a href="analytics.html"><span>Analytics</span></a></li>
+			<li><a href="chart.html"><span>Chart</span></a></li>
+			
+		</ul>
+	</div>
+	<div class="journal_entry">
+	    <div class="entry_column">
+			<h2> Trade Data </h2>
+			
+			Entry Date
+			<input type="datetime" name="date">
+			Instrument
+			<input type="text" name="instrument">
+			<input type="radio" name="entry[]" value="buy" >Buy<br>
+			<input type="radio" name="entry[]" value="sell" >Sell<br>
+			
+		</div>
+	    <div class="entry_column"  style="border-right:solid; border-left:solid; border-width:thin;">
+			<h2> Trade Entry </h2>
+			Entry Price
+			<input type="text" name="price">
+			Quantity
+			<input type="text" name="quantity">
+			Stop Loss Price
+			<input type="text" name="loss">
+			Take Profit Price
+			<input type="text" name="profit">
+		</div>
+	    <div class="entry_column" style="border-right:solid; border-width:thin;">
+			<h2> Trade Exit </h2>
+			Entry Date
+			<input type="datetime" name="date">
+			Exit Price
+			<input type="text" name="exit_price">
+			Profit/Loss
+			<input type="text" name="profit/loss">
+			Fees
+			<input type="text" name="fees">
+		</div>
+	    <div class="entry_column">
+			<h2> H and L </h2>
+			Highest Price
+			<input type="text" name="highest">
+			Lowest Price
+			<input type="text" name="lowest">
+		</div>
+		<div class="tabs" style="text-align:right;">
+
+		 <ul>
+			
+			<li><a><span>Save</span></a></li>
+			<li><a><span>Cancel</span></a></li>
+			
+		</ul>
+	</div>
+	</div>
+
+</body>
+</html>
