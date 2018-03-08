@@ -28,15 +28,20 @@ public class Craps_Model implements Craps_Interface{
 		comeOutRoll=false;
 		return true;
 	}
-	public boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
-
+	public boolean loseGame()   // This will excutute a Lose game if the Dice rolls didnt go the players way.
+	{
+		//TODO
+		return false;
+	}
 	public boolean winGame()	// This will excutute a Win if the Dice rolls went the players way.
 	{
 		FieldBetPayout();
+		return true;
 	}
 	public boolean FieldBetPayout()
 	{
 		wallet+=passLineBet;
+		return true;
 	}
 	
 	public int rollDice()
@@ -49,5 +54,11 @@ public class Craps_Model implements Craps_Interface{
 		
 		dice[0]=rand.nextInt(6)+1;
 		dice[1]=rand.nextInt(6)+1;
+	}
+	public int getDie1() {
+		return dice[0];
+	}
+	public int getDie2() {
+		return dice[1];
 	}
 }

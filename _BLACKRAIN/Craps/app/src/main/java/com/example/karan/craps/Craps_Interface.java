@@ -8,7 +8,7 @@ public interface Craps_Interface{
 
 	public boolean newGame(); // This will clear last game and create a new one.
 
-	public int rollDice();   // This will roll the dice and return the value.
+	public int rollDice();   // This will roll the dice and process the result
 
 	public boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 
@@ -16,4 +16,10 @@ public interface Craps_Interface{
 
 	public boolean FieldBetPayout();	// This will calculate the FieldBetPayout board if player placed a bet here.
 
+	public int getPointValue(); //Returns value of dice
+	
+	public int getDie1() ;	//getter, useful for future graphics
+	public int getDie2() ;	//getter, useful for future graphics
+	
+	
 }
