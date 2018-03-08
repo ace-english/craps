@@ -20,6 +20,8 @@ public interface Craps_Interface{
 	
 	public int getDie1() ;	//getter, useful for future graphics
 	public int getDie2() ;	//getter, useful for future graphics
+	public int getWallet();	//getter, useful for GUI
+	public int getTurnNumber(); //getter, useful for GUI
 	
 	
 }

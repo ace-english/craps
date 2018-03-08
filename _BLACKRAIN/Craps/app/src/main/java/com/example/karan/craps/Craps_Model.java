@@ -10,6 +10,14 @@ public class Craps_Model implements Craps_Interface{
 		newGame();
 	}
 	
+	public int getWallet() {
+		return wallet;
+	}
+	
+	public int getTurnNumber() {
+		return counter;
+	}
+	
 	public boolean placeBet(int betAmount)	//returns false if insufficient funds
 	{
 		if(wallet>= betAmount)
@@ -25,7 +33,8 @@ public class Craps_Model implements Craps_Interface{
 	{
 		counter=0;
 		passLineBet=0;
-		comeOutRoll=false;
+		comeOutRoll=true;
+		//TODO: initialize text fields in interface
 		return true;
 	}
 	public boolean loseGame()   // This will excutute a Lose game if the Dice rolls didnt go the players way.
@@ -47,6 +56,32 @@ public class Craps_Model implements Craps_Interface{
 	public int rollDice()
 	{
 		initializeDice();
+		
+		if(comeOutRoll) {
+			switch(getPointValue()) {
+				case "2":
+				case "3":
+				case "12":
+					loseGame();
+					break;
+				case "7":
+				case "11":
+					winGame();
+					break;
+				default:
+					comeOutRoll=false;
+			}
+		}
+		else {
+			counter++;
+			if(getPointValue()==7)
+				loseGame();
+			else if (getPointValue()==pointTextBox.Text) {
+				//TODO: change pointTextBox to the equivalent for our interface
+				//might have to be an argument? not sure
+				winGame();
+			}
+		}
 		return dice[0]+dice[1];
 	}
 	private initializeDice() {
@@ -55,9 +90,15 @@ public class Craps_Model implements Craps_Interface{
 		dice[0]=rand.nextInt(6)+1;
 		dice[1]=rand.nextInt(6)+1;
 	}
+	
+	public int pointValue() {
+		return getDie1()+getDie2();
+	}
+	
 	public int getDie1() {
 		return dice[0];
 	}
+	
 	public int getDie2() {
 		return dice[1];
 	}
