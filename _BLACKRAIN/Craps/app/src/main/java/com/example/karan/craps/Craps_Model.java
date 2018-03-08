@@ -5,8 +5,6 @@ public class Craps_Model implements Craps_Interface{
 	
 	
 	
-	
-	
 	private int rollDice()
 	{
 		int dice[2];
