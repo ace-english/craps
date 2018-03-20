@@ -15,7 +15,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
     /*initailizer Area for buttons, text view, booleans, edit text, etc*/
     private Button button3;
-<<<<<<< HEAD
     private Button button;
     private Button button2;
     private Button button4;
@@ -25,9 +24,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private Button button8;
     private Button button9;
     private Button button10;
-
-=======
->>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
+    private EditText Bet;
 
 
 /*Area for creating the onclick listeners and objects for use in the program*/
@@ -37,7 +34,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.activity_crap__main);
 
         button3 = (Button) findViewById(R.id.button3);
-<<<<<<< HEAD
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         button4 = (Button) findViewById(R.id.button4);
@@ -47,6 +43,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         button8 = (Button) findViewById(R.id.button8);
         button9 = (Button) findViewById(R.id.button9);
         button10 = (Button) findViewById(R.id.button10);
+        Bet = (EditText) findViewById(R.id.BetAmount);
 
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -60,24 +57,15 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         button10.setOnClickListener(this);
 
 
-=======
->>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
     }
 
     @Override
     public void onClick(View v)
     {
-        if (v.getId()==R.id.Send)
-        {
-            if (/*code for if statement for changing to next page or creating popups. Change the variables to match next page name*/)
-            {
-                Intent intent = new Intent(this, Main2Activity.class);
-                startActivity(intent);
-            }
-            else Verify.setText("Incorrect");
-        }
-<<<<<<< HEAD
+       if (v.getId()==R.id.bottom)
+       {
+           Bet.setText("1");
 
-=======
->>>>>>> 93b61e8c8553fd029db26fbfca0645d5152903f1
+       }
+    }
 }
