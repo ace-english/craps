@@ -33,17 +33,17 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
 
-        button3 = (Button) findViewById(R.id.button3);
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
-        button6 = (Button) findViewById(R.id.button6);
-        button7 = (Button) findViewById(R.id.button7);
-        button8 = (Button) findViewById(R.id.button8);
-        button9 = (Button) findViewById(R.id.button9);
-        button10 = (Button) findViewById(R.id.button10);
-        Bet = (EditText) findViewById(R.id.BetAmount);
+        button3 = findViewById(R.id.button3);
+        button = findViewById(R.id.button);
+        button2 = findViewById(R.id.button2);
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
+        button7 = findViewById(R.id.button7);
+        button8 = findViewById(R.id.button8);
+        button9 = findViewById(R.id.button9);
+        button10 = findViewById(R.id.button10);
+        Bet = findViewById(R.id.BetAmount);
 
         button.setOnClickListener(this);
         button2.setOnClickListener(this);

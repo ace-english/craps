@@ -1,11 +1,12 @@
+package com.example.karan.craps;
 import java.util.Random;
 
 public class Craps_Model implements Craps_Interface{
 	private int wallet, passLineBet, counter;
 	private boolean comeOutRoll;
-	int dice[2];
-	
-	public CrapsModel(){
+	int dice[] = new int[2];
+
+	public Craps_Model(){
 		wallet=500;
 		newGame();
 	}
@@ -20,7 +21,7 @@ public class Craps_Model implements Craps_Interface{
 	
 	public boolean placeBet(int betAmount)	//returns false if insufficient funds
 	{
-		if(wallet>= betAmount)
+		if(wallet >= betAmount)
 		{
 			wallet-=betAmount;
 			passLineBet+=betAmount;
@@ -59,13 +60,13 @@ public class Craps_Model implements Craps_Interface{
 		
 		if(comeOutRoll) {
 			switch(getPointValue()) {
-				case "2":
-				case "3":
-				case "12":
+				case 2:
+				case 3:
+				case 12:
 					loseGame();
 					break;
-				case "7":
-				case "11":
+				case 7:
+				case 11:
 					winGame();
 					break;
 				default:
@@ -76,7 +77,7 @@ public class Craps_Model implements Craps_Interface{
 			counter++;
 			if(getPointValue()==7)
 				loseGame();
-			else if (getPointValue()==pointTextBox.Text) {
+			else /*if (getPointValue()==pointTextBox.Text)*/ {						// Disabled if statement for the moment for we dont have pointTextBox implemented yet.
 				//TODO: change pointTextBox to the equivalent for our interface
 				//might have to be an argument? not sure
 				winGame();
@@ -84,14 +85,16 @@ public class Craps_Model implements Craps_Interface{
 		}
 		return dice[0]+dice[1];
 	}
-	private initializeDice() {
+
+	private int initializeDice() {
 		Random rand= new Random();
 		
 		dice[0]=rand.nextInt(6)+1;
 		dice[1]=rand.nextInt(6)+1;
+		return dice[0] + dice[1];
 	}
 	
-	public int pointValue() {
+	public int getPointValue() {
 		return getDie1()+getDie2();
 	}
 	
