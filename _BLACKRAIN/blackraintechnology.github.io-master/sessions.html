@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html> 
+
+<html lang="en">
+<head>
+     <title>Blackrain Journal - Entry</title>
+	 <link rel="stylesheet" href="style.css">
+	 
+	 <!--need this crap for a date picker that works in Chrome, Firefox and IE-->
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="//jqueryui.com/jquery-wp-content/themes/jquery/css/base.css?v=1">
+	<link rel="stylesheet" href="//jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  $( function() {
+		$( "#datepicker" ).datepicker();
+	  } );
+	  </script>
+	 
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li> Account Value </li>
+			<li> Gross </li>
+			<li> Net </li>
+			<li> Trades </li>
+			<li> Win% </li>
+		</ul>
+			<div class="logo"> Blackrain </div>
+	</div>
+	<div class="tabs">
+
+		 <ul>
+			
+			<li><a href="index.html"><span>Home</span></a></li>
+			<li><a href="view1.html"><span>Entry</span></a></li>
+			<li><a href="journal.html"><span>Journal</span></a></li>
+			<li><a href="analytics.html"><span>Analytics</span></a></li>
+			<li><a href="chart.html"><span>Chart</span></a></li>
+			<li><a href="sessions.html"><span>Trade Sessions</span></a></li>
+			
+		</ul>
+	</div>
+	<div style="width:80%; margin:auto;">
+	   <div class="outer">
+			<h2> Trading Sessions </h2>
+			<p> Use the <!--seesions--> sessions for your review process. Choose a date and duration, and write down notes and the lesson learned from the trade.</p>
+			<form method="post" action="sessions.html">
+			<input type="submit" class="customButton" value="Add">
+			 <table class="inner"> 
+				<thead><tr>
+					<th>Date of Trade</th>
+					<th>Duration</th>
+					<th>Notes</th>
+				 </tr></thead><tbody> <tr>
+					<td>
+						<input type="text" id="datepicker">
+					</td><td>
+						<select name="duration">
+							<option value="DAILY">DAILY</option>
+							<option value="WEEKLY">WEEKLY</option>
+							<option value="MONTHLY">MONTHLY</option>
+							<option value="YEARLY">YEARLY</option>
+						</select>
+					</td><td>
+						<textarea name="notes" style="height:100px;"></textarea>
+					
+					</td>
+					</tr></tbody>
+			 </table>
+			 <table class="inner">
+				 <thead><tr>
+					<th>Lessons Learned</th>
+					<th>Notes Type</th>
+					<th>Session Rating</th>
+				 </tr></thead><tbody><tr>
+					<td>
+						<textarea name="notes" style="height:100px;"></textarea>
+					</td><td>
+						<select name="notes_type">
+							<option value="emotions">Emotions</option>
+							<option value="trade_management">Trade Management</option>
+							<option value="missed_trade">Missed Trade</option>
+							<option value="mistake_made">Mistake Made</option>
+							<option value="risk_management">Risk Management</option>
+							<option value="discipline">Discipline</option>
+						</select>
+					</td><td>
+						<select name="session_rating">
+							<option value="4">VERY GOOD</option>
+							<option value="3">GOOD</option>
+							<option value="2">NEUTRAL</option>
+							<option value="1">BAD</option>
+							<option value="0">VERY BAD</option>
+						</select>
+					</td>
+				 </tr></tbody>
+			 </table>
+			 </form>
+			
+			
+		</div>
+		
+	</div>
+		
+</body>
+</html>
