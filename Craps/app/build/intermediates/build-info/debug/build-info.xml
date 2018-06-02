@@ -1,105 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="x86"
-    api-level="22"
+    api-level="28"
     build-mode="FULL"
     density="420dpi"
     format="10"
-    plugin-version="3.0.1"
-    timestamp="1527893246637"
-    token="-2406685871969813000"
+    plugin-version="3.1.2"
+    timestamp="1527896097095"
+    token="8733250764101291982"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="26116" />
+        duration="5191" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="370" />
+        duration="313" />
     <task
         name="verifier"
-        duration="716" />
+        duration="508" />
 
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\outputs\apk\debug\app-debug.apk"
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
         type="SPLIT_MAIN" />
-    <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1527893246637"
+        timestamp="1527896097095"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\outputs\apk\debug\app-debug.apk"
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\Documents\Development\blackrain\craps\Craps\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
-        <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Ultra-Combo\Documents\Program\Craps\craps\_BLACKRAIN\Craps\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
     </build>
 
 </instant-run>
