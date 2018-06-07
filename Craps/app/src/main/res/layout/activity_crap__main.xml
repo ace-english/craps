@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/table"
             android:layout_width="0dp"
-            android:layout_height="507dp"
+            android:layout_height="490dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -33,50 +33,104 @@
             app:srcCompat="@drawable/background" />
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="232dp"
+            android:layout_width="341dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/table"
             app:layout_constraintTop_toTopOf="@+id/table">
 
-            <TextView
-                android:id="@+id/buyTextView"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/buyTextWrapper"
+                style="@style/GradientWrapper"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
-                android:textAppearance="@style/TextBox"
-                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buyButton"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+                <TextView
+                    android:id="@+id/buyTextView"
+                    style="@style/BlackTextBox"
+                    android:layout_width="0dp"
+                    android:layout_height="31dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="TextView"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <Button
                 android:id="@+id/buyButton"
+                style="@style/GradientWrapper"
                 android:layout_width="67dp"
-                android:layout_height="33dp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="@color/felt_green"
+                android:background="@drawable/gradient_box"
+                android:contentDescription="Buy"
                 android:scaleType="fitCenter"
+                android:text="BUY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/buyTextView"
+                app:layout_constraintStart_toEndOf="@+id/buyTextWrapper"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/buy" />
         </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bottomTextWrapper"
+            style="@style/GradientWrapper"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/table"
+            app:layout_constraintEnd_toStartOf="@+id/buyButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/table">
+
+            <TextView
+                android:id="@+id/bottomTextView"
+                style="@style/BlackTextBox"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:text="TextView"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.DrawerLayout>
