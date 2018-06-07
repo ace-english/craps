@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Craps</string>
-    <string name="Background">craps_table_background</string>
+    <string name="Background">table</string>
 
 </resources>

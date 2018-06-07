@@ -13,7 +13,7 @@ import android.content.Intent;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
-    /*initailizer Area for buttons, text view, booleans, edit text, etc*/
+    /*initailizer Area for buttons, text view, booleans, edit text, etc
     private Button button3;
     private Button button;
     private Button button2;
@@ -25,6 +25,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private Button button9;
     private Button button10;
     private EditText Bet;
+    */
 
 
 /*Area for creating the onclick listeners and objects for use in the program*/
@@ -32,10 +33,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
-
-        button3 = findViewById(R.id.button3);
+        /*
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
         button5 = findViewById(R.id.button5);
         button6 = findViewById(R.id.button6);
@@ -55,7 +56,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         button8.setOnClickListener(this);
         button9.setOnClickListener(this);
         button10.setOnClickListener(this);
-
+    */
 
     }
 
@@ -64,7 +65,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     {
        if (v.getId()==R.id.bottom)
        {
-           Bet.setText("1");
+           //Bet.setText("1");
 
        }
     }
