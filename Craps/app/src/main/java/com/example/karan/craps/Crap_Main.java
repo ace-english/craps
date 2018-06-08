@@ -33,6 +33,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
+
+        Craps_Model cm=new Craps_Model();
+
+
+
         /*
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
