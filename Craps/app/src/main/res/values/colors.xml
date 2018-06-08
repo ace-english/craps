@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f7b4d</color>
+    <color name="colorPrimaryDark">#00430F</color>
+    <color name="colorAccent">#713a18</color>
+    <color name="textColorPrimary">#ffffff</color>
+    <color name="windowBackground">#3f7b4d</color>
+    <color name="navigationBarcolor">#00430F</color>
+    <color name="felt_green">#3f7b4d</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="dark_grad">#370d09</color>
+    <color name="light_grad">#713a18</color>
+
+</resources>

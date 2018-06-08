@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">Craps</string>
+    <string name="Background">table</string>
+    <string name="defaultMoney">$0.00</string>
+    <string name="buyButton">BUY</string>
+    <string name="rollButton">ROLL</string>
+    <string name="homeButton">HOME</string>
+    <string name="totalBetLabel">Total bet</string>
+    <string name="totalWinsLabel">Total Wins</string>
+    <string name="mainTableDescription">A craps table</string>
+    <string name="settingsButtonDescription">Settings</string>
+    <string name="chip1description">A chip worth $1</string>
+    <string name="chip5description">A chip worth $5</string>
+    <string name="chip10description">A chip worth $10</string>
+    <string name="chip25description">A chip worth $25</string>
+    <string name="chip50description">A chip worth $50</string>
+    <string name="chip100description">A chip worth $100</string>
+    <string name="chip500description">A chip worth $500</string>
+    <string name="oddsTableDescription">A table for mincraps</string>
+</resources>
