@@ -33,7 +33,6 @@
             android:layout_height="50dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="@+id/table"
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
@@ -81,7 +80,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/gradient_box"
-                android:contentDescription="Buy"
+                android:contentDescription="@string/buyButton"
                 android:scaleType="fitCenter"
                 android:text="@string/buyButton"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +152,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/chipTray"
                 style="@style/BlackTextBox"
                 android:layout_width="0dp"
@@ -169,7 +168,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/chip1"
+                    style="@style/Chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginStart="27dp"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
 
