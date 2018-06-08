@@ -1,8 +1,13 @@
 package com.example.karan.craps;
-public interface Craps_Interface{
+
+enum BetDestination
+{
+
+}
+
+public interface 	Craps_Interface{
 	
-	/*functions stubs go here
-	 */
+	/*functions stubs go here*/
 	
 	
 	boolean placeBet(int betAmount);	//returns false if insufficient funds
@@ -26,5 +31,7 @@ public interface Craps_Interface{
 	int getWallet();	//getter, useful for GUI
 
 	int getTurnNumber(); //getter, useful for GUI
+
+	void betOn(BetDestination betDestination, int betValue); //passes in ID of destination and value to bet
 		
 }

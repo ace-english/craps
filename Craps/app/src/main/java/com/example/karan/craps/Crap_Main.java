@@ -13,19 +13,7 @@ import android.content.Intent;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
-    /*initailizer Area for buttons, text view, booleans, edit text, etc
-    private Button button3;
-    private Button button;
-    private Button button2;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
-    private Button button10;
-    private EditText Bet;
-    */
+    private Button rollButton;
 
 
 /*Area for creating the onclick listeners and objects for use in the program*/
@@ -35,6 +23,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.activity_crap__main);
 
         Craps_Model cm=new Craps_Model();
+
+        rollButton=findViewById(R.id.rollButton);
+        rollButton.setOnClickListener(this);
+
+        
 
 
 

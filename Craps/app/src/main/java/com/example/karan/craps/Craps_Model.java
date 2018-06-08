@@ -4,16 +4,11 @@ import java.util.Random;
 public class Craps_Model implements Craps_Interface{
 	private int wallet, passLineBet, counter;
 	private boolean comeOutRoll;
-<<<<<<< HEAD:_BLACKRAIN/Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
 	int[] dice;
 	
-	public Craps_Model(){
-		dice=new int[2];
-=======
-	int dice[] = new int[2];
-
-	public Craps_Model(){
->>>>>>> ee7add76c6bfdee9ed73d49dbe2fe12cbc631bce:Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
+	public Craps_Model() {
+		dice = new int[2];
+		int dice[] = new int[2];
 		wallet=500;
 		newGame();
 	}
@@ -25,7 +20,13 @@ public class Craps_Model implements Craps_Interface{
 	public int getTurnNumber() {
 		return counter;
 	}
-	
+
+		private void initializeDice() {
+			Random rand= new Random();
+
+			dice[0]=rand.nextInt(6)+1;
+			dice[1]=rand.nextInt(6)+1;
+		}
 	public boolean placeBet(int betAmount)	//returns false if insufficient funds
 	{
 		if(wallet >= betAmount)
@@ -36,7 +37,7 @@ public class Craps_Model implements Craps_Interface{
 		}
 		return false;
 	}
-	
+
 	public boolean newGame() // This will clear last game and create a new one.
 	{
 		counter=0;
@@ -84,30 +85,13 @@ public class Craps_Model implements Craps_Interface{
 			counter++;
 			if(getPointValue()==7)
 				loseGame();
-<<<<<<< HEAD:_BLACKRAIN/Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
-			else{
-			//else if (getPointValue()==pointTextBox.Text) {
-=======
 			else /*if (getPointValue()==pointTextBox.Text)*/ {						// Disabled if statement for the moment for we dont have pointTextBox implemented yet.
->>>>>>> ee7add76c6bfdee9ed73d49dbe2fe12cbc631bce:Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
 				//TODO: change pointTextBox to the equivalent for our interface
 				//might have to be an argument? not sure
 				winGame();
 			}
 		}
 		return dice[0]+dice[1];
-	}
-<<<<<<< HEAD:_BLACKRAIN/Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
-	private void initializeDice() {
-=======
-
-	private int initializeDice() {
->>>>>>> ee7add76c6bfdee9ed73d49dbe2fe12cbc631bce:Craps/app/src/main/java/com/example/karan/craps/Craps_Model.java
-		Random rand= new Random();
-		
-		dice[0]=rand.nextInt(6)+1;
-		dice[1]=rand.nextInt(6)+1;
-		return dice[0] + dice[1];
 	}
 	
 	public int getPointValue() {
