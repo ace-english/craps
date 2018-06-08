@@ -13,8 +13,8 @@
 
 
         <ImageView
-            android:id="@+id/table"
-            android:layout_width="0dp"
+            android:id="@+id/mainTable"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -22,127 +22,40 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:contentDescription="@string/Background"
+            android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/bottomRow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/bottomTextWrapper"
+            app:layout_constraintEnd_toStartOf="@+id/infoPanel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topRow"
-            app:srcCompat="@drawable/table" />
+            app:layout_constraintTop_toBottomOf="@+id/buyWrapper"
+            app:srcCompat="@drawable/main_table" />
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/topRow"
-            android:layout_width="0dp"
+            android:id="@+id/buyWrapper"
+            android:layout_width="341dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"><![CDATA[
-            app:layout_constraintBottom_toTopOf="@+id/table">
-
-            ]]>
+            app:layout_constraintStart_toStartOf="@+id/table"
+            app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout2"
-                android:layout_width="341dp"
-                android:layout_height="50dp"
+                android:id="@+id/buyTextWrapper"
+                style="@style/GradientWrapper"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/table"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <android.support.constraint.ConstraintLayout
-                    android:id="@+id/buyTextWrapper"
-                    style="@style/GradientWrapper"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/buyButton"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/buyTextView"
-                        style="@style/BlackTextBox"
-                        android:layout_width="0dp"
-                        android:layout_height="31dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="2dp"
-                        android:text="TextView"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </android.support.constraint.ConstraintLayout>
-
-                <Button
-                    android:id="@+id/buyButton"
-                    style="@style/GradientWrapper"
-                    android:layout_width="67dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/gradient_box"
-                    android:contentDescription="Buy"
-                    android:scaleType="fitCenter"
-                    android:text="BUY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/buyTextWrapper"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/buy" />
-            </android.support.constraint.ConstraintLayout>
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/bottomRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/bottomTextWrapper"
-                style="@style/GradientWrapper"
-                android:layout_width="329dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buyButton"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/bottomTextView"
+                    android:id="@+id/buyTextView"
                     style="@style/BlackTextBox"
                     android:layout_width="0dp"
                     android:layout_height="31dp"
@@ -156,12 +69,217 @@
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.571"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
             </android.support.constraint.ConstraintLayout>
+
+            <Button
+                android:id="@+id/buyButton"
+                style="@style/GradientWrapper"
+                android:layout_width="52dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/gradient_box"
+                android:contentDescription="Buy"
+                android:scaleType="fitCenter"
+                android:text="BUY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buyTextWrapper"
+                app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/infoPanel"
+            style="@style/GradientWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="top"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/homeBar"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/totalBox"
+                style="@style/BlackTextBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/totalBetsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total bet"
+                android:textAppearance="@style/BlackTextBox" />
+
+            <TextView
+                android:id="@+id/totalBetBox"
+                style="@style/BlackTextBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$0.00" />
+
+            <TextView
+                android:id="@+id/totalWinsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Wins"
+                android:textAppearance="@style/BlackTextBox" />
+
+            <TextView
+                android:id="@+id/totalWinsBox"
+                style="@style/BlackTextBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$0.00" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bottomTextWrapper"
+            style="@style/GradientWrapper"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/bottomTextView"
+                style="@style/BlackTextBox"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:text="TextView"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/e_and_c"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bottomTextWrapper"
+            app:layout_constraintEnd_toStartOf="@+id/oddsTable"
+            app:layout_constraintTop_toTopOf="@+id/oddsTable">
+
+            <ImageButton
+                android:id="@+id/c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@drawable/background"
+                android:scaleType="fitStart"
+                android:src="@drawable/c" />
+
+            <ImageButton
+                android:id="@+id/e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@drawable/background"
+                android:scaleType="fitStart"
+                android:src="@drawable/e" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/rollButton"
+            style="@style/GradientWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Roll"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottomTextWrapper" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeBar"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/homeButton"
+                style="@style/GradientWrapper"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Home"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/settingsButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/settingsButton"
+                style="@style/GradientWrapper"
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/settings" />
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/oddsTable"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/rollButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoPanel"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/odds_table" />
 
     </android.support.constraint.ConstraintLayout>
 

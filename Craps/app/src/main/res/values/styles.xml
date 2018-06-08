@@ -9,6 +9,7 @@
     </style>
 
     <style name="BlackTextBox" parent="TextAppearance.AppCompat">
+        <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/rounded_text_box</item>
         <item name="android:padding">5dp</item>
