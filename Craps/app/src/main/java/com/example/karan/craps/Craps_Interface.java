@@ -35,6 +35,5 @@ public interface 	Craps_Interface{
 
 	int getWallet();	//getter, useful for GUI
 
-	int getTurnNumber(); //getter, useful for GUI
 		
 }

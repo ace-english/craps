@@ -28,12 +28,12 @@ public class Craps_Model implements Craps_Interface{
 			dice[0]=rand.nextInt(6)+1;
 			dice[1]=rand.nextInt(6)+1;
 		}
-	public boolean placeBet(int betAmount)	//returns false if insufficient funds
+	public boolean placeBet(BetDestination betDestination, int betValue)	//returns false if insufficient funds
 	{
-		if(wallet >= betAmount)
+		if(wallet >= betValue)
 		{
-			wallet-=betAmount;
-			passLineBet+=betAmount;
+			wallet-=betValue;
+			passLineBet+=betValue;
 			return true;
 		}
 		return false;
