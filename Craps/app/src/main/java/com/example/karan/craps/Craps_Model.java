@@ -1,18 +1,23 @@
 package com.example.karan.craps;
+import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class Craps_Model implements Craps_Interface{
-	private int wallet, passLineBet, point;
-
+	private int wallet; //contains user's money
+	private int point;  //keeps track of the point value;
+	Random rand;
 	private boolean comeOutRoll;
 	int[] dice;
-	int[] bets;
+	//contains dice roll (two)
+	private Map<BetDestination, Integer> bets;
 	//Bets array has an int corresponding to every possible value of betsDestination
 	
 	public Craps_Model() {
+        rand= new Random();
 		dice = new int[2];
 		wallet=500;
-		bets=new int[BetDestination.values().length];
+		bets=new TreeMap<>();
 		newGame();
 	}
 
@@ -23,7 +28,6 @@ public class Craps_Model implements Craps_Interface{
 
 
 		private void initializeDice() {
-			Random rand= new Random();
 
 			dice[0]=rand.nextInt(6)+1;
 			dice[1]=rand.nextInt(6)+1;
@@ -33,7 +37,7 @@ public class Craps_Model implements Craps_Interface{
 		if(wallet >= betValue)
 		{
 			wallet-=betValue;
-			passLineBet+=betValue;
+			bets.put(betDestination, betValue);
 			return true;
 		}
 		return false;
@@ -42,7 +46,6 @@ public class Craps_Model implements Craps_Interface{
 	public boolean newGame() // This will clear last game and create a new one.
 	{
 		point=0;
-		passLineBet=0;
 		comeOutRoll=true;
 		//TODO: initialize text fields in interface
 		return true;
@@ -59,7 +62,7 @@ public class Craps_Model implements Craps_Interface{
 	}
 	public boolean FieldBetPayout()
 	{
-		wallet+=passLineBet;
+		wallet+=bets.get(BetDestination.passline);
 		return true;
 	}
 	
@@ -68,7 +71,7 @@ public class Craps_Model implements Craps_Interface{
 		initializeDice();
 		
 		if(comeOutRoll) {
-			switch(getPointValue()) {
+			switch(getDiceValue()) {
 				case 2:
 				case 3:
 				case 12:
@@ -86,15 +89,33 @@ public class Craps_Model implements Craps_Interface{
 		else {
 			if(getPointValue()==7)
 				loseGame();
-			else /*if (getPointValue()==pointTextBox.Text)*/ {						// Disabled if statement for the moment for we dont have pointTextBox implemented yet.
-				//TODO: change pointTextBox to the equivalent for our interface
-				//might have to be an argument? not sure
+			else {
+			    try {
+                    setPoint(getDiceValue());
+                }
+                catch (Exception e){
+			        //oh well
+                }
 				winGame();
 			}
 		}
 		return dice[0]+dice[1];
 	}
-	
+	private boolean setPoint(int newPoint) throws Exception {
+	    switch(newPoint){
+            case 4:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:{
+                point=newPoint;
+            }
+            default:
+                throw new Exception("Error: invalid point.");
+
+        }
+    }
 	public int getPointValue() {
 		return point;
 	}
@@ -106,4 +127,12 @@ public class Craps_Model implements Craps_Interface{
 	public int getDie2() {
 		return dice[1];
 	}
+
+	public int getDiceValue(){
+	    return dice[0]+dice[1];
+    }
+
+    public boolean isFirstTurn(){
+	    return comeOutRoll;
+    }
 }
