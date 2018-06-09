@@ -37,7 +37,7 @@ public class Craps_Model implements Craps_Interface{
 		if(wallet >= betValue)
 		{
 			wallet-=betValue;
-			bets.put(betDestination, betValue);
+			bets.put(betDestination, bets.get(betDestination)+betValue); //increments bet in that position
 			return true;
 		}
 		return false;
