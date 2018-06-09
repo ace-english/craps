@@ -14,7 +14,8 @@ public interface 	Craps_Interface{
 	/*functions stubs go here*/
 	
 	
-	boolean placeBet(int betAmount);	//returns false if insufficient funds
+	boolean placeBet(BetDestination betDestination, int betValue); //passes in ID of destination and value to bet
+																	// returns false if insufficient funds
 
 	boolean newGame(); // This will clear last game and create a new one.
 
@@ -26,7 +27,7 @@ public interface 	Craps_Interface{
 
 	boolean FieldBetPayout();	// This will calculate the FieldBetPayout board if player placed a bet here.
 
-	int getPointValue(); //Returns value of dice
+	int getPointValue(); //Returns value of point
 	
 	int getDie1() ;	//getter, useful for future graphics
 
@@ -35,7 +36,5 @@ public interface 	Craps_Interface{
 	int getWallet();	//getter, useful for GUI
 
 	int getTurnNumber(); //getter, useful for GUI
-
-	void betOn(BetDestination betDestination, int betValue); //passes in ID of destination and value to bet
 		
 }

@@ -2,14 +2,17 @@ package com.example.karan.craps;
 import java.util.Random;
 
 public class Craps_Model implements Craps_Interface{
-	private int wallet, passLineBet, counter;
+	private int wallet, passLineBet, point;
+
 	private boolean comeOutRoll;
 	int[] dice;
+	int[] bets;
+	//Bets array has an int corresponding to every possible value of betsDestination
 	
 	public Craps_Model() {
 		dice = new int[2];
-		int dice[] = new int[2];
 		wallet=500;
+		bets=new int[BetDestination.values().length];
 		newGame();
 	}
 
@@ -17,9 +20,7 @@ public class Craps_Model implements Craps_Interface{
 		return wallet;
 	}
 	
-	public int getTurnNumber() {
-		return counter;
-	}
+
 
 		private void initializeDice() {
 			Random rand= new Random();
@@ -40,7 +41,7 @@ public class Craps_Model implements Craps_Interface{
 
 	public boolean newGame() // This will clear last game and create a new one.
 	{
-		counter=0;
+		point=0;
 		passLineBet=0;
 		comeOutRoll=true;
 		//TODO: initialize text fields in interface
@@ -80,9 +81,9 @@ public class Craps_Model implements Craps_Interface{
 				default:
 					comeOutRoll=false;
 			}
+
 		}
 		else {
-			counter++;
 			if(getPointValue()==7)
 				loseGame();
 			else /*if (getPointValue()==pointTextBox.Text)*/ {						// Disabled if statement for the moment for we dont have pointTextBox implemented yet.
@@ -95,7 +96,7 @@ public class Craps_Model implements Craps_Interface{
 	}
 	
 	public int getPointValue() {
-		return getDie1()+getDie2();
+		return point;
 	}
 	
 	public int getDie1() {
