@@ -14,6 +14,7 @@ import android.content.Intent;
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
     private Button rollButton;
+    private Button Buy;
 
 
 /*Area for creating the onclick listeners and objects for use in the program*/
@@ -25,6 +26,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Craps_Model cm=new Craps_Model();
 
         rollButton=findViewById(R.id.rollButton);
+        
         rollButton.setOnClickListener(this);
 
         
