@@ -41,7 +41,18 @@ public class Craps_Model implements Craps_Interface{
 		odds.put(BetDestination.lay8, (double)(5/6));
 		odds.put(BetDestination.lay9, (double)(2/3));
 		odds.put(BetDestination.lay10, 0.5);
-		
+		//minicraps table
+		odds.put(BetDestination.mini7, 5.0);
+		odds.put(BetDestination.hard6, 10.0);
+		odds.put(BetDestination.hard8,8.0);
+		odds.put(BetDestination.hard10, 10.0);
+		odds.put(BetDestination.hard4, 8.0);
+		odds.put(BetDestination.mini3, 15.0);
+		odds.put(BetDestination.mini2, 30.0);
+		odds.put(BetDestination.mini12, 30.0);
+		odds.put(BetDestination.mini11, 15.0);
+		odds.put(BetDestination.mini_any, 8.0);
+
 
 
 		newGame();
