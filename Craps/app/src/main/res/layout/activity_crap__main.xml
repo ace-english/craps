@@ -106,11 +106,50 @@
             app:layout_constraintStart_toEndOf="@+id/mainTable"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/totalBox"
                 style="@style/BlackTextBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/die1"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/dicedesc"
+                    android:cropToPadding="false"
+                    android:scaleType="fitStart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/die2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/die1" />
+
+                <ImageView
+                    android:id="@+id/die2"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/dicedesc"
+                    android:cropToPadding="true"
+                    android:scaleType="fitStart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/die1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/die3" />
+            </android.support.constraint.ConstraintLayout>
 
             <TextView
                 android:id="@+id/totalBetsLabel"

@@ -6,7 +6,9 @@ enum BetDestination
 	sidebet4, sidebet5, sidebet6, sidebet8, sidebet9, sidebet10,
 	big6, big8,
 	field, dontpassbar,
-	mini7, mini6, mini8, mini4, mini3, mini2, mini12, mini6_5, mini5_6, mini_any;
+	mini7, hard6, hard10, hard8, hard4, mini2, mini3, mini12, mini11, mini_any,
+    buy4, buy5, buy6, buy8, buy9, buy10,
+    lay4, lay5, lay6, lay8, lay9, lay10;
 }
 
 public interface 	Craps_Interface{
@@ -23,9 +25,7 @@ public interface 	Craps_Interface{
 
 	boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 
-	boolean winGame();	// This will excutute a Win if the Dice rolls went the players way.
-
-	boolean FieldBetPayout();	// This will calculate the FieldBetPayout board if player placed a bet here.
+	public boolean payout(BetDestination betDestination);
 
 	int getPointValue(); //Returns value of point
 	
@@ -33,7 +33,7 @@ public interface 	Craps_Interface{
 
 	int getDie2() ;	//getter, useful for future graphics
 
-	int getWallet();	//getter, useful for GUI
+	double getWallet();	//getter, useful for GUI
 
 		
 }
