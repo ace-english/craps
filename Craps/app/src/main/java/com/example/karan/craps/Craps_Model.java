@@ -41,6 +41,7 @@ public class Craps_Model implements Craps_Interface{
 		odds.put(BetDestination.lay8, (double)(5/6));
 		odds.put(BetDestination.lay9, (double)(2/3));
 		odds.put(BetDestination.lay10, 0.5);
+		
 
 
 		newGame();
@@ -77,7 +78,9 @@ public class Craps_Model implements Craps_Interface{
 		}
 		if(wallet >= betValue){
 			wallet-=betValue;
-			bets.put(betDestination, bets.get(betDestination)+betValue); //increments bet in that position
+			if (bets.containsValue(betDestination))
+				betValue+=bets.get(betDestination);//increments bet in that position
+			bets.put(betDestination, betValue);
 			return true;
 		}
 		else {
@@ -97,6 +100,7 @@ public class Craps_Model implements Craps_Interface{
 	{
 		bets.clear();
 		point=0;
+		comeOutRoll=true;
 		return true;
 	}
 
@@ -125,7 +129,7 @@ public class Craps_Model implements Craps_Interface{
 	}
 
 	public boolean payout(BetDestination betDestination, double multiplier){
-		if(bets.get(betDestination)!=0) {
+		if(bets.containsKey(betDestination)) {
 			double payout=bets.get(betDestination) + (bets.get(betDestination) * odds.get(betDestination) * multiplier);
 			wallet += payout;
 			System.out.println("$"+payout+" recieved from "+betDestination);
@@ -149,6 +153,7 @@ public class Craps_Model implements Craps_Interface{
 					payout(BetDestination.passLine);
 					break;
 				default:
+					point=diceValue;
 					comeOutRoll=false;
 			}
 
@@ -230,11 +235,12 @@ public class Craps_Model implements Craps_Interface{
 			}
 		}
 		//no matter what, clear the one-roll bets
-		bets.put(BetDestination.mini7, 0);
-		bets.put(BetDestination.mini3, 0);
-		bets.put(BetDestination.mini2, 0);
-		bets.put(BetDestination.mini11, 0);
-		bets.put(BetDestination.mini12, 0);
+		bets.remove(BetDestination.mini7);
+		bets.remove(BetDestination.mini3);
+		bets.remove(BetDestination.mini2);
+		bets.remove(BetDestination.mini11);
+		bets.remove(BetDestination.mini12);
+		
 
 		return dice[0]+dice[1];
 	}

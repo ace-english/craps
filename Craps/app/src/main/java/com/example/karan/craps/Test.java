@@ -12,6 +12,8 @@ public class Test {
         System.out.print("Let's play.\n");
         while(true){
             System.out.println("Your wallet: "+CM.getWallet());
+            System.out.println("Point: "+CM.getPointValue());
+            System.out.println("Come out roll: "+CM.isFirstTurn());
             CM.displayBets();
             System.out.println("Pick one:");
             System.out.println("1. Place a bet");
@@ -30,6 +32,7 @@ public class Test {
                     break;
                 case 2:
                     CM.rollDice();
+                    System.out.println("You rolled: "+CM.getDiceValue());
 
             }
 
