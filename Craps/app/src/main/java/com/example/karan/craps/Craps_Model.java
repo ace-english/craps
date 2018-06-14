@@ -59,18 +59,18 @@ public class Craps_Model implements Craps_Interface{
 	{
 		if(comeOutRoll){
 			switch (betDestination){	//these are bets you cannot place on the come out roll.
-				case sidebet4:
-				case sidebet5:
-				case sidebet6:
-				case sidebet8:
-				case sidebet9:
-				case sidebet10:
+				case sideBet4:
+				case sideBet5:
+				case sideBet6:
+				case sideBet8:
+				case sideBet9:
+				case sideBet10:
 				case hard4:
 				case hard6:
 				case hard8:
 				case hard10:
 				case come:
-				case dontcome:
+				case dontCome:
 					System.err.println("That is not allowed on the come out roll.");
 					return false;
 			}
@@ -146,7 +146,7 @@ public class Craps_Model implements Craps_Interface{
 					break;
 				case 7:
 				case 11:
-					payout(BetDestination.passline);
+					payout(BetDestination.passLine);
 					break;
 				default:
 					comeOutRoll=false;
@@ -168,7 +168,7 @@ public class Craps_Model implements Craps_Interface{
 					break;
 				case 4:
 					payout(BetDestination.field);
-					payout(BetDestination.sidebet4);
+					payout(BetDestination.sideBet4);
 					if(dice[0]==dice[1])
 						payout(BetDestination.hard4);
 					break;

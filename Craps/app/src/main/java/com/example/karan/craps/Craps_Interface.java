@@ -2,11 +2,13 @@ package com.example.karan.craps;
 
 enum BetDestination
 {
-	passline,
-	come, dontcome,
-	sidebet4, sidebet5, sidebet6, sidebet8, sidebet9, sidebet10,
+	passLine,
+	come, dontCome,
+	come4, come5, come6, come8, come9, come10,
+	dontCome4, dontCome5, dontCome6, dontCome8, dontCome9, dontCome10,
+	sideBet4, sideBet5, sideBet6, sideBet8, sideBet9, sideBet10,
 	big6, big8,
-	field, dontpassbar,
+	field, dontPassBar,
 	mini7, hard6, hard10, hard8, hard4, mini2, mini3, mini12, mini11, mini_any,
     buy4, buy5, buy6, buy8, buy9, buy10,
     lay4, lay5, lay6, lay8, lay9, lay10;
