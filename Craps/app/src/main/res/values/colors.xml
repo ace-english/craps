@@ -21,22 +21,22 @@
 
     <color name="t_four">#ffff00</color>
     <color name="t_fourLay">#f97af1</color>
-    <color name="t_fourLose">#37290e</color>
+    <color name="t_fourBuy">#37290e</color>
     <color name="t_five">#ffffff</color>
     <color name="t_fiveLay">#ffbf00</color>
-    <color name="t_fiveLose">#b996fc</color>
+    <color name="t_fiveBuy">#b996fc</color>
     <color name="t_six">#000000</color>
     <color name="t_sixLay">#9c003f</color>
-    <color name="t_sixLose">#4dba7a</color>
+    <color name="t_sixBuy">#4dba7a</color>
     <color name="t_eight">#0000ff</color>
     <color name="t_eightLay">#431050</color>
-    <color name="t_eightLose">#4d527b</color>
+    <color name="t_eightBuy">#4d527b</color>
     <color name="t_nine">#00ff00</color>
     <color name="t_nineLay">#baedaf</color>
-    <color name="t_nineLose">#a24123</color>
+    <color name="t_nineBuy">#a24123</color>
     <color name="t_ten">#ff0000</color>
     <color name="t_tenLay">#ff4b00</color>
-    <color name="t_tenLose">#5669ff</color>
+    <color name="t_tenBuy">#5669ff</color>
     <!-->End colors used in the table map</!-->
 
     <!-->Below is the colors used in the odds map</!-->

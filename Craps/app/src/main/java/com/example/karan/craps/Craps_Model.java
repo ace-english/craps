@@ -43,11 +43,6 @@ public class Craps_Model implements Craps_Interface{
 		odds.put(BetDestination.lay10, 0.5);
 
 
-				//passline,
-		//	sidebet4, sidebet5, sidebet6, sidebet8, sidebet9, sidebet10,
-		//	big6, big8,
-		//	field, dontpassbar,
-		//	mini7, hard6, hard10, hard8, hard4, mini2, mini3, mini12, mini11, mini_any;
 		newGame();
 	}
 
@@ -62,13 +57,33 @@ public class Craps_Model implements Craps_Interface{
 
 	public boolean placeBet(BetDestination betDestination, int betValue)	//returns false if insufficient funds
 	{
-		if(wallet >= betValue)
-		{
+		if(comeOutRoll){
+			switch (betDestination){	//these are bets you cannot place on the come out roll.
+				case sidebet4:
+				case sidebet5:
+				case sidebet6:
+				case sidebet8:
+				case sidebet9:
+				case sidebet10:
+				case hard4:
+				case hard6:
+				case hard8:
+				case hard10:
+				case come:
+				case dontcome:
+					System.err.println("That is not allowed on the come out roll.");
+					return false;
+			}
+		}
+		if(wallet >= betValue){
 			wallet-=betValue;
 			bets.put(betDestination, bets.get(betDestination)+betValue); //increments bet in that position
 			return true;
 		}
-		return false;
+		else {
+			System.err.println("Insufficient funds.");
+			return false;
+		}
 	}
 
 	public boolean newGame() // This will clear last game and create a new one.
@@ -81,6 +96,7 @@ public class Craps_Model implements Craps_Interface{
 	public boolean loseGame()   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 	{
 		bets.clear();
+		point=0;
 		return true;
 	}
 
@@ -139,10 +155,11 @@ public class Craps_Model implements Craps_Interface{
 				case 2:
 					payout(BetDestination.mini2);
 					payout(BetDestination.mini_any);
+					payout(BetDestination.field, 2);
 					break;
 				case 3:
 					payout(BetDestination.mini_any);
-					payout(BetDestination.field, 2);
+					payout(BetDestination.field);
 					payout(BetDestination.mini3);
 					break;
 				case 4:
@@ -152,20 +169,31 @@ public class Craps_Model implements Craps_Interface{
 				case 5:
 					break;
 				case 6:
-					wallet+=bets.get(BetDestination.big6);
+					payout(BetDestination.big6);
 					break;
 				case 7:
+					payout(BetDestination.lay4);
+					payout(BetDestination.lay5);
+					payout(BetDestination.lay6);
+					payout(BetDestination.lay8);
+					payout(BetDestination.lay9);
+					payout(BetDestination.lay10);
 					payout(BetDestination.mini7);
 					break;
 				case 8:
+					payout(BetDestination.big8);
 					break;
 				case 9:
+					payout(BetDestination.field);
 					break;
 				case 10:
+					payout(BetDestination.field);
 					break;
 				case 11:
+					payout(BetDestination.field);
 					break;
 				case 12:
+					payout(BetDestination.field, 3);
 					payout(BetDestination.mini_any);
 					break;
 			}
