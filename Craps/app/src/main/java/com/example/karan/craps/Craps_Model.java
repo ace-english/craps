@@ -125,8 +125,12 @@ public class Craps_Model implements Craps_Interface{
 	}
 
 	public boolean payout(BetDestination betDestination, double multiplier){
-		wallet+=bets.get(betDestination)+(bets.get(betDestination)*odds.get(betDestination)*multiplier);
-		bets.put(betDestination, 0);
+		if(bets.get(betDestination)!=0) {
+			double payout=bets.get(betDestination) + (bets.get(betDestination) * odds.get(betDestination) * multiplier);
+			wallet += payout;
+			System.out.println("$"+payout+" recieved from "+betDestination);
+			bets.put(betDestination, 0);
+		}
 		return true;
 	}
 	
@@ -165,11 +169,15 @@ public class Craps_Model implements Craps_Interface{
 				case 4:
 					payout(BetDestination.field);
 					payout(BetDestination.sidebet4);
+					if(dice[0]==dice[1])
+						payout(BetDestination.hard4);
 					break;
 				case 5:
 					break;
 				case 6:
 					payout(BetDestination.big6);
+					if(dice[0]==dice[1])
+						payout(BetDestination.hard6);
 					break;
 				case 7:
 					payout(BetDestination.lay4);
@@ -182,12 +190,16 @@ public class Craps_Model implements Craps_Interface{
 					break;
 				case 8:
 					payout(BetDestination.big8);
+					if(dice[0]==dice[1])
+						payout(BetDestination.hard8);
 					break;
 				case 9:
 					payout(BetDestination.field);
 					break;
 				case 10:
 					payout(BetDestination.field);
+					if(dice[0]==dice[1])
+						payout(BetDestination.hard10);
 					break;
 				case 11:
 					payout(BetDestination.field);
@@ -197,6 +209,7 @@ public class Craps_Model implements Craps_Interface{
 					payout(BetDestination.mini_any);
 					break;
 			}
+
 			//set point or lose
 			switch (diceValue) {
 				case 4:
@@ -233,9 +246,9 @@ public class Craps_Model implements Craps_Interface{
             case 6:
             case 8:
             case 9:
-            case 10:{
+            case 10:
                 point=newPoint;
-            }
+                return true;
             default:
                 throw new Exception("Error: invalid point.");
 

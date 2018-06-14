@@ -18,6 +18,8 @@
     <color name="t_fieldBet">#003702</color>
     <color name="t_big8">#094355</color>
     <color name="t_big6">#500000</color>
+    <color name="t_dontcome">#79911e</color>
+    <color name="t_come">#361b0d</color>
 
     <color name="t_four">#ffff00</color>
     <color name="t_fourLay">#f97af1</color>
