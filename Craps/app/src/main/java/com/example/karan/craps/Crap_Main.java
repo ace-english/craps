@@ -1,11 +1,13 @@
 package com.example.karan.craps;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.view.inputmethod.EditorInfo;
@@ -14,16 +16,20 @@ import android.app.Activity; //for new activity
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
+    private Craps_Interface model;
     private View rollButton;
     private View Buy;
     private View Home;
     private View settingsButton;
     private View Coin1;
 
+    private ImageView Die1, Die2;
+
 
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        model = new Craps_Model();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
         //Intent intent = getIntent(); for homescreen
@@ -40,6 +46,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
         Coin1.setOnClickListener(this);
+
+        Die1 = findViewById(R.id.die1);
+        Die2 = findViewById(R.id.die2);
 
     }
 
@@ -60,10 +69,14 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         if (v.getId()==R.id.buyButton)
         {
             //buy function button
+            //insert microtransactions
         }
         if (v.getId()==R.id.rollButton)
         {
-            //roll dice button
+            model.rollDice();
+            //set dice to display current roll
+            setDiceDisplay();
+
         }
         if (v.getId()==R.id.settingsButton)
         {
@@ -79,5 +92,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
 
 
+    }
+    public void setDiceDisplay(){
+
+        int[] diceImages = {R.drawable.die1,R.drawable.die2,R.drawable.die3,R.drawable.die4,R.drawable.die5,R.drawable.die6};
+        Die1.setImageResource(diceImages[model.getDie1()-1]);
+        Die2.setImageResource(diceImages[model.getDie2()-1]);
     }
 }
