@@ -104,14 +104,11 @@ public class Craps_Model implements Craps_Interface{
 	{
 		point=0;
 		comeOutRoll=true;
-		//TODO: initialize text fields in interface
 		return true;
 	}
 	public boolean loseGame()   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 	{
 		bets.clear();
-		point=0;
-		comeOutRoll=true;
 		return true;
 	}
 
