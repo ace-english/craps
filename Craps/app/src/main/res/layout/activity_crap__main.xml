@@ -13,6 +13,7 @@
 
 
         <FrameLayout
+            android:id="@+id/mainTableFrame"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
@@ -25,6 +26,15 @@
             app:layout_constraintEnd_toStartOf="@+id/infoPanel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buyWrapper">
+
+            <ImageView
+                android:id="@+id/mainTableMap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/mainTableDescription"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/main_map" />
 
             <ImageView
                 android:id="@+id/mainTable"
