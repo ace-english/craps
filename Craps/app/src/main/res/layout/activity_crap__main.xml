@@ -34,6 +34,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/mainTableDescription"
                 android:scaleType="fitCenter"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/main_map" />
 
             <ImageView
