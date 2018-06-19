@@ -86,6 +86,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         {
             //enter chip value
         }
+        if (v.getId()==R.id.mainTable){
+
+        }
 
 
 
