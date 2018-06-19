@@ -1,5 +1,6 @@
 package com.example.karan.craps;
 
+import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View Home;
     private View settingsButton;
     private View Coin1;
+    private View MainTable;
 
     private ImageView Die1, Die2;
 
@@ -40,12 +42,14 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Buy = findViewById(R.id.buyButton);
         settingsButton = findViewById(R.id.settingsButton);
         Coin1 = findViewById (R.id.chip1);
+        MainTable=findViewById(R.id.mainTable);
 
         Home.setOnClickListener(this);
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
         Coin1.setOnClickListener(this);
+        MainTable.setOnClickListener(this);
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
@@ -87,7 +91,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             //enter chip value
         }
         if (v.getId()==R.id.mainTable){
-
+            //set bet
         }
 
 

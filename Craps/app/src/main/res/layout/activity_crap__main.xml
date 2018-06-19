@@ -35,6 +35,7 @@
                 android:contentDescription="@string/mainTableDescription"
                 android:scaleType="fitCenter"
                 android:visibility="invisible"
+                android:clickable="true"
                 app:srcCompat="@drawable/main_map" />
 
             <ImageView
