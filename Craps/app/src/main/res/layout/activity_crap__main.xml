@@ -117,12 +117,10 @@
             style="@style/GradientWrapper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:gravity="top"
             android:orientation="vertical"
             android:padding="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/e_and_c"
             app:layout_constraintEnd_toStartOf="@+id/homeBar"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -357,13 +355,12 @@
             android:id="@+id/e_and_c"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/chipTrayWrapper"
-            app:layout_constraintEnd_toStartOf="@+id/oddsTable"
-            app:layout_constraintTop_toTopOf="@+id/oddsTable">
+            app:layout_constraintBottom_toTopOf="@+id/rollButton"
+            app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+            app:layout_constraintTop_toTopOf="@+id/frameLayout">
 
             <ImageButton
                 android:id="@+id/c"
@@ -446,23 +443,30 @@
                 app:srcCompat="@drawable/settings" />
         </android.support.constraint.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/oddsTable"
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/oddsTableDescription"
-            android:scaleType="fitXY"
-            android:clickable="true"
             app:layout_constraintBottom_toTopOf="@+id/rollButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/infoPanel"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/odds_table" />
+            app:layout_constraintTop_toBottomOf="@+id/infoPanel">
+
+            <ImageView
+                android:id="@+id/oddsTable"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:contentDescription="@string/oddsTableDescription"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/odds_table" />
+
+        </FrameLayout>
 
     </android.support.constraint.ConstraintLayout>
 
