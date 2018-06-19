@@ -457,6 +457,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/oddsTableDescription"
             android:scaleType="fitXY"
+            android:clickable="true"
             app:layout_constraintBottom_toTopOf="@+id/rollButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoPanel"

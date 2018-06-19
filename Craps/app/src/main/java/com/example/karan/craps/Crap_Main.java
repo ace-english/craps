@@ -24,6 +24,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View settingsButton;
     private View Coin1;
     private View MainTable;
+    private View MiniTable;
 
     private ImageView Die1, Die2;
 
@@ -43,6 +44,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         settingsButton = findViewById(R.id.settingsButton);
         Coin1 = findViewById (R.id.chip1);
         MainTable=findViewById(R.id.mainTable);
+        MiniTable=findViewById(R.id.oddsTable);
 
         Home.setOnClickListener(this);
         Buy.setOnClickListener(this);
@@ -50,6 +52,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         rollButton.setOnClickListener(this);
         Coin1.setOnClickListener(this);
         MainTable.setOnClickListener(this);
+        MiniTable.setOnClickListener(this);
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
@@ -91,6 +94,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             //enter chip value
         }
         if (v.getId()==R.id.mainTable){
+            //set bet
+        }
+        if (v.getId()==R.id.oddsTable){
             //set bet
         }
 
