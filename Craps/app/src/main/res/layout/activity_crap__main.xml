@@ -466,6 +466,17 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/odds_table" />
 
+            <ImageView
+                android:id="@+id/oddsTableMap"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:contentDescription="@string/oddsTableDescription"
+                android:scaleType="fitCenter"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/odds_map" />
+
         </FrameLayout>
 
     </android.support.constraint.ConstraintLayout>
