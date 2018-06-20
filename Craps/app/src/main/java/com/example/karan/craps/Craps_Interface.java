@@ -28,7 +28,7 @@ public interface 	Craps_Interface{
 
 	boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
 
-	public boolean payout(BetDestination betDestination);
+	public double payout(BetDestination betDestination);
 
 	int getPointValue(); //Returns value of point
 	
@@ -37,6 +37,8 @@ public interface 	Craps_Interface{
 	int getDie2() ;	//getter, useful for future graphics
 
 	double getWallet();	//getter, useful for GUI
+
+	double getTotalBet(); //getter, useful for GUI
 
 		
 }

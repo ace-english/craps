@@ -112,7 +112,7 @@ public class Craps_Model implements Craps_Interface{
 		return true;
 	}
 
-	public boolean payout(BetDestination betDestination){
+	public double payout(BetDestination betDestination){
 		double multiplier;
 		switch(betDestination) {
 			case buy4:
@@ -136,14 +136,15 @@ public class Craps_Model implements Craps_Interface{
 		return payout(betDestination, multiplier);
 	}
 
-	public boolean payout(BetDestination betDestination, double multiplier){
+	public double payout(BetDestination betDestination, double multiplier){
+		double payout=0;
 		if(bets.containsKey(betDestination)) {
-			double payout=bets.get(betDestination) + (bets.get(betDestination) * odds.get(betDestination) * multiplier);
+			payout=bets.get(betDestination) + (bets.get(betDestination) * odds.get(betDestination) * multiplier);
 			wallet += payout;
 			System.out.println("$"+payout+" recieved from "+betDestination);
-			bets.put(betDestination, 0);
+			bets.remove(betDestination);
 		}
-		return true;
+		return payout;
 	}
 	
 	public int rollDice() {
@@ -287,6 +288,13 @@ public class Craps_Model implements Craps_Interface{
     public boolean isFirstTurn(){
 	    return comeOutRoll;
     }
+
+    public double getTotalBet(){
+		double total=0;
+		for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())
+			total+=bet.getValue();
+		return total;
+	}
 
     //test functions
 	public void displayBets(){
