@@ -72,12 +72,18 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                     y = (int)event.getY();
 
                     int touchColor = getHotspotColor (R.id.mainTableMap, x,y);
-                    Toast.makeText(getApplicationContext(), "touchColor: "+Integer.toHexString(touchColor),Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "touchColor: "+Integer.toHexString(touchColor),Toast.LENGTH_LONG).show();
                     BetDestination dest = color_finder.findColorMainTable(touchColor);
                     if(dest!=null){
-                        model.placeBet(dest, selectedChip);
-                        String text=selectedChip+" placed at "+dest.toString();
-                        Toast.makeText(getApplicationContext(), text,Toast.LENGTH_LONG).show();
+                        String text;
+                        if (model.placeBet(dest, selectedChip)) {
+                            text= selectedChip + " placed at " + dest.toString();
+                        }
+                        else{
+                            text="Cannot bet at "+ dest.toString() +"at this time";
+                        }
+                        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+
                     }
                     else{
                         Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
@@ -87,6 +93,36 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
         });
 
+
+        MiniTable.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int x,y;
+                    x = (int)event.getX();
+                    y = (int)event.getY();
+
+                    int touchColor = getHotspotColor (R.id.oddsTableMap, x,y);
+                    //Toast.makeText(getApplicationContext(), "touchColor: "+Integer.toHexString(touchColor),Toast.LENGTH_LONG).show();
+                    BetDestination dest = color_finder.findColorMiniTable(touchColor);
+                    if(dest!=null){
+                        String text;
+                        if (model.placeBet(dest, selectedChip)) {
+                           text= selectedChip + " placed at " + dest.toString();
+                        }
+                        else{
+                            text="Cannot bet at "+ dest.toString() +"at this time";
+                        }
+                        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
+                    }
+                }
+                return true;
+            }
+        });
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
