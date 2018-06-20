@@ -26,13 +26,19 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View Buy;
     private View Home;
     private View settingsButton;
-    private View Coin1;
     private View MainTable;
     private View MiniTable;
     private TextView BuyTextView;
     private TextView TotalBetTextView;
     private TextView TotalWinsTextView;
     private Color_Finder color_finder;
+    private View chip1;
+    private View chip5;
+    private View chip10;
+    private View chip25;
+    private View chip50;
+    private View chip100;
+    private View chip500;
 
     private int selectedChip;
 
@@ -43,23 +49,30 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         model = new Craps_Model();
-        color_finder=new Color_Finder(this);
+        color_finder = new Color_Finder(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
         //Intent intent = getIntent(); for homescreen
-        Craps_Model cm=new Craps_Model();
-        selectedChip=14;
+        Craps_Model cm = new Craps_Model();
+        selectedChip = 0;
 
-        rollButton=findViewById(R.id.rollButton);
+        rollButton = findViewById(R.id.rollButton);
         Home = findViewById(R.id.homeButton);
         Buy = findViewById(R.id.buyButton);
         settingsButton = findViewById(R.id.settingsButton);
-        Coin1 = findViewById (R.id.chip1);
-        MainTable=findViewById(R.id.mainTable);
-        MiniTable=findViewById(R.id.oddsTable);
-        BuyTextView=findViewById(R.id.buyTextView);
-        TotalBetTextView=findViewById(R.id.totalBetBox);
-        TotalWinsTextView=findViewById(R.id.totalWinsBox);
+        MainTable = findViewById(R.id.mainTable);
+        MiniTable = findViewById(R.id.oddsTable);
+        BuyTextView = findViewById(R.id.buyTextView);
+        TotalBetTextView = findViewById(R.id.totalBetBox);
+        TotalWinsTextView = findViewById(R.id.totalWinsBox);
+        chip1=findViewById(R.id.chip1);
+        chip5=findViewById(R.id.chip5);
+        chip10=findViewById(R.id.chip10);
+        chip25=findViewById(R.id.chip25);
+        chip50=findViewById(R.id.chip50);
+        chip100=findViewById(R.id.chip100);
+        chip500=findViewById(R.id.chip500);
+
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
@@ -68,7 +81,13 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
-        Coin1.setOnClickListener(this);
+        chip1.setOnClickListener(this);
+        chip5.setOnClickListener(this);
+        chip10.setOnClickListener(this);
+        chip25.setOnClickListener(this);
+        chip50.setOnClickListener(this);
+        chip100.setOnClickListener(this);
+        chip500.setOnClickListener(this);
 
         MainTable.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -124,7 +143,31 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         }
         if (v.getId()==R.id.chip1)
         {
-            //enter chip value
+            selectedChip=1;
+        }
+        if (v.getId()==R.id.chip5)
+        {
+            selectedChip=5;
+        }
+        if (v.getId()==R.id.chip10)
+        {
+            selectedChip=10;
+        }
+        if (v.getId()==R.id.chip25)
+        {
+            selectedChip=25;
+        }
+        if (v.getId()==R.id.chip50)
+        {
+            selectedChip=50;
+        }
+        if (v.getId()==R.id.chip100)
+        {
+            selectedChip=100;
+        }
+        if (v.getId()==R.id.chip500)
+        {
+            selectedChip=500;
         }
 
 
@@ -135,6 +178,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private  boolean placeBet(View v, MotionEvent event, boolean mainTable){
+        if(selectedChip==0) {
+            Toast.makeText(this, "Select a chip first", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             int x, y;
             x = (int) event.getX();
@@ -205,7 +252,5 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         ret+=String.format ("%.2f", value);
         return ret;
     }
-    private String cashFormatter(int value){
-        return cashFormatter((double)value);
-    }
+
 }
