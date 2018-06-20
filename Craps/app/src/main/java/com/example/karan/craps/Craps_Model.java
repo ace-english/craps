@@ -252,7 +252,7 @@ public class Craps_Model implements Craps_Interface{
 		bets.remove(BetDestination.mini12);
 		
 
-		return dice[0]+dice[1];
+		return payoutValue;
 	}
 
 	private boolean setPoint(int newPoint) throws Exception { //function validates the new point

@@ -30,6 +30,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View MainTable;
     private View MiniTable;
     private TextView BuyTextView;
+    private TextView TotalBetTextView;
+    private TextView TotalWinsTextView;
     private Color_Finder color_finder;
 
     private int selectedChip;
@@ -56,6 +58,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         MainTable=findViewById(R.id.mainTable);
         MiniTable=findViewById(R.id.oddsTable);
         BuyTextView=findViewById(R.id.buyTextView);
+        TotalBetTextView=findViewById(R.id.totalBetBox);
+        TotalWinsTextView=findViewById(R.id.totalWinsBox);
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
@@ -109,7 +113,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         }
         if (v.getId()==R.id.rollButton)
         {
-            model.rollDice();
+            updateTextViews(model.rollDice());
             //set dice to display current roll
             setDiceDisplay();
 
@@ -161,11 +165,14 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
             }
         }
+        updateTextViews(0);
         return true;
     }
 
-    private void updateMoney(){
-
+    private void updateTextViews(double payout){
+        TotalBetTextView.setText(cashFormatter(model.getTotalBet()));
+        BuyTextView.setText(cashFormatter(model.getWallet()));
+        TotalWinsTextView.setText(cashFormatter(payout));
     }
 
     private void setDiceDisplay(){
