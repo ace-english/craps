@@ -1,9 +1,12 @@
 package com.example.karan.craps;
 
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +17,7 @@ import android.widget.TextView.OnEditorActionListener;
 import android.view.inputmethod.EditorInfo;
 import android.content.Intent;
 import android.app.Activity; //for new activity
+import android.widget.Toast;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
@@ -25,6 +29,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View Coin1;
     private View MainTable;
     private View MiniTable;
+    private TextView BuyTextView;
+    private Color_Finder color_finder;
+
+    private int selectedChip;
 
     private ImageView Die1, Die2;
 
@@ -33,10 +41,12 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         model = new Craps_Model();
+        color_finder=new Color_Finder(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
         //Intent intent = getIntent(); for homescreen
         Craps_Model cm=new Craps_Model();
+        selectedChip=14;
 
         rollButton=findViewById(R.id.rollButton);
         Home = findViewById(R.id.homeButton);
@@ -45,14 +55,38 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Coin1 = findViewById (R.id.chip1);
         MainTable=findViewById(R.id.mainTable);
         MiniTable=findViewById(R.id.oddsTable);
+        BuyTextView=findViewById(R.id.buyTextView);
 
         Home.setOnClickListener(this);
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
         Coin1.setOnClickListener(this);
-        MainTable.setOnClickListener(this);
-        MiniTable.setOnClickListener(this);
+
+        MainTable.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int x,y;
+                    x = (int)event.getX();
+                    y = (int)event.getY();
+
+                    int touchColor = getHotspotColor (R.id.mainTableMap, x,y);
+                    Toast.makeText(getApplicationContext(), "touchColor: "+Integer.toHexString(touchColor),Toast.LENGTH_LONG).show();
+                    BetDestination dest = color_finder.findColorMainTable(touchColor);
+                    if(dest!=null){
+                        model.placeBet(dest, selectedChip);
+                        String text=selectedChip+" placed at "+dest.toString();
+                        Toast.makeText(getApplicationContext(), text,Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
+                    }
+                }
+                return true;
+            }
+        });
+
 
         Die1 = findViewById(R.id.die1);
         Die2 = findViewById(R.id.die2);
@@ -77,6 +111,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         {
             //buy function button
             //insert microtransactions
+
+            Toast.makeText(getApplicationContext(), "Gimme microtransaction",Toast.LENGTH_LONG).show();
         }
         if (v.getId()==R.id.rollButton)
         {
@@ -93,12 +129,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         {
             //enter chip value
         }
-        if (v.getId()==R.id.mainTable){
-            //set bet
-        }
-        if (v.getId()==R.id.oddsTable){
-            //set bet
-        }
 
 
 
@@ -106,10 +136,32 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
 
     }
-    public void setDiceDisplay(){
+
+
+
+
+    private void setDiceDisplay(){
 
         int[] diceImages = {R.drawable.die1,R.drawable.die2,R.drawable.die3,R.drawable.die4,R.drawable.die5,R.drawable.die6};
         Die1.setImageResource(diceImages[model.getDie1()-1]);
         Die2.setImageResource(diceImages[model.getDie2()-1]);
+    }
+
+    private int getHotspotColor(int hotspotId, int x, int y) {
+        ImageView img = (ImageView) findViewById (hotspotId);
+        if (img == null) {
+            Toast.makeText(getApplicationContext(), "No img found",Toast.LENGTH_LONG).show();
+            return 0;
+        } else {
+            img.setDrawingCacheEnabled(true);
+            Bitmap hotspots = Bitmap.createBitmap(img.getDrawingCache());
+            if (hotspots == null) {
+                Toast.makeText(getApplicationContext(), "Bitmap failure",Toast.LENGTH_LONG).show();
+                return 0;
+            } else {
+                img.setDrawingCacheEnabled(false);
+                return hotspots.getPixel(x, y);
+            }
+        }
     }
 }
