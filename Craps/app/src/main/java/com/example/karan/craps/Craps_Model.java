@@ -157,6 +157,7 @@ public class Craps_Model implements Craps_Interface{
 				case 2:
 				case 3:
 				case 12:
+					payoutValue+=payout(BetDestination.dontPassBar);
 					loseGame();
 					break;
 				case 7:
@@ -169,63 +170,124 @@ public class Craps_Model implements Craps_Interface{
 			}
 
 		}
-		else {
-			//payout
-			switch(diceValue){
-				case 2:
-					payoutValue+=payout(BetDestination.mini2);
-					payoutValue+=payout(BetDestination.mini_any);
-					payoutValue+=payout(BetDestination.field, 2);
-					break;
-				case 3:
-					payoutValue+=payout(BetDestination.mini_any);
-					payoutValue+=payout(BetDestination.field);
-					payoutValue+=payout(BetDestination.mini3);
-					break;
-				case 4:
-					payoutValue+=payout(BetDestination.field);
-					payoutValue+=payout(BetDestination.sideBet4);
-					if(dice[0]==dice[1])
-						payoutValue+=payout(BetDestination.hard4);
-					break;
-				case 5:
-					break;
-				case 6:
-					payoutValue+=payout(BetDestination.big6);
-					if(dice[0]==dice[1])
-						payoutValue+=payout(BetDestination.hard6);
-					break;
-				case 7:
-					payoutValue+=payout(BetDestination.lay4);
-					payoutValue+=payout(BetDestination.lay5);
-					payoutValue+=payout(BetDestination.lay6);
-					payoutValue+=payout(BetDestination.lay8);
-					payoutValue+=payout(BetDestination.lay9);
-					payoutValue+=payout(BetDestination.lay10);
-					payoutValue+=payout(BetDestination.mini7);
-					break;
-				case 8:
-					payoutValue+=payout(BetDestination.big8);
-					if(dice[0]==dice[1])
-						payoutValue+=payout(BetDestination.hard8);
-					break;
-				case 9:
-					payoutValue+=payout(BetDestination.field);
-					break;
-				case 10:
-					payoutValue+=payout(BetDestination.field);
-					if(dice[0]==dice[1])
-						payoutValue+=payout(BetDestination.hard10);
-					break;
-				case 11:
-					payoutValue+=payout(BetDestination.field);
-					break;
-				case 12:
-					payoutValue+=payout(BetDestination.field, 3);
-					payoutValue+=payout(BetDestination.mini_any);
-					break;
-			}
+		else{
+			if (diceValue==point)
+				payoutValue+=payout(BetDestination.passLine);
+		}
+//payout
+		switch(diceValue) {
+			case 2:
+				payoutValue += payout(BetDestination.mini2);
+				payoutValue += payout(BetDestination.mini_any);
+				payoutValue += payout(BetDestination.field, 2);
+				break;
+			case 3:
+				payoutValue += payout(BetDestination.mini_any);
+				payoutValue += payout(BetDestination.field);
+				payoutValue += payout(BetDestination.mini3);
+				break;
+			case 4:
+				payoutValue += payout(BetDestination.field);
+				payoutValue += payout(BetDestination.sideBet4);
+				bets.remove(BetDestination.dontCome4);
+				if (dice[0] == dice[1])
+					payoutValue += payout(BetDestination.hard4);
+				bets.remove(BetDestination.lay4);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come4, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
+				break;
+			case 5:
+				payoutValue += payout(BetDestination.sideBet5);
+				payoutValue += payout(BetDestination.buy5);
+				bets.remove(BetDestination.dontCome5);
+				bets.remove(BetDestination.lay5);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come5, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
 
+				break;
+			case 6:
+				payoutValue += payout(BetDestination.big6);
+				payoutValue += payout(BetDestination.sideBet6);
+				payoutValue += payout(BetDestination.buy6);
+				bets.remove(BetDestination.dontCome6);
+				if (dice[0] == dice[1])
+					payoutValue += payout(BetDestination.hard6);
+				bets.remove(BetDestination.lay6);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come6, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
+				break;
+			case 7:
+				payoutValue += payout(BetDestination.lay4);
+				payoutValue += payout(BetDestination.lay5);
+				payoutValue += payout(BetDestination.lay6);
+				payoutValue += payout(BetDestination.lay8);
+				payoutValue += payout(BetDestination.lay9);
+				payoutValue += payout(BetDestination.lay10);
+				payoutValue += payout(BetDestination.dontCome4);
+				payoutValue += payout(BetDestination.dontCome5);
+				payoutValue += payout(BetDestination.dontCome6);
+				payoutValue += payout(BetDestination.dontCome8);
+				payoutValue += payout(BetDestination.dontCome9);
+				payoutValue += payout(BetDestination.dontCome10);
+				payoutValue += payout(BetDestination.dontPassBar);
+				payoutValue += payout(BetDestination.mini7);
+				payoutValue += payout(BetDestination.mini_any);
+				break;
+			case 8:
+				payoutValue += payout(BetDestination.big8);
+				payoutValue += payout(BetDestination.sideBet8);
+				payoutValue += payout(BetDestination.buy8);
+				bets.remove(BetDestination.dontCome8);
+				if (dice[0] == dice[1])
+					payoutValue += payout(BetDestination.hard8);
+				bets.remove(BetDestination.lay8);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come8, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
+				break;
+			case 9:
+				payoutValue += payout(BetDestination.field);
+				payoutValue += payout(BetDestination.sideBet9);
+				payoutValue += payout(BetDestination.buy9);
+				bets.remove(BetDestination.dontCome9);
+				bets.remove(BetDestination.lay9);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come9, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
+				break;
+			case 10:
+				payoutValue += payout(BetDestination.field);
+				payoutValue += payout(BetDestination.sideBet10);
+				payoutValue += payout(BetDestination.buy10);
+				if (dice[0] == dice[1])
+					payoutValue += payout(BetDestination.hard10);
+				bets.remove(BetDestination.dontCome10);
+				bets.remove(BetDestination.lay10);
+				if (bets.containsKey(BetDestination.come)) {
+					placeBet(BetDestination.come10, bets.get(BetDestination.come));
+					bets.remove(BetDestination.come);
+				}
+				break;
+			case 11:
+				payoutValue += payout(BetDestination.field);
+				payoutValue += payout(BetDestination.mini11);
+				payoutValue += payout(BetDestination.mini_any);
+
+				break;
+			case 12:
+				payoutValue += payout(BetDestination.field, 3);
+				payoutValue += payout(BetDestination.mini12);
+				payoutValue += payout(BetDestination.mini_any);
+				break;
+		}
 			//set point or lose
 			switch (diceValue) {
 				case 4:
@@ -244,7 +306,7 @@ public class Craps_Model implements Craps_Interface{
 					loseGame();
 					break;
 			}
-		}
+
 		//no matter what, clear the one-roll bets
 		bets.remove(BetDestination.mini7);
 		bets.remove(BetDestination.mini3);
