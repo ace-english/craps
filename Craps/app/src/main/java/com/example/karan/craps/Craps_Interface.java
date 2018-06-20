@@ -24,17 +24,17 @@ public interface 	Craps_Interface{
 
 	boolean newGame(); // This will clear last game and create a new one.
 
-	int rollDice();   // This will roll the dice and process the result
+	double rollDice();   // This will roll the dice and process the result. Returns value paid out.
 
-	boolean loseGame();   // This will excutute a Lose game if the Dice rolls didnt go the players way.
+	boolean loseGame();   // This will execute a Lose game if the Dice rolls didn't go the players way.
 
-	public double payout(BetDestination betDestination);
+	double payout(BetDestination betDestination); //handles payout when player wins a bet. Returns value paid out.
 
 	int getPointValue(); //Returns value of point
 	
-	int getDie1() ;	//getter, useful for future graphics
+	int getDie1() ;	//getter for graphics
 
-	int getDie2() ;	//getter, useful for future graphics
+	int getDie2() ;	//getter for graphics
 
 	double getWallet();	//getter, useful for GUI
 
