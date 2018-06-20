@@ -57,6 +57,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         MiniTable=findViewById(R.id.oddsTable);
         BuyTextView=findViewById(R.id.buyTextView);
 
+        Die1 = findViewById(R.id.die1);
+        Die2 = findViewById(R.id.die2);
+
         Home.setOnClickListener(this);
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
@@ -124,8 +127,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
         });
 
-        Die1 = findViewById(R.id.die1);
-        Die2 = findViewById(R.id.die2);
+        BuyTextView.setText(cashFormatter(model.getWallet()));
+
 
     }
 
@@ -199,5 +202,14 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 return hotspots.getPixel(x, y);
             }
         }
+    }
+
+    private String cashFormatter(double value){
+        String ret="$";
+        ret+=String.format ("%.2f", value);
+        return ret;
+    }
+    private String cashFormatter(int value){
+        return cashFormatter((double)value);
     }
 }
