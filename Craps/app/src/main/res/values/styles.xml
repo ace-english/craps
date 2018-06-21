@@ -28,6 +28,9 @@
 
 
     <style name="Chip">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_margin">2dp</item>
         <item name="android:height">10dp</item>
         <item name="android:width">10dp</item>

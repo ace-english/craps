@@ -245,7 +245,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip1" />
 
                 <ImageView
                     android:id="@+id/chip5"
@@ -263,7 +263,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip1"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip5" />
 
                 <ImageView
                     android:id="@+id/chip10"
@@ -281,7 +281,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip5"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip10" />
 
                 <ImageView
                     android:id="@+id/chip25"
@@ -299,7 +299,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip10"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip25" />
 
                 <ImageView
                     android:id="@+id/chip50"
@@ -317,7 +317,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip25"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip50" />
 
                 <ImageView
                     android:id="@+id/chip100"
@@ -335,7 +335,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip50"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip100" />
 
                 <ImageView
                     android:id="@+id/chip500"
@@ -353,7 +353,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/chip100"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/demo_chip" />
+                    app:srcCompat="@drawable/chip500" />
             </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
