@@ -9,17 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Crap_Main"
-            android:screenOrientation="landscape"
-            >
+        <activity android:name=".Crap_Main" android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".Homescreen" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>>
         </activity>
-        <activity android:name=".Homescreen"></activity>
-        <activity android:name=".Tutorial"></activity>
+        <activity android:name=".Tutorial" android:screenOrientation="landscape"></activity>
     </application>
 
 

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.view.inputmethod.EditorInfo;
 import android.content.Intent;
-import android.app.Activity; //for new activity
+import android.app.Activity;
 import android.widget.Toast;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
@@ -52,7 +52,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         color_finder = new Color_Finder(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
-        //Intent intent = getIntent(); for homescreen
+        Intent intent = getIntent();
         Craps_Model cm = new Craps_Model();
         selectedChip = 0;
 
@@ -114,14 +114,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     {
         if (v.getId()==R.id.homeButton)
         {
-            //Home Screen, Set new .java and reference intent to this.
-		   /*For home screen : import android.content.Intent;
-		   insert inside onClick, Intent intent = new Intent(this, [name].class); startActivity(intent);
-		   insert inside onCreate get Intent intent = getIntent(); for homescreen */
-
-            //for this function
-		   /*Intent intent = new Intent(this, [home].class);
-                startActivity(intent);*/
+            Intent intent = new Intent(this, Homescreen.class);
+                startActivity(intent);
         }
         if (v.getId()==R.id.buyButton)
         {

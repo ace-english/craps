@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/c_Tutorial"
+        android:id="@+id/Home"
         android:layout_width="239dp"
         android:layout_height="191dp"
         android:layout_marginBottom="8dp"
@@ -33,7 +33,7 @@
         android:onClick="onClick"
         android:text="Play Now"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/c_Tutorial"
+        app:layout_constraintEnd_toStartOf="@+id/Home"
         app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
