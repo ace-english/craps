@@ -360,6 +360,14 @@ public class Craps_Model implements Craps_Interface{
 		return total;
 	}
 
+	public boolean setWallet(double cash){
+	    if (cash>=0) {
+            wallet = cash;
+            return true;
+        }
+        return false;
+    }
+
     //test functions
 	public void displayBets(){
 		for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())

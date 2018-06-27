@@ -1,6 +1,7 @@
 package com.example.karan.craps;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -19,8 +20,13 @@ import android.content.Intent;
 import android.app.Activity;
 import android.widget.Toast;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
+    String saveFileName = getResources().getString(R.string.saveFileName);
     private Craps_Interface model;
     private View rollButton;
     private View Buy;
@@ -53,7 +59,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();
-        Craps_Model cm = new Craps_Model();
         selectedChip = 0;
 
         rollButton = findViewById(R.id.rollButton);
@@ -245,6 +250,36 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         String ret="$";
         ret+=String.format ("%.2f", value);
         return ret;
+    }
+
+    private boolean save(){
+        try {
+            FileOutputStream f; DataOutputStream d;
+            f= new FileOutputStream(saveFileName);
+            d=new DataOutputStream(f);
+            d.writeDouble(model.getWallet());
+            d.close();
+        }
+        catch(Exception e){
+            System.err.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    private boolean load(){
+        try{
+            FileOutputStream f; DataOutputStream d;
+            f= new FileOutputStream(saveFileName);
+            d=new DataOutputStream(f);
+            model.setWallet(Double.parseDouble(d.toString()));
+            d.close();
+        }
+        catch(Exception e){
+        System.err.println(e.getMessage());
+        return false;
+    }
+        return true;
     }
 
 }

@@ -19,4 +19,5 @@
     <string name="chip500description">A chip worth $500</string>
     <string name="oddsTableDescription">A table for mincraps</string>
     <string name="dicedesc">The result of the last dice roll</string>
+    <string name="saveFileName">craps_save.dat</string>
 </resources>
