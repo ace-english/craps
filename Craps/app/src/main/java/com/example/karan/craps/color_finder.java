@@ -96,6 +96,25 @@ public class Color_Finder {
         return null;
     }
 
+    public int findChip(int clickedColor){
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_1)))
+            return 1;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_5)))
+            return 5;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_10)))
+            return 10;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_25)))
+            return 25;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_50)))
+            return 50;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_100)))
+            return 100;
+        if(compare(clickedColor, context.getResources().getColor(R.color.c_500)))
+            return 500;
+
+        return 0;
+    }
+
     public boolean compare(int color1, int color2){ //returns true if color1 is 'close enough' to color2
         if ((int) Math.abs (Color.red (color1) - Color.red (color2)) > tolerance )
             return false;

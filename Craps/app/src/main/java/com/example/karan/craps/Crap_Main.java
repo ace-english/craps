@@ -26,7 +26,7 @@ import java.io.FileOutputStream;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
-    String saveFileName = getResources().getString(R.string.saveFileName);
+//    String saveFileName = getResources().getString(R.string.saveFileName);
     private Craps_Interface model;
     private View rollButton;
     private View Buy;
@@ -38,13 +38,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private TextView TotalBetTextView;
     private TextView TotalWinsTextView;
     private Color_Finder color_finder;
-    private View chip1;
-    private View chip5;
-    private View chip10;
-    private View chip25;
-    private View chip50;
-    private View chip100;
-    private View chip500;
+    private View chips;
 
     private int selectedChip;
 
@@ -70,13 +64,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         BuyTextView = findViewById(R.id.buyTextView);
         TotalBetTextView = findViewById(R.id.totalBetBox);
         TotalWinsTextView = findViewById(R.id.totalWinsBox);
-        chip1=findViewById(R.id.chip1);
-        chip5=findViewById(R.id.chip5);
-        chip10=findViewById(R.id.chip10);
-        chip25=findViewById(R.id.chip25);
-        chip50=findViewById(R.id.chip50);
-        chip100=findViewById(R.id.chip100);
-        chip500=findViewById(R.id.chip500);
+        chips=findViewById(R.id.chips);
 
 
         Die1 = findViewById(R.id.die1);
@@ -86,13 +74,23 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
-        chip1.setOnClickListener(this);
-        chip5.setOnClickListener(this);
-        chip10.setOnClickListener(this);
-        chip25.setOnClickListener(this);
-        chip50.setOnClickListener(this);
-        chip100.setOnClickListener(this);
-        chip500.setOnClickListener(this);
+
+        chips.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int x, y;
+                    x = (int) event.getX();
+                    y = (int) event.getY();
+                    int touchColor;
+                    int chipValue=0;
+
+                        touchColor = getHotspotColor(R.id.oddsTableMap, x, y);
+                        chipValue = color_finder.findChip(touchColor);
+                    }
+                return true;
+            }
+        });
 
         MainTable.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -139,34 +137,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         if (v.getId()==R.id.settingsButton)
         {
             //settings button, a radio button or drawer
-        }
-        if (v.getId()==R.id.chip1)
-        {
-            selectedChip=1;
-        }
-        if (v.getId()==R.id.chip5)
-        {
-            selectedChip=5;
-        }
-        if (v.getId()==R.id.chip10)
-        {
-            selectedChip=10;
-        }
-        if (v.getId()==R.id.chip25)
-        {
-            selectedChip=25;
-        }
-        if (v.getId()==R.id.chip50)
-        {
-            selectedChip=50;
-        }
-        if (v.getId()==R.id.chip100)
-        {
-            selectedChip=100;
-        }
-        if (v.getId()==R.id.chip500)
-        {
-            selectedChip=500;
         }
 
 
@@ -251,7 +221,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         ret+=String.format ("%.2f", value);
         return ret;
     }
-
+/*
     private boolean save(){
         try {
             FileOutputStream f; DataOutputStream d;
@@ -281,5 +251,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
         return true;
     }
+    */
 
 }
