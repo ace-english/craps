@@ -83,11 +83,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                     x = (int) event.getX();
                     y = (int) event.getY();
                     int touchColor;
-                    int chipValue=0;
 
-                        touchColor = getHotspotColor(R.id.oddsTableMap, x, y);
-                        chipValue = color_finder.findChip(touchColor);
+                        touchColor = getHotspotColor(R.id.chipsMap, x, y);
+                        selectedChip = color_finder.findChip(touchColor);
                     }
+                Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
                 return true;
             }
         });
