@@ -1,5 +1,6 @@
 package com.example.karan.craps;
 
+import android.R.color;
 import android.content.Context;
 import android.graphics.Color;
 

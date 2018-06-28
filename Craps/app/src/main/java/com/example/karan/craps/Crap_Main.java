@@ -28,16 +28,19 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
 //    String saveFileName = getResources().getString(R.string.saveFileName);
     private Craps_Interface model;
+    private Color_Finder color_finder;
+
     private View rollButton;
     private View Buy;
+
     private View Home;
+
     private View settingsButton;
     private View MainTable;
     private View MiniTable;
     private TextView BuyTextView;
     private TextView TotalBetTextView;
     private TextView TotalWinsTextView;
-    private Color_Finder color_finder;
     private View chips;
 
     private int selectedChip;
@@ -48,15 +51,18 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         model = new Craps_Model();
         color_finder = new Color_Finder(this);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();
+
         selectedChip = 0;
 
         rollButton = findViewById(R.id.rollButton);
+
         Home = findViewById(R.id.homeButton);
+
         Buy = findViewById(R.id.buyButton);
         settingsButton = findViewById(R.id.settingsButton);
         MainTable = findViewById(R.id.mainTable);
@@ -71,6 +77,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Die2 = findViewById(R.id.die2);
 
         Home.setOnClickListener(this);
+
         Buy.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
@@ -91,7 +98,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 return true;
             }
         });
-
         MainTable.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -108,6 +114,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         });
 
         BuyTextView.setText(cashFormatter(model.getWallet()));
+
 
 
     }
@@ -180,6 +187,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             else{
                 Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
             }
+
         }
         updateTextViews(0);
         return true;

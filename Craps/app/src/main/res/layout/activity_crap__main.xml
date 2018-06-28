@@ -41,6 +41,7 @@
                 android:paddingRight="16dp"
                 android:paddingStart="16dp"
                 android:textAlignment="viewStart"
+                android:gravity="start"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,6 +67,7 @@
             app:layout_constraintStart_toEndOf="@+id/buyTextWrapper"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <FrameLayout
             android:id="@+id/mainTableFrame"
             android:layout_width="0dp"
@@ -87,6 +89,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/mainTableDescription"
                 android:scaleType="fitCenter"
                 android:visibility="invisible"
@@ -102,6 +105,7 @@
                 app:srcCompat="@drawable/main_table" />
 
         </FrameLayout>
+
 
         <LinearLayout
             android:id="@+id/infoPanel"
@@ -208,7 +212,7 @@
                 android:id="@+id/chipTray"
                 style="@style/BlackTextBox"
                 android:layout_width="wrap_content"
-                android:layout_height="31dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_marginLeft="2dp"
@@ -242,6 +246,7 @@
 
         </android.support.constraint.ConstraintLayout>
 
+
         <Button
             android:id="@+id/rollButton"
             style="@style/GradientWrapper"
@@ -250,11 +255,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
             android:text="@string/rollButton"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/chipTrayWrapper" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/homeButton"
@@ -323,6 +326,8 @@
                 app:srcCompat="@drawable/odds_map" />
 
         </FrameLayout>
+
+
 
     </android.support.constraint.ConstraintLayout>
 
