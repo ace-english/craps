@@ -1,5 +1,7 @@
 package com.example.karan.craps;
 
+import java.util.Map;
+
 enum BetDestination
 {
 	passLine,
@@ -24,7 +26,7 @@ public interface 	Craps_Interface{
 
 	boolean newGame(); // This will clear last game and create a new one.
 
-	double rollDice();   // This will roll the dice and process the result. Returns value paid out.
+	Map<BetDestination, Double> rollDice();   // This will roll the dice and process the result. Returns payout map
 
 	boolean loseGame();   // This will execute a Lose game if the Dice rolls didn't go the players way.
 

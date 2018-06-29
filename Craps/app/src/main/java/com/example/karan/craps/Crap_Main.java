@@ -1,28 +1,19 @@
 package com.example.karan.craps;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
-import android.view.inputmethod.EditorInfo;
 import android.content.Intent;
-import android.app.Activity;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Map;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
@@ -43,7 +34,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private TextView TotalWinsTextView;
     private View chips;
 
-    private ChipPiles chipPiles;
+    private Chip_Piles chipPiles;
 
     private int selectedChip;
 
@@ -53,7 +44,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        chipPiles= new ChipPiles();
+        chipPiles= new Chip_Piles();
         super.onCreate(savedInstanceState);
         model = new Craps_Model();
         color_finder = new Color_Finder(this);
@@ -197,12 +188,17 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
 
         }
-        updateTextViews(0);
+        updateTextViews(null);  //might crash here
         save();
         return true;
     }
 
-    private void updateTextViews(double payout){
+    private void updateTextViews(Map<BetDestination, Double> payoutMap){
+        //for loop to calc totAL PAYOUT
+        double payout=0.0;
+        for(Map.Entry<BetDestination,Double> bet : payoutMap.entrySet()){
+            payout+=bet.getValue();
+        }
         TotalBetTextView.setText(cashFormatter(model.getTotalBet()));
         BuyTextView.setText(cashFormatter(model.getWallet()));
         TotalWinsTextView.setText(cashFormatter(payout));

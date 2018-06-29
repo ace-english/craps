@@ -1,4 +1,5 @@
 package com.example.karan.craps;
+
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
@@ -148,10 +149,10 @@ public class Craps_Model implements Craps_Interface{
 		return payout;
 	}
 	
-	public double rollDice() {
+	public Map<BetDestination, Double> rollDice() {
 		initializeDice();
 		int diceValue=getDiceValue();
-		double payoutValue=0;
+		Map<BetDestination, Double> payoutMap = new TreeMap<>();
 		if(comeOutRoll) {
 			switch(diceValue) {
 				case 2:
@@ -289,6 +290,7 @@ public class Craps_Model implements Craps_Interface{
 				break;
 		}
 			//set point or lose
+		if(point==0) {
 			switch (diceValue) {
 				case 4:
 				case 5:
@@ -306,6 +308,17 @@ public class Craps_Model implements Craps_Interface{
 					loseGame();
 					break;
 			}
+		}
+		else{
+			if (diceValue==point) {//point get
+				payout(BetDestination.passLine);
+				bets.remove(BetDestination.dontPassBar);
+			}
+			else if(diceValue==7){
+				payout(BetDestination.dontPassBar);
+				payout(BetDestination.passLine);
+			}
+		}
 
 		//no matter what, clear the one-roll bets
 		bets.remove(BetDestination.mini7);
