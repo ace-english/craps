@@ -191,22 +191,28 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet4));
 				bets.remove(BetDestination.dontCome4);
+				payoutMap.put(BetDestination.dontCome4, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard4,payout(BetDestination.hard4));
 				bets.remove(BetDestination.lay4);
+				payoutMap.put(BetDestination.lay4, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come4, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 5:
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet5));
 				payoutMap.put(BetDestination.buy5,payout(BetDestination.buy5));
 				bets.remove(BetDestination.dontCome5);
+				payoutMap.put(BetDestination.dontCome5, 0.0);
 				bets.remove(BetDestination.lay5);
+				payoutMap.put(BetDestination.lay5, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come5, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 
 				break;
@@ -215,12 +221,15 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.sideBet6,payout(BetDestination.sideBet6));
 				payoutMap.put(BetDestination.buy6,payout(BetDestination.buy6));
 				bets.remove(BetDestination.dontCome6);
+				payoutMap.put(BetDestination.dontCome6, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard6,payout(BetDestination.hard6));
 				bets.remove(BetDestination.lay6);
+				payoutMap.put(BetDestination.lay6, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come6, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 7:
@@ -245,12 +254,15 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.sideBet8,payout(BetDestination.sideBet8));
 				payoutMap.put(BetDestination.buy8,payout(BetDestination.buy8));
 				bets.remove(BetDestination.dontCome8);
+				payoutMap.put(BetDestination.dontCome8, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard8,payout(BetDestination.hard8));
 				bets.remove(BetDestination.lay8);
+				payoutMap.put(BetDestination.lay8, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come8, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 9:
@@ -258,10 +270,13 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.sideBet9,payout(BetDestination.sideBet9));
 				payoutMap.put(BetDestination.buy9,payout(BetDestination.buy9));
 				bets.remove(BetDestination.dontCome9);
+				payoutMap.put(BetDestination.dontCome9, 0.0);
 				bets.remove(BetDestination.lay9);
+				payoutMap.put(BetDestination.lay9, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come9, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 10:
@@ -271,10 +286,13 @@ public class Craps_Model implements Craps_Interface{
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard10,payout(BetDestination.hard10));
 				bets.remove(BetDestination.dontCome10);
+				payoutMap.put(BetDestination.dontCome10, 0.0);
 				bets.remove(BetDestination.lay10);
+				payoutMap.put(BetDestination.lay10, 0.0);
 				if (bets.containsKey(BetDestination.come)) {
 					placeBet(BetDestination.come10, bets.get(BetDestination.come));
 					bets.remove(BetDestination.come);
+					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 11:
@@ -313,6 +331,7 @@ public class Craps_Model implements Craps_Interface{
 			if (diceValue==point) {//point get
 				payout(BetDestination.passLine);
 				bets.remove(BetDestination.dontPassBar);
+				payoutMap.put(BetDestination.dontPassBar, 0.0);
 			}
 			else if(diceValue==7){
 				payout(BetDestination.dontPassBar);
@@ -321,11 +340,19 @@ public class Craps_Model implements Craps_Interface{
 		}
 
 		//no matter what, clear the one-roll bets
-		bets.remove(BetDestination.mini7);
-		bets.remove(BetDestination.mini3);
 		bets.remove(BetDestination.mini2);
+		bets.remove(BetDestination.mini3);
+		bets.remove(BetDestination.mini7);
 		bets.remove(BetDestination.mini11);
 		bets.remove(BetDestination.mini12);
+		bets.remove(BetDestination.mini_any);
+		payoutMap.put(BetDestination.mini2, 0.0);
+		payoutMap.put(BetDestination.mini3, 0.0);
+		payoutMap.put(BetDestination.mini7, 0.0);
+		payoutMap.put(BetDestination.mini11, 0.0);
+		payoutMap.put(BetDestination.mini12, 0.0);
+		payoutMap.put(BetDestination.mini_any, 0.0);
+
 		
 
 		return payoutMap;
