@@ -26,7 +26,7 @@ import java.io.FileOutputStream;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
-//    String saveFileName = getResources().getString(R.string.saveFileName);
+    String saveFileName;
     private Craps_Interface model;
     private Color_Finder color_finder;
 
@@ -56,7 +56,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         color_finder = new Color_Finder(this);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();
+        saveFileName = getResources().getString(R.string.saveFileName);
 
+        load();
         selectedChip = 0;
 
         rollButton = findViewById(R.id.rollButton);
@@ -139,6 +141,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             updateTextViews(model.rollDice());
             //set dice to display current roll
             setDiceDisplay();
+            save();
 
         }
         if (v.getId()==R.id.settingsButton)
@@ -190,6 +193,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
         }
         updateTextViews(0);
+        save();
         return true;
     }
 
@@ -229,7 +233,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         ret+=String.format ("%.2f", value);
         return ret;
     }
-/*
+
     private boolean save(){
         try {
             FileOutputStream f; DataOutputStream d;
@@ -259,6 +263,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
         return true;
     }
-    */
+
 
 }
