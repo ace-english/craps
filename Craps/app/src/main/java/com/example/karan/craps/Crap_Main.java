@@ -52,7 +52,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Intent intent = getIntent();
         saveFileName = getResources().getString(R.string.saveFileName);
 
-        load();
+        //load();
         selectedChip = 0;
 
         rollButton = findViewById(R.id.rollButton);
@@ -132,10 +132,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         }
         if (v.getId()==R.id.rollButton)
         {
-            updateTextViews(model.rollDice());
+            updateViews(model.rollDice());
             //set dice to display current roll
             setDiceDisplay();
-            save();
+            //save();
 
         }
         if (v.getId()==R.id.settingsButton)
@@ -188,16 +188,18 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
 
         }
-        updateTextViews(null);  //might crash here
-        save();
+        updateViews(null);  //might crash here
+        //save();
         return true;
     }
 
-    private void updateTextViews(Map<BetDestination, Double> payoutMap){
+    private void updateViews(Map<BetDestination, Double> payoutMap){
         //for loop to calc totAL PAYOUT
         double payout=0.0;
-        for(Map.Entry<BetDestination,Double> bet : payoutMap.entrySet()){
-            payout+=bet.getValue();
+        if(payoutMap!=null) {
+            for (Map.Entry<BetDestination, Double> bet : payoutMap.entrySet()) {
+                payout += bet.getValue();
+            }
         }
         TotalBetTextView.setText(cashFormatter(model.getTotalBet()));
         BuyTextView.setText(cashFormatter(model.getWallet()));
