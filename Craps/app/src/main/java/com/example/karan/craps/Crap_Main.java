@@ -43,6 +43,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private TextView TotalWinsTextView;
     private View chips;
 
+    private ChipPiles chipPiles;
+
     private int selectedChip;
 
     private ImageView Die1, Die2;
@@ -51,6 +53,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        chipPiles= new ChipPiles();
         super.onCreate(savedInstanceState);
         model = new Craps_Model();
         color_finder = new Color_Finder(this);
@@ -167,6 +170,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             y = (int) event.getY();
             int touchColor;
             BetDestination dest;
+
+
 
             if (mainTable){
                 touchColor = getHotspotColor(R.id.mainTableMap, x, y);
