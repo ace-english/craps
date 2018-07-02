@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="chip_values">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>500</item>
+    </integer-array>
+
+    <array name="chip_ids">
+        <item>@drawable/chip1</item>
+        <item>@drawable/chip5</item>
+        <item>@drawable/chip10</item>
+        <item>@drawable/chip25</item>
+        <item>@drawable/chip50</item>
+        <item>@drawable/chip100</item>
+        <item>@drawable/chip500</item>
+    </array>
+</resources>
