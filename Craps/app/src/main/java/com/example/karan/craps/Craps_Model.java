@@ -1,5 +1,7 @@
 package com.example.karan.craps;
 
+import android.content.Context;
+
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
@@ -15,8 +17,10 @@ public class Craps_Model implements Craps_Interface{
 	//Bets array has an int corresponding to every possible value of betsDestination
 	private Map<BetDestination, Double> odds;
 	//	Stores the payout on any given bet
+	Chip_Piles chipPiles;
 	
-	public Craps_Model() {
+	public Craps_Model(Context context) {
+		chipPiles= new Chip_Piles(context);
         rand= new Random();
 		dice = new int[2];
 		wallet=500;

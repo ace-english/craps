@@ -12,7 +12,7 @@
     <color name="dark_grad">#370d09</color>
     <color name="light_grad">#713a18</color>
 
-    <!-->Below is the colors used in the table map</!-->
+    <!--Below is the colors used in the table map-->
     <color name="t_dontPassBar">#ff00ff</color>
     <color name="t_passline">#00ffff</color>
     <color name="t_fieldBet">#003702</color>
@@ -41,7 +41,7 @@
     <color name="t_tenBuy">#5669ff</color>
     <!-->End colors used in the table map</!-->
 
-    <!-->Below is the colors used in the odds map</!-->
+    <!--Below is the colors used in the odds map-->
     <color name="o_seven">#ff0000</color>
     <color name="o_six">#00ff00</color>
     <color name="o_ten">#0000ff</color>
@@ -54,7 +54,7 @@
     <color name="o_any">#37290e</color>
     <!-->End colors used in the odds map</!-->
 
-    <!-->Below is the colors used in the chips map</!-->
+    <!--Below is the colors used in the chips map-->
     <color name="c_1">#ffffff</color>
     <color name="c_5">#0000ff</color>
     <color name="c_10">#00ff00</color>
@@ -62,7 +62,7 @@
     <color name="c_50">#000000</color>
     <color name="c_100">#7e7e7e</color>
     <color name="c_500">#ffff00</color>
-    <!-->End colors used in the chips map</!-->
+    <!--End colors used in the chips map-->
 
 </resources>
 

@@ -44,9 +44,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        chipPiles= new Chip_Piles();
         super.onCreate(savedInstanceState);
-        model = new Craps_Model();
+        model = new Craps_Model(this);
         color_finder = new Color_Finder(this);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();
@@ -78,6 +77,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
 
+        /*
+        User chooses chip by clicking on one of the icons in the chip tray.
+         */
         chips.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -194,7 +196,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private void updateViews(Map<BetDestination, Double> payoutMap){
-        //for loop to calc totAL PAYOUT
+
         double payout=0.0;
         if(payoutMap!=null) {
             for (Map.Entry<BetDestination, Double> bet : payoutMap.entrySet()) {

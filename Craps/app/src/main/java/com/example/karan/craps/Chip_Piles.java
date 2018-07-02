@@ -60,7 +60,7 @@ public class Chip_Piles {
                 tempIV.setImageResource(id);
                 tempIV.setX((float) xpos);
                 tempIV.setY((float) ypos+yscale);
-                yscale+=
+                yscale+=yshift;
             }
         }
 
@@ -68,7 +68,7 @@ public class Chip_Piles {
 
     private Map<BetDestination, Chip_Pile> pileMap;
 
-    Context context
+    Context context;
 
     Chip_Piles(Context context){
         pileMap = new TreeMap<BetDestination, Chip_Pile>();
