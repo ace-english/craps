@@ -60,7 +60,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Home = findViewById(R.id.homeButton);
 
         Buy = findViewById(R.id.buyButton);
-        settingsButton = findViewById(R.id.settingsButton);
+        settingsButton = findViewById(R.id.backButton);
         MainTable = findViewById(R.id.mainTable);
         MiniTable = findViewById(R.id.oddsTable);
         BuyTextView = findViewById(R.id.buyTextView);
@@ -138,7 +138,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             //save();
 
         }
-        if (v.getId()==R.id.settingsButton)
+        if (v.getId()==R.id.backButton)
         {
             //settings button, a radio button or drawer
         }

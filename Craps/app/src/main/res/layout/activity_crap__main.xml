@@ -118,7 +118,7 @@
             android:gravity="top"
             android:orientation="vertical"
             android:padding="10dp"
-            app:layout_constraintEnd_toStartOf="@+id/settingsButton"
+            app:layout_constraintEnd_toStartOf="@+id/backButton"
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
@@ -272,7 +272,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/settingsButton"
+            android:id="@+id/backButton"
             style="@style/GradientWrapper"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
