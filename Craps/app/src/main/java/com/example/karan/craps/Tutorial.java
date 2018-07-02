@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 public class Tutorial extends AppCompatActivity implements OnClickListener
 {
-    Button button;
+    View backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,8 +30,8 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
         Intent intent = getIntent();
 
 
-        button = findViewById(R.id.button2);
-        button.setOnClickListener(this);
+        backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(this);
 
 
     }
