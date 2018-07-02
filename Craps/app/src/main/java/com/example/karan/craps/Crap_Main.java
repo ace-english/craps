@@ -45,7 +45,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new Craps_Model(this);
+        model = new Craps_Model(this, this);
         color_finder = new Color_Finder(this);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();

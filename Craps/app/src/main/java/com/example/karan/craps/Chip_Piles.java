@@ -1,10 +1,17 @@
 package com.example.karan.craps;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.media.Image;
+import android.support.constraint.ConstraintLayout;
+import android.text.Layout;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.LinkedList;
 import java.util.Map;
@@ -15,15 +22,19 @@ public class Chip_Piles {
 
     private class Chip_Pile{
         int betValue;
+        BetDestination betDest;
         int xpos, ypos;
         LinkedList<ImageView> chips;
         Context context;
+        Activity activity;
 
-        Chip_Pile(int x, int y, int value, Context context){
+        Chip_Pile(int x, int y, int value, BetDestination bd, Context context, Activity activity){
             xpos=x;
             ypos=y;
-            value=betValue;
+            betValue=value;
+            betDest=bd;
             this.context=context;
+            this.activity=activity;
             render();
         }
 
@@ -36,45 +47,84 @@ public class Chip_Piles {
             and places a series of image views on the table.
          */
 
-        private boolean render(){
-            if(context==null)
-                return false;   //probably necessary?
-            int tempValue=betValue;
-            int[] values=context.getResources().getIntArray(R.array.chip_values);
-            int[] ids=context.getResources().getIntArray(R.array.chip_ids);
-            LinkedList<Integer> tempChips=new LinkedList<>();
-
-            for(int i=values.length; i>0; i--) {
-                int value=values[i];
-                int id=ids[i];
-                while (tempValue <= value) {
-                    tempChips.add(id);
-                    tempValue -= value;
+        private void render() {
+            if(chips!=null) {
+                for (ImageView chip : chips) {
+                    chip.setVisibility(View.INVISIBLE);
                 }
             }
-            chips=new LinkedList<>();
-            ImageView tempIV;
-            int yscale=0;
-            //chips now contains linked list of chip ids in optimal order
-            for(int id: tempChips){
-                tempIV=new ImageView(context);
-                tempIV.setImageResource(id);
-                tempIV.setX((float) xpos);
-                tempIV.setY((float) ypos+yscale);
-                yscale+=yshift;
+            int tempValue = betValue;
+            int[] values;
+            TypedArray ids;
+            LinkedList<Integer> tempChips = new LinkedList<>();
+            if (context == null) {
+                //for the test app
+                values=new int[]{1,5,10,25,50,100,500};
+
+                //creates list of chips in largest possible orders
+                for (int i = values.length - 1; i >= 0; i--) {
+                    System.out.println("Checking "+i);
+                    int value = values[i];
+                    int id = values[i];
+                    while (tempValue >= value) {
+                        tempChips.add(id);
+                        tempValue -= value;
+                    }
+                }
+
+                System.out.println("Chips rendered on "+betDest+": "+tempChips.toString());
+
+            } else {
+                values = context.getResources().getIntArray(R.array.chip_values);
+                ids=context.getResources().obtainTypedArray(R.array.chip_ids);
+
+
+                //creates list of chips in largest possible orders
+                for (int i = values.length - 1; i > 0; i--) {
+                    int value = values[i];
+                    int id = ids.getResourceId(i,-1);
+                    while (tempValue >= value) {
+                        tempChips.add(id);
+                        tempValue -= value;
+                    }
+                }
+                chips = new LinkedList<>();
+                ImageView tempIV;
+                int yscale = 0;
+                //chips now contains linked list of chip ids in optimal order
+                for (int tempChip:tempChips) {
+                    tempIV = new ImageView(context);
+                    tempIV.setBackgroundResource(tempChip);
+                    tempIV.setX((float) xpos);
+                    tempIV.setY((float) ypos + yscale);
+                    tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
+                    chips.add(tempIV);
+                    System.out.println("Added at "+xpos+","+(ypos+yscale));
+                    yscale -= yshift;
+                }
+
+                ConstraintLayout layout = (ConstraintLayout) activity.findViewById(R.id.MasterLayout);
+                for (ImageView IV : chips) {
+                    layout.addView(IV);
+                    IV.bringToFront();
+                    System.out.println("Added chip.");
+                }
             }
-            return true;
         }
+
+
+
 
     }
 
     private Map<BetDestination, Chip_Pile> pileMap;
 
-    Context context;
+    Context context; Activity activity;
 
-    Chip_Piles(Context context){
+    Chip_Piles(Context context, Activity activity){
         pileMap = new TreeMap<BetDestination, Chip_Pile>();
         this.context=context;
+        this.activity=activity;
 
 
     }
@@ -97,7 +147,7 @@ public class Chip_Piles {
             pile.addTo(betValue);
         }
         else{
-            pile=new Chip_Pile(x, y, betValue, context);
+            pile=new Chip_Pile(x, y, betValue, betDest, context, activity);
             pileMap.put(betDest, pile);
         }
 
@@ -131,7 +181,7 @@ public class Chip_Piles {
         return total;
     }
 
-
+    //for test
     public void printMap(){
         for(Map.Entry<BetDestination,Chip_Pile> bet : pileMap.entrySet())
         	System.out.println(bet.getKey()+" : "+bet.getValue().betValue);

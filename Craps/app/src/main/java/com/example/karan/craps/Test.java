@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args){
-        Craps_Model CM= new Craps_Model(null);
+        Craps_Model CM= new Craps_Model(null, null);
         Scanner scanner = new Scanner(System.in);
         int choice;
         BetDestination betDest;

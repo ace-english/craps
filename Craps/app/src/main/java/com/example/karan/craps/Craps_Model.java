@@ -1,5 +1,6 @@
 package com.example.karan.craps;
 
+import android.app.Activity;
 import android.content.Context;
 
 import java.util.Map;
@@ -19,13 +20,13 @@ public class Craps_Model implements Craps_Interface{
 	//	Stores the payout on any given bet
 	Chip_Piles chipPiles;
 	
-	public Craps_Model(Context context) {
-		chipPiles= new Chip_Piles(context);
+	public Craps_Model(Context context, Activity activity) {
+		chipPiles= new Chip_Piles(context, activity);
         rand= new Random();
 		dice = new int[2];
 		wallet=500;
 		//bets=new TreeMap<>();
-		chipPiles=new Chip_Piles(context);
+		chipPiles=new Chip_Piles(context, activity);
 
 		odds=new TreeMap<>();
 		//initalize odds
@@ -146,7 +147,8 @@ public class Craps_Model implements Craps_Interface{
 		double payout=0;
 
 		if (chipPiles.contains(betDestination)) {
-			payout += chipPiles.payout(betDestination);
+			double winnings=chipPiles.payout(betDestination);
+			payout += winnings+(winnings*odds.get(betDestination)*multiplier) ;
 			System.out.println("$" + payout + " recieved from " + betDestination);
 			wallet += payout;
 		}
@@ -158,28 +160,37 @@ public class Craps_Model implements Craps_Interface{
 		int diceValue=getDiceValue();
 		Map<BetDestination, Double> payoutMap = new TreeMap<>();
 		if(comeOutRoll) {
+			//on first roll, three things can happen
 			switch(diceValue) {
 				case 2:
 				case 3:
 				case 12:
+					//pass
 					payoutMap.put(BetDestination.dontPassBar,payout(BetDestination.dontPassBar));
-					//loseGame();
+					chipPiles.remove(BetDestination.passLine);
 					break;
 				case 7:
 				case 11:
+					//dont pass
 					payoutMap.put(BetDestination.passLine,payout(BetDestination.passLine));
+					chipPiles.remove(BetDestination.dontPassBar);
 					break;
 				default:
+					//point
 					point=diceValue;
 					comeOutRoll=false;
 			}
 
 		}
 		else{
-			if (diceValue==point)
-				payoutMap.put(BetDestination.passLine,payout(BetDestination.passLine));
+			//not the first roll
+			if (diceValue==point) {    //if you get your point, win pass
+				payoutMap.put(BetDestination.passLine, payout(BetDestination.passLine));
+				chipPiles.remove(BetDestination.dontPassBar);
+
+			}
 		}
-//payout
+//payout for everything else
 		switch(diceValue) {
 			case 2:
 				payoutMap.put(BetDestination.mini2,payout(BetDestination.mini2));
@@ -337,6 +348,8 @@ public class Craps_Model implements Craps_Interface{
 			}
 		}
 
+		//move for come out, dont come
+
 		//no matter what, clear the one-roll bets
 		chipPiles.remove(BetDestination.mini2);
 		chipPiles.remove(BetDestination.mini3);
@@ -405,8 +418,7 @@ public class Craps_Model implements Craps_Interface{
 
     //test functions
 	public void displayBets(){
-		//for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())
-		//	System.out.println(bet.getKey()+" : "+bet.getValue());
+		chipPiles.printMap();
 
 	}
 }

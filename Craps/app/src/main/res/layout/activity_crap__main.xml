@@ -7,6 +7,7 @@
     tools:context="com.example.karan.craps.Crap_Main">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/MasterLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background">
@@ -36,12 +37,12 @@
                 android:layout_marginStart="2dp"
 
                 android:layout_marginTop="2dp"
+                android:gravity="start"
                 android:paddingEnd="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingStart="16dp"
                 android:textAlignment="viewStart"
-                android:gravity="start"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -89,8 +90,8 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:clickable="true"
-                android:focusable="true"
                 android:contentDescription="@string/mainTableDescription"
+                android:focusable="true"
                 android:scaleType="fitCenter"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/main_map" />
@@ -326,7 +327,6 @@
                 app:srcCompat="@drawable/odds_map" />
 
         </FrameLayout>
-
 
 
     </android.support.constraint.ConstraintLayout>
