@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
+import java.text.NumberFormat;
 import java.util.Map;
 
 public class Crap_Main extends AppCompatActivity implements OnClickListener
@@ -234,9 +235,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private String cashFormatter(double value){
-        String ret="$";
-        ret+=String.format ("%.2f", value);
-        return ret;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return formatter.format(value);
     }
 
     private boolean save(){

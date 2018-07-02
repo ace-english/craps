@@ -10,6 +10,7 @@ import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -19,6 +20,7 @@ import java.util.TreeMap;
 
 public class Chip_Piles {
     public static int yshift =5;
+    public static int width =40;
 
     private class Chip_Pile{
         int betValue;
@@ -27,14 +29,32 @@ public class Chip_Piles {
         LinkedList<ImageView> chips;
         Context context;
         Activity activity;
+        FrameLayout layout;
 
         Chip_Pile(int x, int y, int value, BetDestination bd, Context context, Activity activity){
-            xpos=x;
-            ypos=y;
+            xpos=x-(width/2);
+            ypos=y-(width/2);
             betValue=value;
             betDest=bd;
             this.context=context;
             this.activity=activity;
+            //determine which layout to use
+            switch (betDest){
+                case hard4:
+                case hard6:
+                case hard8:
+                case hard10:
+                case mini2:
+                case mini3:
+                case mini7:
+                case mini11:
+                case mini12:
+                case mini_any:
+                    layout=(FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
+                    break;
+                default:
+                    layout=(FrameLayout) activity.findViewById(R.id.mainTableFrame);
+            }
             render();
         }
 
@@ -103,7 +123,7 @@ public class Chip_Piles {
                     yscale -= yshift;
                 }
 
-                ConstraintLayout layout = (ConstraintLayout) activity.findViewById(R.id.MasterLayout);
+
                 for (ImageView IV : chips) {
                     layout.addView(IV);
                     IV.bringToFront();
