@@ -3,6 +3,7 @@ package com.example.karan.craps;
 import android.content.Context;
 import android.content.res.Resources;
 import android.media.Image;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 
 import java.util.LinkedList;
@@ -30,14 +31,14 @@ public class Chip_Piles {
             betValue+=value;
             render();
         }
+        /*
+            This function calculates the best display fr a bet of that quantity
+            and places a series of image views on the table.
+         */
 
-        public void move(){
-
-        }
-
-
-        private void render(){
-            //change optimal layout of chips
+        private boolean render(){
+            if(context==null)
+                return false;   //probably necessary?
             int tempValue=betValue;
             int[] values=context.getResources().getIntArray(R.array.chip_values);
             int[] ids=context.getResources().getIntArray(R.array.chip_ids);
@@ -62,6 +63,7 @@ public class Chip_Piles {
                 tempIV.setY((float) ypos+yscale);
                 yscale+=yshift;
             }
+            return true;
         }
 
     }
@@ -75,6 +77,17 @@ public class Chip_Piles {
         this.context=context;
 
 
+    }
+
+    public void move(BetDestination oldDest, BetDestination newDest){
+        if(pileMap.containsKey(newDest)){
+            pileMap.get(newDest).addTo(pileMap.get(oldDest).betValue);
+        }
+        else{
+            //find new x and y
+            //TODO
+        }
+        remove(oldDest);
     }
 
     public void add(int x, int y, int betValue, BetDestination betDest){
@@ -91,8 +104,38 @@ public class Chip_Piles {
         //pile.render(); //redundant?
     }
 
+    public void remove(BetDestination betDest){
+        pileMap.remove(betDest);
+    }
+
+    public boolean contains(BetDestination betDest){
+        if (pileMap.containsKey(betDest))
+            return true;
+        return false;
+    }
+
+    public int payout(BetDestination betDest){
+        int payout=0;
+        if (pileMap.containsKey(betDest)){
+            payout=pileMap.get(betDest).betValue;
+            //remove chips from view
+            remove(betDest);
+        }
+        return payout;
+    }
+
+    public int getTotalBet(){
+        int total=0;
+        for(Map.Entry<BetDestination,Chip_Pile> bet : pileMap.entrySet())
+            total+=bet.getValue().betValue;
+        return total;
+    }
 
 
+    public void printMap(){
+        for(Map.Entry<BetDestination,Chip_Pile> bet : pileMap.entrySet())
+        	System.out.println(bet.getKey()+" : "+bet.getValue().betValue);
+    }
 
 
 

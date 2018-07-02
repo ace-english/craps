@@ -27,7 +27,7 @@ public class Test {
                     betDest = BetDestination.values()[choice];
                     System.out.println("How much?");
                     bet = scanner.nextInt();
-                    if (CM.placeBet(betDest, bet))
+                    if (CM.placeBet(betDest, bet, 0, 0))
                         System.out.println(bet + " placed on " + betDest);
                     break;
                 case 2:

@@ -13,7 +13,7 @@ public class Craps_Model implements Craps_Interface{
 	private boolean comeOutRoll;
 	int[] dice;
 	//contains dice roll (two)
-	private Map<BetDestination, Integer> bets;
+	//private Map<BetDestination, Integer> bets;	//replaced with chipPiles
 	//Bets array has an int corresponding to every possible value of betsDestination
 	private Map<BetDestination, Double> odds;
 	//	Stores the payout on any given bet
@@ -24,7 +24,8 @@ public class Craps_Model implements Craps_Interface{
         rand= new Random();
 		dice = new int[2];
 		wallet=500;
-		bets=new TreeMap<>();
+		//bets=new TreeMap<>();
+		chipPiles=new Chip_Piles(context);
 
 		odds=new TreeMap<>();
 		//initalize odds
@@ -60,7 +61,7 @@ public class Craps_Model implements Craps_Interface{
 
 
 
-		newGame();
+	//	newGame();
 	}
 
 	public double getWallet() {
@@ -72,7 +73,7 @@ public class Craps_Model implements Craps_Interface{
 		dice[1]=rand.nextInt(6)+1;
 	}
 
-	public boolean placeBet(BetDestination betDestination, int betValue)	//returns false if insufficient funds
+	public boolean placeBet(BetDestination betDestination, int betValue, int x, int y)	//returns false if insufficient funds
 	{
 		if(comeOutRoll){
 			switch (betDestination){	//these are bets you cannot place on the come out roll.
@@ -94,10 +95,7 @@ public class Craps_Model implements Craps_Interface{
 		}
 		if(wallet >= betValue){
 			wallet-=betValue;
-			if (bets.containsKey(betDestination)) {
-				betValue += bets.get(betDestination);//increments bet in that position
-			}
-			bets.put(betDestination, betValue);
+			chipPiles.add(x,y,betValue,betDestination);
 			return true;
 		}
 		else {
@@ -106,17 +104,19 @@ public class Craps_Model implements Craps_Interface{
 		}
 	}
 
+	/*
 	public boolean newGame() // This will clear last game and create a new one.
 	{
 		point=0;
 		comeOutRoll=true;
 		return true;
 	}
-	public boolean loseGame()   // This will excutute a Lose game if the Dice rolls didnt go the players way.
+	public boolean loseGame()
 	{
 		bets.clear();
 		return true;
 	}
+	*/
 
 	public double payout(BetDestination betDestination){
 		double multiplier;
@@ -144,11 +144,11 @@ public class Craps_Model implements Craps_Interface{
 
 	public double payout(BetDestination betDestination, double multiplier){
 		double payout=0;
-		if(bets.containsKey(betDestination)) {
-			payout=bets.get(betDestination) + (bets.get(betDestination) * odds.get(betDestination) * multiplier);
+
+		if (chipPiles.contains(betDestination)) {
+			payout += chipPiles.payout(betDestination);
+			System.out.println("$" + payout + " recieved from " + betDestination);
 			wallet += payout;
-			System.out.println("$"+payout+" recieved from "+betDestination);
-			bets.remove(betDestination);
 		}
 		return payout;
 	}
@@ -163,7 +163,7 @@ public class Craps_Model implements Craps_Interface{
 				case 3:
 				case 12:
 					payoutMap.put(BetDestination.dontPassBar,payout(BetDestination.dontPassBar));
-					loseGame();
+					//loseGame();
 					break;
 				case 7:
 				case 11:
@@ -194,28 +194,26 @@ public class Craps_Model implements Craps_Interface{
 			case 4:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet4));
-				bets.remove(BetDestination.dontCome4);
+				chipPiles.remove(BetDestination.dontCome4);
 				payoutMap.put(BetDestination.dontCome4, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard4,payout(BetDestination.hard4));
-				bets.remove(BetDestination.lay4);
+				chipPiles.remove(BetDestination.lay4);
 				payoutMap.put(BetDestination.lay4, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come4, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come4);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
 			case 5:
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet5));
 				payoutMap.put(BetDestination.buy5,payout(BetDestination.buy5));
-				bets.remove(BetDestination.dontCome5);
+				chipPiles.remove(BetDestination.dontCome5);
 				payoutMap.put(BetDestination.dontCome5, 0.0);
-				bets.remove(BetDestination.lay5);
+				chipPiles.remove(BetDestination.lay5);
 				payoutMap.put(BetDestination.lay5, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come5, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come5);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 
@@ -224,15 +222,14 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.big6,payout(BetDestination.big6));
 				payoutMap.put(BetDestination.sideBet6,payout(BetDestination.sideBet6));
 				payoutMap.put(BetDestination.buy6,payout(BetDestination.buy6));
-				bets.remove(BetDestination.dontCome6);
+				chipPiles.remove(BetDestination.dontCome6);
 				payoutMap.put(BetDestination.dontCome6, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard6,payout(BetDestination.hard6));
-				bets.remove(BetDestination.lay6);
+				chipPiles.remove(BetDestination.lay6);
 				payoutMap.put(BetDestination.lay6, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come6, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come6);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
@@ -257,15 +254,14 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.big8,payout(BetDestination.big8));
 				payoutMap.put(BetDestination.sideBet8,payout(BetDestination.sideBet8));
 				payoutMap.put(BetDestination.buy8,payout(BetDestination.buy8));
-				bets.remove(BetDestination.dontCome8);
+				chipPiles.remove(BetDestination.dontCome8);
 				payoutMap.put(BetDestination.dontCome8, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard8,payout(BetDestination.hard8));
-				bets.remove(BetDestination.lay8);
+				chipPiles.remove(BetDestination.lay8);
 				payoutMap.put(BetDestination.lay8, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come8, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come8);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
@@ -273,13 +269,12 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet9,payout(BetDestination.sideBet9));
 				payoutMap.put(BetDestination.buy9,payout(BetDestination.buy9));
-				bets.remove(BetDestination.dontCome9);
+				chipPiles.remove(BetDestination.dontCome9);
 				payoutMap.put(BetDestination.dontCome9, 0.0);
-				bets.remove(BetDestination.lay9);
+				chipPiles.remove(BetDestination.lay9);
 				payoutMap.put(BetDestination.lay9, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come9, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come9);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
@@ -289,13 +284,12 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.buy10,payout(BetDestination.buy10));
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard10,payout(BetDestination.hard10));
-				bets.remove(BetDestination.dontCome10);
+				chipPiles.remove(BetDestination.dontCome10);
 				payoutMap.put(BetDestination.dontCome10, 0.0);
-				bets.remove(BetDestination.lay10);
+				chipPiles.remove(BetDestination.lay10);
 				payoutMap.put(BetDestination.lay10, 0.0);
-				if (bets.containsKey(BetDestination.come)) {
-					placeBet(BetDestination.come10, bets.get(BetDestination.come));
-					bets.remove(BetDestination.come);
+				if (chipPiles.contains(BetDestination.come)) {
+					chipPiles.move(BetDestination.come, BetDestination.come10);
 					payoutMap.put(BetDestination.come, 0.0);
 				}
 				break;
@@ -327,14 +321,14 @@ public class Craps_Model implements Craps_Interface{
 					}
 					break;
 				case 7:
-					loseGame();
+					//loseGame();
 					break;
 			}
 		}
 		else{
 			if (diceValue==point) {//point get
 				payout(BetDestination.passLine);
-				bets.remove(BetDestination.dontPassBar);
+				chipPiles.remove(BetDestination.dontPassBar);
 				payoutMap.put(BetDestination.dontPassBar, 0.0);
 			}
 			else if(diceValue==7){
@@ -344,12 +338,12 @@ public class Craps_Model implements Craps_Interface{
 		}
 
 		//no matter what, clear the one-roll bets
-		bets.remove(BetDestination.mini2);
-		bets.remove(BetDestination.mini3);
-		bets.remove(BetDestination.mini7);
-		bets.remove(BetDestination.mini11);
-		bets.remove(BetDestination.mini12);
-		bets.remove(BetDestination.mini_any);
+		chipPiles.remove(BetDestination.mini2);
+		chipPiles.remove(BetDestination.mini3);
+		chipPiles.remove(BetDestination.mini7);
+		chipPiles.remove(BetDestination.mini11);
+		chipPiles.remove(BetDestination.mini12);
+		chipPiles.remove(BetDestination.mini_any);
 		payoutMap.put(BetDestination.mini2, 0.0);
 		payoutMap.put(BetDestination.mini3, 0.0);
 		payoutMap.put(BetDestination.mini7, 0.0);
@@ -398,10 +392,7 @@ public class Craps_Model implements Craps_Interface{
     }
 
     public double getTotalBet(){
-		double total=0;
-		for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())
-			total+=bet.getValue();
-		return total;
+		return chipPiles.getTotalBet();
 	}
 
 	public boolean setWallet(double cash){
@@ -414,7 +405,8 @@ public class Craps_Model implements Craps_Interface{
 
     //test functions
 	public void displayBets(){
-		for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())
-			System.out.println(bet.getKey()+" : "+bet.getValue());
+		//for(Map.Entry<BetDestination,Integer> bet : bets.entrySet())
+		//	System.out.println(bet.getKey()+" : "+bet.getValue());
+
 	}
 }

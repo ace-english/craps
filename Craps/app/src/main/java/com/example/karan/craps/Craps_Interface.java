@@ -21,14 +21,15 @@ public interface 	Craps_Interface{
 	/*functions stubs go here*/
 	
 	
-	boolean placeBet(BetDestination betDestination, int betValue); //passes in ID of destination and value to bet
+	boolean placeBet(BetDestination betDestination, int betValue, int x, int y); //passes in ID of destination and value to bet
+																	//requires coordinate touched for chip placement
 																	// returns false if insufficient funds
 
-	boolean newGame(); // This will clear last game and create a new one.
+	//boolean newGame(); // This will clear last game and create a new one.
 
 	Map<BetDestination, Double> rollDice();   // This will roll the dice and process the result. Returns payout map
 
-	boolean loseGame();   // This will execute a Lose game if the Dice rolls didn't go the players way.
+	//boolean loseGame();   // This will execute a Lose game if the Dice rolls didn't go the players way.
 
 	double payout(BetDestination betDestination); //handles payout when player wins a bet. Returns value paid out.
 

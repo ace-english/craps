@@ -176,7 +176,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
             if(dest!=null){
                 String text;
-                if (model.placeBet(dest, selectedChip)) {
+                if (model.placeBet(dest, selectedChip, x, y)) {
                     text= selectedChip + " placed at " + dest.toString();
                 }
                 else{
