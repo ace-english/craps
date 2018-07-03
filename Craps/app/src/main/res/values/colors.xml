@@ -63,6 +63,14 @@
     <color name="c_100">#7e7e7e</color>
     <color name="c_500">#ffff00</color>
     <!--End colors used in the chips map-->
+    
+    <!--point position indicators-->
+    <color name="p_4">#c28553</color>
+    <color name="p_5">#7e7e7e</color>
+    <color name="p_6">#216c29</color>
+    <color name="p_8">#70a3de</color>
+    <color name="p_9">#ff9a9a</color>
+    <color name="p_10">#80691b</color>
 
 </resources>
 
