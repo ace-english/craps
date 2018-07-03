@@ -44,5 +44,9 @@ public interface 	Craps_Interface{
 	double getTotalBet(); //getter, useful for GUI
 
 	boolean setWallet(double cash); //for loading game
+
+	boolean isFirstTurn();
+
+
 		
 }

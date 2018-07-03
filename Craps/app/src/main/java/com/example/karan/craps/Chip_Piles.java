@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.text.Layout;
@@ -58,6 +59,18 @@ public class Chip_Piles {
             render();
         }
 
+        public void cleanup(){
+            if(chips!=null) {
+                for (ImageView chip : chips) {
+                    ((ViewGroup)chip.getParent()).removeView(chip);
+                    layout.removeView(chip);
+                    chip.setVisibility(View.GONE);
+                    chip.setImageResource(android.R.color.transparent);
+                    System.out.println("Chips removed on "+betDest);
+                }
+            }
+
+        }
         public void addTo(int value){
             betValue+=value;
             render();
@@ -68,11 +81,7 @@ public class Chip_Piles {
          */
 
         private void render() {
-            if(chips!=null) {
-                for (ImageView chip : chips) {
-                    chip.setVisibility(View.INVISIBLE);
-                }
-            }
+            cleanup();
             int tempValue = betValue;
             int[] values;
             TypedArray ids;
@@ -126,8 +135,6 @@ public class Chip_Piles {
 
                 for (ImageView IV : chips) {
                     layout.addView(IV);
-                    IV.bringToFront();
-                    System.out.println("Added chip.");
                 }
             }
         }
@@ -154,6 +161,7 @@ public class Chip_Piles {
             pileMap.get(newDest).addTo(pileMap.get(oldDest).betValue);
         }
         else{
+
             //find new x and y
             //TODO
         }
@@ -175,7 +183,10 @@ public class Chip_Piles {
     }
 
     public void remove(BetDestination betDest){
-        pileMap.remove(betDest);
+        if(contains(betDest)) {
+            pileMap.get(betDest).cleanup();
+            pileMap.remove(betDest);
+        }
     }
 
     public boolean contains(BetDestination betDest){
@@ -188,7 +199,7 @@ public class Chip_Piles {
         int payout=0;
         if (pileMap.containsKey(betDest)){
             payout=pileMap.get(betDest).betValue;
-            //remove chips from view
+            pileMap.get(betDest).cleanup();
             remove(betDest);
         }
         return payout;

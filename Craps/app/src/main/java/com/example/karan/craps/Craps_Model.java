@@ -13,11 +13,7 @@ public class Craps_Model implements Craps_Interface{
 	Random rand;
 	private boolean comeOutRoll;
 	int[] dice;
-	//contains dice roll (two)
-	//private Map<BetDestination, Integer> bets;	//replaced with chipPiles
-	//Bets array has an int corresponding to every possible value of betsDestination
 	private Map<BetDestination, Double> odds;
-	//	Stores the payout on any given bet
 	Chip_Piles chipPiles;
 	
 	public Craps_Model(Context context, Activity activity) {
@@ -143,7 +139,7 @@ public class Craps_Model implements Craps_Interface{
 		return payout(betDestination, multiplier);
 	}
 
-	public double payout(BetDestination betDestination, double multiplier){
+	private double payout(BetDestination betDestination, double multiplier){
 		double payout=0;
 
 		if (chipPiles.contains(betDestination)) {
@@ -399,6 +395,7 @@ public class Craps_Model implements Craps_Interface{
 	public int getDiceValue(){
 	    return dice[0]+dice[1];
     }
+
 
     public boolean isFirstTurn(){
 	    return comeOutRoll;

@@ -2,18 +2,21 @@ package com.example.karan.craps;
 
 import android.R.color;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
 public class Color_Finder {
     
     private Context context;
+    private static int tolerance=10;
 
     public Color_Finder(Context context){
         this.context=context;
         
     }
 
-    private int tolerance=10;
 
     public BetDestination findColorMainTable(int clickedColor){
         if (clickedColor==0)
@@ -116,7 +119,7 @@ public class Color_Finder {
         return 0;
     }
 
-    public boolean compare(int color1, int color2){ //returns true if color1 is 'close enough' to color2
+    private static boolean compare(int color1, int color2){ //returns true if color1 is 'close enough' to color2
         if ((int) Math.abs (Color.red (color1) - Color.red (color2)) > tolerance )
             return false;
         if ((int) Math.abs (Color.green (color1) - Color.green (color2)) > tolerance )
@@ -124,5 +127,20 @@ public class Color_Finder {
         if ((int) Math.abs (Color.blue (color1) - Color.blue (color2)) > tolerance )
             return false;
         return true;
+    }
+
+    @Nullable
+    public static int[] findColor(int colorToFind, ImageView IV){  //returns coordinates where color can be found
+        Bitmap bitmap=IV.getDrawingCache();
+        int currentColor, pixel;
+        for (int y=IV.getHeight(); y>=0; y+=5){
+            for (int x=IV.getWidth(); x>=0; x+=5){
+                pixel=bitmap.getPixel(x,y);
+                currentColor=Color.rgb(Color.red(pixel), Color.blue(pixel), Color.green(pixel));
+                if(compare(currentColor,colorToFind))
+                    return new int[]{x,y};
+            }
+        }
+        return null;
     }
 }
