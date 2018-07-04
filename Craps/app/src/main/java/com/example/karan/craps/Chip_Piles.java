@@ -40,21 +40,23 @@ public class Chip_Piles {
             this.context=context;
             this.activity=activity;
             //determine which layout to use
-            switch (betDest){
-                case hard4:
-                case hard6:
-                case hard8:
-                case hard10:
-                case mini2:
-                case mini3:
-                case mini7:
-                case mini11:
-                case mini12:
-                case mini_any:
-                    layout=(FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
-                    break;
-                default:
-                    layout=(FrameLayout) activity.findViewById(R.id.mainTableFrame);
+            if(activity!=null) {
+                switch (betDest) {
+                    case hard4:
+                    case hard6:
+                    case hard8:
+                    case hard10:
+                    case mini2:
+                    case mini3:
+                    case mini7:
+                    case mini11:
+                    case mini12:
+                    case mini_any:
+                        layout = (FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
+                        break;
+                    default:
+                        layout = (FrameLayout) activity.findViewById(R.id.mainTableFrame);
+                }
             }
             render();
         }
@@ -92,7 +94,7 @@ public class Chip_Piles {
 
                 //creates list of chips in largest possible orders
                 for (int i = values.length - 1; i >= 0; i--) {
-                    System.out.println("Checking "+i);
+                    //System.out.println("Checking "+values[i]);
                     int value = values[i];
                     int id = values[i];
                     while (tempValue >= value) {
@@ -109,11 +111,13 @@ public class Chip_Piles {
 
 
                 //creates list of chips in largest possible orders
-                for (int i = values.length - 1; i > 0; i--) {
+                for (int i = values.length - 1; i >= 0; i--) {
                     int value = values[i];
                     int id = ids.getResourceId(i,-1);
+                    //System.out.println("Checking "+value+" : "+context.getResources().getString(id));
                     while (tempValue >= value) {
                         tempChips.add(id);
+                        //System.out.println("Enqueued "+context.getResources().getString(id));
                         tempValue -= value;
                     }
                 }
@@ -128,7 +132,7 @@ public class Chip_Piles {
                     tempIV.setY((float) ypos + yscale);
                     tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
                     chips.add(tempIV);
-                    System.out.println("Added at "+xpos+","+(ypos+yscale));
+                    System.out.println("Added "+context.getResources().getString(tempChip));
                     yscale -= yshift;
                 }
 
@@ -156,15 +160,49 @@ public class Chip_Piles {
 
     }
 
-    public void move(BetDestination oldDest, BetDestination newDest){
-        if(pileMap.containsKey(newDest)){
+    public void move(BetDestination oldDest, BetDestination newDest) throws Exception{
+        if(pileMap.containsKey(newDest)){   //add to old dest
             pileMap.get(newDest).addTo(pileMap.get(oldDest).betValue);
         }
-        else{
+        else{   //create new dest
+            if(activity==null)  //test drive
+                add(0,0,pileMap.get(oldDest).betValue,newDest);
+            else {      //find color of new location
+                int color;
+                switch (newDest){
+                    case come4:
+                    case dontCome4:
+                        color=context.getResources().getColor(R.color.t_four);
+                        break;
+                    case come5:
+                    case dontCome5:
+                        color=context.getResources().getColor(R.color.t_five);
+                        break;
+                    case come6:
+                    case dontCome6:
+                        color=context.getResources().getColor(R.color.t_six);
+                        break;
+                    case come8:
+                    case dontCome8:
+                        color=context.getResources().getColor(R.color.t_eight);
+                        break;
+                    case come9:
+                    case dontCome9:
+                        color=context.getResources().getColor(R.color.t_nine);
+                        break;
+                    case come10:
+                    case dontCome10:
+                        color=context.getResources().getColor(R.color.t_ten);
+                        break;
+                    default:
+                        throw new Exception("Invalid move attempted.");
 
-            //find new x and y
-            //TODO
+                }
+                int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
+                add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
+            }
         }
+        System.out.println("Moved "+pileMap.get(newDest).betValue +" from "+oldDest +" to "+newDest);
         remove(oldDest);
     }
 
@@ -210,6 +248,12 @@ public class Chip_Piles {
         for(Map.Entry<BetDestination,Chip_Pile> bet : pileMap.entrySet())
             total+=bet.getValue().betValue;
         return total;
+    }
+
+    public void clearAll(){
+        for(BetDestination dest : BetDestination.values()){
+            remove(dest);
+        }
     }
 
     //for test

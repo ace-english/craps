@@ -17,7 +17,6 @@ public class Craps_Model implements Craps_Interface{
 	Chip_Piles chipPiles;
 	
 	public Craps_Model(Context context, Activity activity) {
-		chipPiles= new Chip_Piles(context, activity);
         rand= new Random();
 		dice = new int[2];
 		wallet=500;
@@ -70,7 +69,7 @@ public class Craps_Model implements Craps_Interface{
 		dice[1]=rand.nextInt(6)+1;
 	}
 
-	public boolean placeBet(BetDestination betDestination, int betValue, int x, int y)	//returns false if insufficient funds
+	public String placeBet(BetDestination betDestination, int betValue, int x, int y)	//returns false if insufficient funds
 	{
 		if(comeOutRoll){
 			switch (betDestination){	//these are bets you cannot place on the come out roll.
@@ -86,18 +85,19 @@ public class Craps_Model implements Craps_Interface{
 				case hard10:
 				case come:
 				case dontCome:
-					System.err.println("That is not allowed on the come out roll.");
-					return false;
+					return "That is not allowed on the come out roll.";
 			}
+		}
+		if((betDestination==BetDestination.come)&&chipPiles.contains(BetDestination.dontCome)) {
+			return "Cannot bet on Come and Don't Come at the same time.";
 		}
 		if(wallet >= betValue){
 			wallet-=betValue;
 			chipPiles.add(x,y,betValue,betDestination);
-			return true;
+			return null;
 		}
 		else {
-			System.err.println("Insufficient funds.");
-			return false;
+			return "Insufficient funds";
 		}
 	}
 
@@ -175,6 +175,7 @@ public class Craps_Model implements Craps_Interface{
 					//point
 					point=diceValue;
 					comeOutRoll=false;
+					//TODO:move puck
 			}
 
 		}
@@ -183,7 +184,8 @@ public class Craps_Model implements Craps_Interface{
 			if (diceValue==point) {    //if you get your point, win pass
 				payoutMap.put(BetDestination.passLine, payout(BetDestination.passLine));
 				chipPiles.remove(BetDestination.dontPassBar);
-
+				point=0;
+				//TODO: move point puck
 			}
 		}
 //payout for everything else
@@ -207,10 +209,8 @@ public class Craps_Model implements Craps_Interface{
 					payoutMap.put(BetDestination.hard4,payout(BetDestination.hard4));
 				chipPiles.remove(BetDestination.lay4);
 				payoutMap.put(BetDestination.lay4, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come4);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come4);
+				move(BetDestination.dontCome, BetDestination.dontCome4);
 				break;
 			case 5:
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet5));
@@ -219,10 +219,8 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.dontCome5, 0.0);
 				chipPiles.remove(BetDestination.lay5);
 				payoutMap.put(BetDestination.lay5, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come5);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come5);
+				move(BetDestination.dontCome, BetDestination.dontCome5);
 
 				break;
 			case 6:
@@ -235,10 +233,8 @@ public class Craps_Model implements Craps_Interface{
 					payoutMap.put(BetDestination.hard6,payout(BetDestination.hard6));
 				chipPiles.remove(BetDestination.lay6);
 				payoutMap.put(BetDestination.lay6, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come6);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come6);
+				move(BetDestination.dontCome, BetDestination.dontCome6);
 				break;
 			case 7:
 				payoutMap.put(BetDestination.lay4,payout(BetDestination.lay4));
@@ -256,6 +252,7 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.dontPassBar,payout(BetDestination.dontPassBar));
 				payoutMap.put(BetDestination.mini7,payout(BetDestination.mini7));
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
+				chipPiles.clearAll();
 				break;
 			case 8:
 				payoutMap.put(BetDestination.big8,payout(BetDestination.big8));
@@ -267,10 +264,8 @@ public class Craps_Model implements Craps_Interface{
 					payoutMap.put(BetDestination.hard8,payout(BetDestination.hard8));
 				chipPiles.remove(BetDestination.lay8);
 				payoutMap.put(BetDestination.lay8, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come8);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come8);
+				move(BetDestination.dontCome, BetDestination.dontCome8);
 				break;
 			case 9:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
@@ -280,10 +275,8 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.dontCome9, 0.0);
 				chipPiles.remove(BetDestination.lay9);
 				payoutMap.put(BetDestination.lay9, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come9);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come9);
+				move(BetDestination.dontCome, BetDestination.dontCome9);
 				break;
 			case 10:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
@@ -295,10 +288,8 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.dontCome10, 0.0);
 				chipPiles.remove(BetDestination.lay10);
 				payoutMap.put(BetDestination.lay10, 0.0);
-				if (chipPiles.contains(BetDestination.come)) {
-					chipPiles.move(BetDestination.come, BetDestination.come10);
-					payoutMap.put(BetDestination.come, 0.0);
-				}
+				move(BetDestination.come, BetDestination.come10);
+				move(BetDestination.dontCome, BetDestination.dontCome10);
 				break;
 			case 11:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
@@ -413,9 +404,22 @@ public class Craps_Model implements Craps_Interface{
         return false;
     }
 
+	private void move(BetDestination oldDest, BetDestination newDest){
+		if (chipPiles.contains(oldDest)) {
+			try {
+				chipPiles.move(oldDest, newDest);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
     //test functions
 	public void displayBets(){
 		chipPiles.printMap();
 
 	}
+
+
 }

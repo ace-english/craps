@@ -21,7 +21,7 @@ public interface 	Craps_Interface{
 	/*functions stubs go here*/
 	
 	
-	boolean placeBet(BetDestination betDestination, int betValue, int x, int y); //passes in ID of destination and value to bet
+	String placeBet(BetDestination betDestination, int betValue, int x, int y); //passes in ID of destination and value to bet
 																	//requires coordinate touched for chip placement
 																	// returns false if insufficient funds
 

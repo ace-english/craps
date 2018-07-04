@@ -128,10 +128,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         }
         if (v.getId()==R.id.buyButton)
         {
-            //buy function button
-            //insert microtransactions
-
-            Toast.makeText(getApplicationContext(), "Gimme microtransaction",Toast.LENGTH_LONG).show();
+            payUp();
         }
         if (v.getId()==R.id.rollButton)
         {
@@ -158,6 +155,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             Toast.makeText(this, "Select a chip first", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if(model.getWallet()<selectedChip){
+            payUp();
+            return false;
+        }
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             int x, y;
             x = (int) event.getX();
@@ -176,12 +177,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 dest = color_finder.findColorMiniTable(touchColor);
             }
             if(dest!=null){
-                String text;
-                if (model.placeBet(dest, selectedChip, x, y)) {
+                String text=model.placeBet(dest, selectedChip, x, y);
+                if (text==null) {
                     text= selectedChip + " placed at " + dest.toString();
-                }
-                else{
-                    text="Cannot bet at "+ dest.toString() +"at this time";
                 }
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
 
@@ -237,6 +235,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private String cashFormatter(double value){
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         return formatter.format(value);
+    }
+
+    private boolean payUp(){
+        Toast.makeText(getApplicationContext(), "Gimme microtransaction",Toast.LENGTH_LONG).show();
+        return true;
     }
 
     private boolean save(){

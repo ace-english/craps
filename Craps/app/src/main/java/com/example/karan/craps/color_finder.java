@@ -101,6 +101,8 @@ public class Color_Finder {
     }
 
     public int findChip(int clickedColor){
+        if (clickedColor==0)
+            return 0;
         if(compare(clickedColor, context.getResources().getColor(R.color.c_1)))
             return 1;
         if(compare(clickedColor, context.getResources().getColor(R.color.c_5)))
