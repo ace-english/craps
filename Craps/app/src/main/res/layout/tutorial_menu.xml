@@ -32,11 +32,12 @@
             app:srcCompat="@drawable/tutorial_titlecard" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/learnLayout"
             style="@style/MenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="onClick"
+            android:text="Learn Layout" />
 
         <Button
             android:id="@+id/button3"
