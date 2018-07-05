@@ -4,6 +4,8 @@ import android.R.color;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
@@ -101,8 +103,6 @@ public class Color_Finder {
     }
 
     public int findChip(int clickedColor){
-        if (clickedColor==0)
-            return 0;
         if(compare(clickedColor, context.getResources().getColor(R.color.c_1)))
             return 1;
         if(compare(clickedColor, context.getResources().getColor(R.color.c_5)))
@@ -122,6 +122,8 @@ public class Color_Finder {
     }
 
     private static boolean compare(int color1, int color2){ //returns true if color1 is 'close enough' to color2
+        if(color1==0)
+            return false;
         if ((int) Math.abs (Color.red (color1) - Color.red (color2)) > tolerance )
             return false;
         if ((int) Math.abs (Color.green (color1) - Color.green (color2)) > tolerance )
@@ -133,16 +135,23 @@ public class Color_Finder {
 
     @Nullable
     public static int[] findColor(int colorToFind, ImageView IV){  //returns coordinates where color can be found
-        Bitmap bitmap=IV.getDrawingCache();
+        IV.setDrawingCacheEnabled(true);
+        Bitmap bitmap=Bitmap.createBitmap(IV.getDrawingCache());
         int currentColor, pixel;
-        for (int y=IV.getHeight(); y>=0; y+=5){
-            for (int x=IV.getWidth(); x>=0; x+=5){
+        int height=IV.getHeight(), width=IV.getWidth();
+        for (int y=0; y<height; y+=5){
+            for (int x=0; x<width; x+=5){
                 pixel=bitmap.getPixel(x,y);
                 currentColor=Color.rgb(Color.red(pixel), Color.blue(pixel), Color.green(pixel));
-                if(compare(currentColor,colorToFind))
-                    return new int[]{x,y};
+                if(currentColor!=0) {
+                    if (compare(currentColor, colorToFind)) {
+                        System.out.println("Found it! " + x + "," + y+"\t"+(currentColor==colorToFind));
+                        return new int[]{x, y};
+                    }
+                }
             }
         }
         return null;
+
     }
 }

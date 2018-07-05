@@ -203,8 +203,7 @@ public class Craps_Model implements Craps_Interface{
 			case 4:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet4));
-				chipPiles.remove(BetDestination.dontCome4);
-				payoutMap.put(BetDestination.dontCome4, 0.0);
+				payoutMap.put(BetDestination.come4,payout(BetDestination.come4));
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard4,payout(BetDestination.hard4));
 				chipPiles.remove(BetDestination.lay4);
@@ -215,20 +214,21 @@ public class Craps_Model implements Craps_Interface{
 			case 5:
 				payoutMap.put(BetDestination.sideBet4,payout(BetDestination.sideBet5));
 				payoutMap.put(BetDestination.buy5,payout(BetDestination.buy5));
-				chipPiles.remove(BetDestination.dontCome5);
-				payoutMap.put(BetDestination.dontCome5, 0.0);
+				payoutMap.put(BetDestination.come5,payout(BetDestination.come5));
 				chipPiles.remove(BetDestination.lay5);
+				chipPiles.remove(BetDestination.dontCome5);
 				payoutMap.put(BetDestination.lay5, 0.0);
 				move(BetDestination.come, BetDestination.come5);
 				move(BetDestination.dontCome, BetDestination.dontCome5);
+
 
 				break;
 			case 6:
 				payoutMap.put(BetDestination.big6,payout(BetDestination.big6));
 				payoutMap.put(BetDestination.sideBet6,payout(BetDestination.sideBet6));
 				payoutMap.put(BetDestination.buy6,payout(BetDestination.buy6));
+				payoutMap.put(BetDestination.come6,payout(BetDestination.come6));
 				chipPiles.remove(BetDestination.dontCome6);
-				payoutMap.put(BetDestination.dontCome6, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard6,payout(BetDestination.hard6));
 				chipPiles.remove(BetDestination.lay6);
@@ -258,8 +258,8 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.big8,payout(BetDestination.big8));
 				payoutMap.put(BetDestination.sideBet8,payout(BetDestination.sideBet8));
 				payoutMap.put(BetDestination.buy8,payout(BetDestination.buy8));
+				payoutMap.put(BetDestination.come8,payout(BetDestination.come8));
 				chipPiles.remove(BetDestination.dontCome8);
-				payoutMap.put(BetDestination.dontCome8, 0.0);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard8,payout(BetDestination.hard8));
 				chipPiles.remove(BetDestination.lay8);
@@ -271,8 +271,8 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet9,payout(BetDestination.sideBet9));
 				payoutMap.put(BetDestination.buy9,payout(BetDestination.buy9));
+				payoutMap.put(BetDestination.come9,payout(BetDestination.come9));
 				chipPiles.remove(BetDestination.dontCome9);
-				payoutMap.put(BetDestination.dontCome9, 0.0);
 				chipPiles.remove(BetDestination.lay9);
 				payoutMap.put(BetDestination.lay9, 0.0);
 				move(BetDestination.come, BetDestination.come9);
@@ -282,10 +282,10 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.sideBet10,payout(BetDestination.sideBet10));
 				payoutMap.put(BetDestination.buy10,payout(BetDestination.buy10));
+				payoutMap.put(BetDestination.come10,payout(BetDestination.come10));
+				chipPiles.remove(BetDestination.dontCome10);
 				if (dice[0] == dice[1])
 					payoutMap.put(BetDestination.hard10,payout(BetDestination.hard10));
-				chipPiles.remove(BetDestination.dontCome10);
-				payoutMap.put(BetDestination.dontCome10, 0.0);
 				chipPiles.remove(BetDestination.lay10);
 				payoutMap.put(BetDestination.lay10, 0.0);
 				move(BetDestination.come, BetDestination.come10);

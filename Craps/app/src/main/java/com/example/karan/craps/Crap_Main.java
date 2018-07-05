@@ -208,7 +208,6 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private void setDiceDisplay(){
-
         int[] diceImages = {R.drawable.die1,R.drawable.die2,R.drawable.die3,R.drawable.die4,R.drawable.die5,R.drawable.die6};
         Die1.setImageResource(diceImages[model.getDie1()-1]);
         Die2.setImageResource(diceImages[model.getDie2()-1]);

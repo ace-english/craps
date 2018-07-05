@@ -64,11 +64,13 @@ public class Chip_Piles {
         public void cleanup(){
             if(chips!=null) {
                 for (ImageView chip : chips) {
-                    ((ViewGroup)chip.getParent()).removeView(chip);
-                    layout.removeView(chip);
-                    chip.setVisibility(View.GONE);
-                    chip.setImageResource(android.R.color.transparent);
-                    System.out.println("Chips removed on "+betDest);
+                    if(chip!=null) {
+                        ((ViewGroup) chip.getParent()).removeView(chip);
+                        layout.removeView(chip);
+                        chip.setVisibility(View.GONE);
+                        chip.setImageResource(android.R.color.transparent);
+                        System.out.println("Chips removed on " + betDest);
+                    }
                 }
             }
 
@@ -84,6 +86,7 @@ public class Chip_Piles {
 
         private void render() {
             cleanup();
+            System.out.println("Rendering for "+betDest);
             int tempValue = betValue;
             int[] values;
             TypedArray ids;
@@ -132,7 +135,7 @@ public class Chip_Piles {
                     tempIV.setY((float) ypos + yscale);
                     tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
                     chips.add(tempIV);
-                    System.out.println("Added "+context.getResources().getString(tempChip));
+                    //System.out.println("Added "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
                     yscale -= yshift;
                 }
 
@@ -199,11 +202,15 @@ public class Chip_Piles {
 
                 }
                 int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
+                if(coords==null)
+                    throw new Exception("Unable to find coordinate.");
                 add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
+                System.out.println("Coords for "+newDest+": "+coords[0]+","+coords[1]);
             }
         }
         System.out.println("Moved "+pileMap.get(newDest).betValue +" from "+oldDest +" to "+newDest);
         remove(oldDest);
+        pileMap.get(newDest).render();
     }
 
     public void add(int x, int y, int betValue, BetDestination betDest){

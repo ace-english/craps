@@ -19,7 +19,7 @@
     <color name="t_big8">#094355</color>
     <color name="t_big6">#500000</color>
     <color name="t_dontcome">#6a7abc</color>
-    <color name="t_come">#d76f6f</color>
+    <color name="t_come">#000000</color>
 
     <color name="t_four">#ffff00</color>
     <color name="t_fourLay">#f97af1</color>
@@ -27,7 +27,7 @@
     <color name="t_five">#ffffff</color>
     <color name="t_fiveLay">#ffbf00</color>
     <color name="t_fiveBuy">#b996fc</color>
-    <color name="t_six">#000000</color>
+    <color name="t_six">#d76f6f</color>
     <color name="t_sixLay">#9c003f</color>
     <color name="t_sixBuy">#4dba7a</color>
     <color name="t_eight">#0000ff</color>

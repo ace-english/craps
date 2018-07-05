@@ -84,6 +84,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buyTextWrapper">
 
+
+
             <ImageView
                 android:id="@+id/mainTableMap"
                 android:layout_width="match_parent"
@@ -104,6 +106,12 @@
                 android:contentDescription="@string/mainTableDescription"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/main_table" />
+
+            <ImageView
+                android:id="@+id/pointOff"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/point_off" />
 
         </FrameLayout>
 
