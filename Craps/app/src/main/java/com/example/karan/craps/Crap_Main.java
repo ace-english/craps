@@ -20,7 +20,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 {
     String saveFileName;
     private Craps_Interface model;
-    private com.example.karan.craps.color_finder color_finder;
+    private Color_Finder color_finder;
 
     private View rollButton;
     private View Buy;
@@ -47,7 +47,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         model = new Craps_Model(this, this);
-        color_finder = new color_finder(this);
+        color_finder = new Color_Finder(this);
         setContentView(R.layout.activity_crap__main);
         Intent intent = getIntent();
         saveFileName = getResources().getString(R.string.saveFileName);

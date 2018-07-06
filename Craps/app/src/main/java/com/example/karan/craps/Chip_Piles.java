@@ -117,10 +117,10 @@ public class Chip_Piles {
                 for (int i = values.length - 1; i >= 0; i--) {
                     int value = values[i];
                     int id = ids.getResourceId(i,-1);
-                    //System.out.println("Checking "+value+" : "+context.getResources().getString(id));
+                    System.out.println("Checking "+value+" : "+context.getResources().getString(id));
                     while (tempValue >= value) {
                         tempChips.add(id);
-                        //System.out.println("Enqueued "+context.getResources().getString(id));
+                        System.out.println("Enqueued "+context.getResources().getString(id));
                         tempValue -= value;
                     }
                 }
@@ -135,7 +135,7 @@ public class Chip_Piles {
                     tempIV.setY((float) ypos + yscale);
                     tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
                     chips.add(tempIV);
-                    //System.out.println("Added "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
+                    System.out.println("Added "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
                     yscale -= yshift;
                 }
 
@@ -201,9 +201,13 @@ public class Chip_Piles {
                         throw new Exception("Invalid move attempted.");
 
                 }
+<<<<<<< HEAD
                 int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
                 if(coords==null)
                     throw new Exception("Unable to find coordinate.");
+=======
+                int[] coords = color_finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
+>>>>>>> 2ef150a833b6393892e0405df9a48973a1c0d2f0
                 add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
                 System.out.println("Coords for "+newDest+": "+coords[0]+","+coords[1]);
             }

@@ -9,12 +9,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
-public class color_finder {
+public class Color_Finder {
     
     private Context context;
     private static int tolerance=10;
 
-    public color_finder(Context context){
+    public Color_Finder(Context context){
         this.context=context;
         
     }
