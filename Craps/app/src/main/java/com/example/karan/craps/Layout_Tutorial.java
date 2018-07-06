@@ -19,28 +19,7 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial_layout);
         Intent intent = getIntent();
-
-//        Numbers = findViewById(R.id.Numbers);
-//        Roll_Rules = findViewById(R.id.Roll_Rules);
-//        Come = findViewById(R.id.Come);
-//        Dont_Come = findViewById(R.id.Dont_Come);
-//        Chips = findViewById(R.id.Chips);
-//        Field = findViewById(R.id.Field);
-//        Dont_Pass = findViewById(R.id.Dont_Pass);
-//        Dont_Pass_2 = findViewById(R.id.Dont_Pass_2);
-//        Pass = findViewById(R.id.Pass);
-//        Big = findViewById(R.id.Big);
-//
-//        Numbers.setOnClickListener(this);
-//        Roll_Rules.setOnClickListener(this);
-//        Come.setOnClickListener(this);
-//        Dont_Come.setOnClickListener(this);
-//        Chips.setOnClickListener(this);
-//        Field.setOnClickListener(this);
-//        Dont_Pass.setOnClickListener(this);
-//        Dont_Pass_2.setOnClickListener(this);
-//        Pass.setOnClickListener(this);
-//        Big.setOnClickListener(this);
+        
     }
 
 
