@@ -30,11 +30,5 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this, Tutorial.class);
             startActivity(intent);
         }
-        if (v.getId()==R.id.Numbers){
-            new FancyShowCaseView.Builder(this)
-                    .title("Numbers is clicked")
-                    .build()
-                    .show();
-        }
     }
 }
