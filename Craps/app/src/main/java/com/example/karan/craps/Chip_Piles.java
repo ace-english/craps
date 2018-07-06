@@ -199,7 +199,7 @@ public class Chip_Piles {
                         throw new Exception("Invalid move attempted.");
 
                 }
-                int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
+                int[] coords = color_finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
                 add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
                 System.out.println("Coords for "+newDest+": "+coords[0]+","+coords[1]);
             }

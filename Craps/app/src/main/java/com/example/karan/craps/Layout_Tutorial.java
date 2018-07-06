@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class Layout_Tutorial extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +22,9 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnClickLi
         if (v.getId()==R.id.backButton){
             Intent intent = new Intent(this, Tutorial.class);
             startActivity(intent);
+        }
+        if (v.getId()==R.id.Numbers){
+            Toast.makeText(this, "Numbers is selected", Toast.LENGTH_SHORT).show();
         }
     }
 }
