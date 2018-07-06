@@ -18,10 +18,13 @@ import android.view.inputmethod.EditorInfo;
 import android.content.Intent;
 import android.app.Activity;
 import android.widget.Toast;
+import android.widget.Button;
 
 public class Tutorial extends AppCompatActivity implements OnClickListener
 {
     View backButton;
+    private Button tLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,9 +32,12 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.tutorial_menu);
         Intent intent = getIntent();
 
-
         backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(this);
+
+        tLayout = findViewById(R.id.learnLayout);
+        tLayout.setOnClickListener(this);
+
 
 
     }
@@ -40,8 +46,12 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
 
     @Override
     public void onClick(View v) {
-        Intent next = new Intent(this, Homescreen.class);
-        startActivity(next);
+
+        if (v.getId()==R.id.learnLayout)
+        {
+            Intent intent = new Intent(this, Layout_Tutorial.class);
+            startActivity(intent);
+        }
     }
 
 
