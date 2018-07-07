@@ -145,7 +145,7 @@ public class Color_Finder {
                 currentColor=Color.rgb(Color.red(pixel), Color.blue(pixel), Color.green(pixel));
                 if(currentColor!=0) {
                     if (compare(currentColor, colorToFind)) {
-                        System.out.println("Found it! " + x + "," + y+"\t"+(currentColor==colorToFind));
+                        System.out.println("Found it! " + x + "," + y+"\t"+Integer.toHexString(colorToFind));
                         return new int[]{x, y};
                     }
                 }

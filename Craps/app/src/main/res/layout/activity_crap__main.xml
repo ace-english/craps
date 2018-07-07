@@ -105,6 +105,11 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/main_table" />
 
+            <ImageView
+                android:id="@+id/pointOff"
+                style="@style/Chip"
+                app:srcCompat="@drawable/point_off" />
+
         </FrameLayout>
 
 

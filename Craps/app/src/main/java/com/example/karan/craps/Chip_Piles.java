@@ -65,7 +65,6 @@ public class Chip_Piles {
             if(chips!=null) {
                 for (ImageView chip : chips) {
                     if(chip!=null) {
-                        ((ViewGroup) chip.getParent()).removeView(chip);
                         layout.removeView(chip);
                         chip.setVisibility(View.GONE);
                         chip.setImageResource(android.R.color.transparent);
@@ -106,7 +105,7 @@ public class Chip_Piles {
                     }
                 }
 
-                System.out.println("Chips rendered on "+betDest+": "+tempChips.toString());
+                //System.out.println("Chips rendered on "+betDest+": "+tempChips.toString());
 
             } else {
                 values = context.getResources().getIntArray(R.array.chip_values);
@@ -117,10 +116,10 @@ public class Chip_Piles {
                 for (int i = values.length - 1; i >= 0; i--) {
                     int value = values[i];
                     int id = ids.getResourceId(i,-1);
-                    System.out.println("Checking "+value+" : "+context.getResources().getString(id));
+                   // System.out.println("Checking "+value+" : "+context.getResources().getString(id));
                     while (tempValue >= value) {
                         tempChips.add(id);
-                        System.out.println("Enqueued "+context.getResources().getString(id));
+                       // System.out.println("Enqueued "+context.getResources().getString(id));
                         tempValue -= value;
                     }
                 }
@@ -129,13 +128,13 @@ public class Chip_Piles {
                 int yscale = 0;
                 //chips now contains linked list of chip ids in optimal order
                 for (int tempChip:tempChips) {
-                    tempIV = new ImageView(context);
+                    tempIV = new ImageView(context, null, R.style.Chip);
                     tempIV.setBackgroundResource(tempChip);
                     tempIV.setX((float) xpos);
                     tempIV.setY((float) ypos + yscale);
                     tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
                     chips.add(tempIV);
-                    System.out.println("Added "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
+                    System.out.println("\nAdded "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
                     yscale -= yshift;
                 }
 
@@ -185,14 +184,16 @@ public class Chip_Piles {
                     case dontCome6:
                         color=context.getResources().getColor(R.color.t_six);
                         break;
+                        /*I know these are backwards*/
                     case come8:
                     case dontCome8:
-                        color=context.getResources().getColor(R.color.t_eight);
+                        color=context.getResources().getColor(R.color.t_nine);
                         break;
                     case come9:
                     case dontCome9:
-                        color=context.getResources().getColor(R.color.t_nine);
+                        color=context.getResources().getColor(R.color.t_eight);
                         break;
+                        /*it works shhhh*/
                     case come10:
                     case dontCome10:
                         color=context.getResources().getColor(R.color.t_ten);
@@ -202,15 +203,18 @@ public class Chip_Piles {
 
                 }
                 int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
-                if(coords==null)
-                    throw new Exception("Unable to find coordinate.");
-                add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
-                System.out.println("Coords for "+newDest+": "+coords[0]+","+coords[1]);
+                if(coords==null) {
+                    System.err.println("Unable to find coordinates.");
+                }
+                else {
+                    System.out.println("Coords for " + newDest + ": " + coords[0] + "," + coords[1]);
+                    add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
+                    System.out.println("Moved "+pileMap.get(newDest).betValue +" from "+oldDest +" to "+newDest);
+                    remove(oldDest);
+                    pileMap.get(newDest).render();
+                }
             }
         }
-        System.out.println("Moved "+pileMap.get(newDest).betValue +" from "+oldDest +" to "+newDest);
-        remove(oldDest);
-        pileMap.get(newDest).render();
     }
 
     public void add(int x, int y, int betValue, BetDestination betDest){
@@ -220,11 +224,12 @@ public class Chip_Piles {
             pile.addTo(betValue);
         }
         else{
+            System.out.println("Creating new chip pile at "+x+","+y);
             pile=new Chip_Pile(x, y, betValue, betDest, context, activity);
             pileMap.put(betDest, pile);
         }
 
-        //pile.render(); //redundant?
+        pile.render(); //redundant?
     }
 
     public void remove(BetDestination betDest){

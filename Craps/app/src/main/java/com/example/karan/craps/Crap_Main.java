@@ -241,6 +241,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         return true;
     }
 
+    private void changePoint(int point){
+        switch (point):
+        
+    }
+
     private boolean save(){
         try {
             FileOutputStream f; DataOutputStream d;

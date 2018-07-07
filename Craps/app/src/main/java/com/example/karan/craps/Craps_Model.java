@@ -214,11 +214,16 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.mini2,payout(BetDestination.mini2));
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
 				payoutMap.put(BetDestination.field,payout(BetDestination.field, 2));
+				chipPiles.remove(BetDestination.come);
+				chipPiles.remove(BetDestination.dontCome);
+
 				break;
 			case 3:
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.mini3,payout(BetDestination.mini3));
+				chipPiles.remove(BetDestination.come);
+				chipPiles.remove(BetDestination.dontCome);
 				break;
 			case 4:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
@@ -316,12 +321,15 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.field,payout(BetDestination.field));
 				payoutMap.put(BetDestination.mini11,payout(BetDestination.mini11));
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
-
+				chipPiles.remove(BetDestination.come);
+				chipPiles.remove(BetDestination.dontCome);
 				break;
 			case 12:
 				payoutMap.put(BetDestination.field,payout(BetDestination.field, 3));
 				payoutMap.put(BetDestination.mini12,payout(BetDestination.mini12));
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
+				chipPiles.remove(BetDestination.come);
+				chipPiles.remove(BetDestination.dontCome);
 				break;
 		}
 
