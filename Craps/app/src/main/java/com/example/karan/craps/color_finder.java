@@ -143,6 +143,7 @@ public class Color_Finder {
             for (int x=0; x<width; x+=5){
                 pixel=bitmap.getPixel(x,y);
                 currentColor=Color.rgb(Color.red(pixel), Color.blue(pixel), Color.green(pixel));
+                System.out.println("Trying " + x + "," + y+"\t"+Integer.toHexString(currentColor));
                 if(currentColor!=0) {
                     if (compare(currentColor, colorToFind)) {
                         System.out.println("Found it! " + x + "," + y+"\t"+Integer.toHexString(colorToFind));

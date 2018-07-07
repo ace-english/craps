@@ -1,6 +1,7 @@
 package com.example.karan.craps;
 
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -36,11 +37,12 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private View chips;
 
     private Chip_Piles chipPiles;
+    private int currentPoint;
 
     private int selectedChip;
 
     private ImageView Die1, Die2;
-
+    private ImageView pointOn, pointOff;
 
     /*Area for creating the onclick listeners and objects for use in the program*/
     @Override
@@ -54,6 +56,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
         //load();
         selectedChip = 0;
+        currentPoint=0;
 
         rollButton = findViewById(R.id.rollButton);
 
@@ -67,6 +70,8 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         TotalBetTextView = findViewById(R.id.totalBetBox);
         TotalWinsTextView = findViewById(R.id.totalWinsBox);
         chips=findViewById(R.id.chips);
+        pointOn=findViewById(R.id.pointOn);
+        pointOff=findViewById(R.id.pointOff);
 
 
         Die1 = findViewById(R.id.die1);
@@ -195,7 +200,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private void updateViews(Map<BetDestination, Double> payoutMap){
-
+        if(currentPoint!=model.getPointValue()){
+            changePoint(model.getPointValue());
+        }
         double payout=0.0;
         if(payoutMap!=null) {
             for (Map.Entry<BetDestination, Double> bet : payoutMap.entrySet()) {
@@ -242,8 +249,46 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private void changePoint(int point){
-        switch (point):
-        
+        currentPoint=point;
+        if(point==0){
+            pointOn.setVisibility(View.INVISIBLE);
+            pointOff.setVisibility(View.VISIBLE);
+        }
+        else {
+            pointOn.setVisibility(View.VISIBLE);
+            pointOff.setVisibility(View.INVISIBLE);
+            int color;
+            switch (point) {
+                case 4:
+                    color = R.color.p_4;
+                    break;
+                case 5:
+                    color = R.color.p_5;
+                    break;
+                case 6:
+                    color = R.color.p_6;
+                    break;
+                case 8:
+                    color = R.color.p_8;
+                    break;
+                case 9:
+                    color = R.color.p_9;
+                    break;
+                case 10:
+                    color = R.color.p_10;
+                    break;
+                default:
+                    return;
+            }
+            int[] coords = Color_Finder.findColor(getResources().getColor(color), (ImageView) MainTable);
+            if(coords==null) {
+                //pointOn.setX(MainTable.getWidth());
+                System.err.println("Could not move point.");
+            }else {
+                pointOn.setX(coords[0]);
+            }
+        }
+
     }
 
     private boolean save(){

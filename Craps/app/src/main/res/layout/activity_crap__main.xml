@@ -108,7 +108,14 @@
             <ImageView
                 android:id="@+id/pointOff"
                 style="@style/Chip"
+                android:visibility="visible"
                 app:srcCompat="@drawable/point_off" />
+
+            <ImageView
+                android:id="@+id/pointOn"
+                style="@style/Chip"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/point_on" />
 
         </FrameLayout>
 
