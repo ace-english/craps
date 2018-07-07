@@ -11,7 +11,7 @@ public class Craps_Model implements Craps_Interface{
 	private double wallet; //contains user's money
 	private int point;  //keeps track of the point value;
 	Random rand;
-	private boolean comeOutRoll;
+	//private boolean comeOutRoll;
 	int[] dice;
 	private Map<BetDestination, Double> odds;
 	Chip_Piles chipPiles;
@@ -22,7 +22,8 @@ public class Craps_Model implements Craps_Interface{
 		wallet=500;
 		//bets=new TreeMap<>();
 		chipPiles=new Chip_Piles(context, activity);
-
+		//comeOutRoll=true;
+		resetPoint();
 		odds=new TreeMap<>();
 		//initalize odds
 		for(BetDestination dest : BetDestination.values()){
@@ -71,7 +72,7 @@ public class Craps_Model implements Craps_Interface{
 
 	public String placeBet(BetDestination betDestination, int betValue, int x, int y)	//returns false if insufficient funds
 	{
-		if(comeOutRoll){
+		if(isFirstTurn()){
 			switch (betDestination){	//these are bets you cannot place on the come out roll.
 				case sideBet4:
 				case sideBet5:
@@ -150,12 +151,27 @@ public class Craps_Model implements Craps_Interface{
 		}
 		return payout;
 	}
-	
 	public Map<BetDestination, Double> rollDice() {
-		initializeDice();
-		int diceValue=getDiceValue();
+		return rollDice(0);
+	}
+
+	public Map<BetDestination, Double> rollDice(int cheatedValue) {
+		int diceValue;
+		if(cheatedValue==0) {
+			initializeDice();
+			diceValue = getDiceValue();
+		}
+		else{
+			if((cheatedValue<=12)&&(cheatedValue>=2)) {
+				diceValue = cheatedValue;
+			}
+			else {
+				System.err.println("Cheated value invalid");
+				return null;
+			}
+		}
 		Map<BetDestination, Double> payoutMap = new TreeMap<>();
-		if(comeOutRoll) {
+		if(isFirstTurn()) {
 			//on first roll, three things can happen
 			switch(diceValue) {
 				case 2:
@@ -173,8 +189,12 @@ public class Craps_Model implements Craps_Interface{
 					break;
 				default:
 					//point
-					point=diceValue;
-					comeOutRoll=false;
+					try {
+						setPoint(diceValue);
+						//comeOutRoll=false;
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					//TODO:move puck
 			}
 
@@ -184,7 +204,7 @@ public class Craps_Model implements Craps_Interface{
 			if (diceValue==point) {    //if you get your point, win pass
 				payoutMap.put(BetDestination.passLine, payout(BetDestination.passLine));
 				chipPiles.remove(BetDestination.dontPassBar);
-				point=0;
+				resetPoint();
 				//TODO: move point puck
 			}
 		}
@@ -253,6 +273,7 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.mini7,payout(BetDestination.mini7));
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
 				chipPiles.clearAll();
+				resetPoint();
 				break;
 			case 8:
 				payoutMap.put(BetDestination.big8,payout(BetDestination.big8));
@@ -303,39 +324,6 @@ public class Craps_Model implements Craps_Interface{
 				payoutMap.put(BetDestination.mini_any,payout(BetDestination.mini_any));
 				break;
 		}
-			//set point or lose
-		if(point==0) {
-			switch (diceValue) {
-				case 4:
-				case 5:
-				case 6:
-				case 8:
-				case 9:
-				case 10:
-					try {
-						setPoint(diceValue);
-					} catch (Exception e) {
-						System.err.println(e.getMessage());
-					}
-					break;
-				case 7:
-					//loseGame();
-					break;
-			}
-		}
-		else{
-			if (diceValue==point) {//point get
-				payout(BetDestination.passLine);
-				chipPiles.remove(BetDestination.dontPassBar);
-				payoutMap.put(BetDestination.dontPassBar, 0.0);
-			}
-			else if(diceValue==7){
-				payout(BetDestination.dontPassBar);
-				payout(BetDestination.passLine);
-			}
-		}
-
-		//move for come out, dont come
 
 		//no matter what, clear the one-roll bets
 		chipPiles.remove(BetDestination.mini2);
@@ -389,7 +377,7 @@ public class Craps_Model implements Craps_Interface{
 
 
     public boolean isFirstTurn(){
-	    return comeOutRoll;
+	    return point==0;
     }
 
     public double getTotalBet(){
@@ -415,11 +403,18 @@ public class Craps_Model implements Craps_Interface{
 
 	}
 
+	public void resetPoint(){
+		System.out.println("Point has been reset.");
+		point=0;
+	}
+
     //test functions
 	public void displayBets(){
 		chipPiles.printMap();
 
 	}
+
+
 
 
 }

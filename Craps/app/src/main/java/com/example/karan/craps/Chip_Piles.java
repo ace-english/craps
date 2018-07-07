@@ -52,7 +52,7 @@ public class Chip_Piles {
                     case mini11:
                     case mini12:
                     case mini_any:
-                        layout = (FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
+                        //layout = (FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
                         break;
                     default:
                         layout = (FrameLayout) activity.findViewById(R.id.mainTableFrame);
@@ -201,13 +201,9 @@ public class Chip_Piles {
                         throw new Exception("Invalid move attempted.");
 
                 }
-<<<<<<< HEAD
                 int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
                 if(coords==null)
                     throw new Exception("Unable to find coordinate.");
-=======
-                int[] coords = color_finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
->>>>>>> 2ef150a833b6393892e0405df9a48973a1c0d2f0
                 add(coords[0], coords[1], pileMap.get(oldDest).betValue, newDest);
                 System.out.println("Coords for "+newDest+": "+coords[0]+","+coords[1]);
             }

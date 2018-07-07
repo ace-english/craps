@@ -9,6 +9,7 @@ public class Test {
         int choice;
         BetDestination betDest;
         int bet;
+        String ret;
         System.out.print("Let's play.\n");
         while(true){
             System.out.println("Your wallet: "+CM.getWallet());
@@ -18,6 +19,7 @@ public class Test {
             System.out.println("Pick one:");
             System.out.println("1. Place a bet");
             System.out.println("2. Roll dice");
+            System.out.println("3. Cheat");
             choice=scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -27,14 +29,28 @@ public class Test {
                     betDest = BetDestination.values()[choice];
                     System.out.println("How much?");
                     bet = scanner.nextInt();
-                    if (CM.placeBet(betDest, bet, 0, 0)==null)
+                    ret=CM.placeBet(betDest, bet, 0, 0);
+                    if (ret==null)
                         System.out.println(bet + " placed on " + betDest);
+                    else
+                        System.out.println(ret);
                     break;
                 case 2:
                     CM.rollDice();
                     System.out.println("You rolled: "+CM.getDiceValue());
-
+                    break;
+                case 3:
+                    System.out.println("What do you want the roll to be? (2-12)");
+                    choice=scanner.nextInt();
+                    if((choice<=12)&&(choice>=2)) {
+                        CM.rollDice(choice);
+                    }
+                    else
+                        System.err.println("Cheated value invalid");
             }
+
+
+
 
         }
     }
