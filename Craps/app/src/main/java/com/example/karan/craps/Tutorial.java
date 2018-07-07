@@ -24,6 +24,7 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
 {
     View backButton;
     private Button tLayout;
+    private Button tTricks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,6 +39,9 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
         tLayout = findViewById(R.id.learnLayout);
         tLayout.setOnClickListener(this);
 
+        tTricks = findViewById(R.id.tipsandtricks);
+        tTricks.setOnClickListener(this);
+
 
 
     }
@@ -50,6 +54,17 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
         if (v.getId()==R.id.learnLayout)
         {
             Intent intent = new Intent(this, Layout_Tutorial.class);
+            startActivity(intent);
+        }
+
+        if (v.getId()==R.id.tipsandtricks)
+        {
+            //Create XML and Java Class Layout for Tips and Tricks
+        }
+
+        if (v.getId()==R.id.backButton)
+        {
+            Intent intent = new Intent(this, Homescreen.class);
             startActivity(intent);
         }
     }

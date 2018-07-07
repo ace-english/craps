@@ -23,7 +23,6 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.backButton){
