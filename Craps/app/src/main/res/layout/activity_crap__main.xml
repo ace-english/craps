@@ -69,30 +69,31 @@
 
         <ImageView
             android:id="@+id/pointOff"
-            style="@style/Chip"
-            android:layout_marginStart="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="4dp"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="@+id/pointOn"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buyTextWrapper"
             app:srcCompat="@drawable/point_off" />
 
         <ImageView
             android:id="@+id/pointOn"
-            style="@style/Chip"
-            android:layout_marginStart="16dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/pointOff"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/pointOff"
             app:srcCompat="@drawable/point_on" />
 
         <FrameLayout
             android:id="@+id/mainTableFrame"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintBottom_toTopOf="@+id/chipTrayWrapper"
             app:layout_constraintEnd_toStartOf="@+id/infoPanel"
             app:layout_constraintStart_toStartOf="parent"
@@ -310,8 +311,6 @@
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/rollButton"
@@ -326,7 +325,7 @@
                 android:adjustViewBounds="true"
                 android:clickable="true"
                 android:contentDescription="@string/oddsTableDescription"
-                android:scaleType="fitEnd"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/odds_table" />
 
             <ImageView
@@ -336,7 +335,7 @@
                 android:adjustViewBounds="true"
                 android:clickable="true"
                 android:contentDescription="@string/oddsTableDescription"
-                android:scaleType="fitEnd"
+                android:scaleType="fitCenter"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/odds_map" />
 

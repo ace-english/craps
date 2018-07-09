@@ -224,13 +224,13 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     private int getHotspotColor(int hotspotId, int x, int y) {
         ImageView img = (ImageView) findViewById (hotspotId);
         if (img == null) {
-            Toast.makeText(getApplicationContext(), "No img found",Toast.LENGTH_LONG).show();
+            System.err.println("No image found.");
             return 0;
         } else {
             img.setDrawingCacheEnabled(true);
             Bitmap hotspots = Bitmap.createBitmap(img.getDrawingCache());
             if (hotspots == null) {
-                Toast.makeText(getApplicationContext(), "Bitmap failure",Toast.LENGTH_LONG).show();
+                System.err.println("Bitmap failure");
                 return 0;
             } else {
                 img.setDrawingCacheEnabled(false);
@@ -245,7 +245,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     }
 
     private boolean payUp(){
-        Toast.makeText(getApplicationContext(), "Gimme microtransaction",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Microtransaction portal",Toast.LENGTH_LONG).show();
         return true;
     }
 
