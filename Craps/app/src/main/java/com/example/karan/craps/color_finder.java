@@ -155,4 +155,34 @@ public class Color_Finder {
         return null;
 
     }
+
+    public int[] findDestination(int destination, ImageView IV){
+        int color;
+        switch (destination){
+            case 4:
+                color=context.getResources().getColor(R.color.t_four);
+                break;
+            case 5:
+                color=context.getResources().getColor(R.color.t_five);
+                break;
+            case 6:
+                color=context.getResources().getColor(R.color.t_six);
+                break;
+            /*I know these are backwards*/
+            case 8:
+                color=context.getResources().getColor(R.color.t_nine);
+                break;
+            case 9:
+                color=context.getResources().getColor(R.color.t_eight);
+                break;
+            /*it works shhhh*/
+            case 10:
+                color=context.getResources().getColor(R.color.t_ten);
+                break;
+            default:
+                return null;
+
+        }
+        return Color_Finder.findColor(color, IV);
+    }
 }

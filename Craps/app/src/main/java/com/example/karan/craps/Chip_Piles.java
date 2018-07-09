@@ -31,6 +31,7 @@ public class Chip_Piles {
         Context context;
         Activity activity;
         FrameLayout layout;
+        int chipSize;
 
         Chip_Pile(int x, int y, int value, BetDestination bd, Context context, Activity activity){
             xpos=x-(width/2);
@@ -52,11 +53,13 @@ public class Chip_Piles {
                     case mini11:
                     case mini12:
                     case mini_any:
-                        //layout = (FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
+                        layout = (FrameLayout) activity.findViewById(R.id.miniCrapsFrame);
                         break;
                     default:
                         layout = (FrameLayout) activity.findViewById(R.id.mainTableFrame);
                 }
+                chipSize=activity.findViewById(R.id.mainTableFrame).getHeight()/12;
+                System.out.println("Chip size: "+chipSize);
             }
             render();
         }
@@ -132,7 +135,7 @@ public class Chip_Piles {
                     tempIV.setBackgroundResource(tempChip);
                     tempIV.setX((float) xpos);
                     tempIV.setY((float) ypos + yscale);
-                    tempIV.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
+                    tempIV.setLayoutParams(new ViewGroup.LayoutParams(chipSize, chipSize));
                     chips.add(tempIV);
                     System.out.println("\nAdded "+context.getResources().getString(tempChip)+" at "+xpos+","+ypos);
                     yscale -= yshift;
@@ -153,11 +156,13 @@ public class Chip_Piles {
     private Map<BetDestination, Chip_Pile> pileMap;
 
     Context context; Activity activity;
+    Color_Finder color_finder;
 
     Chip_Piles(Context context, Activity activity){
         pileMap = new TreeMap<BetDestination, Chip_Pile>();
         this.context=context;
         this.activity=activity;
+        color_finder=new Color_Finder(context);
 
 
     }
@@ -170,39 +175,39 @@ public class Chip_Piles {
             if(activity==null)  //test drive
                 add(0,0,pileMap.get(oldDest).betValue,newDest);
             else {      //find color of new location
-                int color;
+                int color; int dest;
                 switch (newDest){
                     case come4:
                     case dontCome4:
-                        color=context.getResources().getColor(R.color.t_four);
+                        dest=4;
                         break;
                     case come5:
                     case dontCome5:
-                        color=context.getResources().getColor(R.color.t_five);
+                        dest=5;
                         break;
                     case come6:
                     case dontCome6:
-                        color=context.getResources().getColor(R.color.t_six);
+                        dest=6;
                         break;
                         /*I know these are backwards*/
                     case come8:
                     case dontCome8:
-                        color=context.getResources().getColor(R.color.t_nine);
+                        dest=8;
                         break;
                     case come9:
                     case dontCome9:
-                        color=context.getResources().getColor(R.color.t_eight);
+                        dest=9;
                         break;
                         /*it works shhhh*/
                     case come10:
                     case dontCome10:
-                        color=context.getResources().getColor(R.color.t_ten);
+                        dest=10;
                         break;
                     default:
                         throw new Exception("Invalid move attempted.");
 
                 }
-                int[] coords = Color_Finder.findColor(color, (ImageView) activity.findViewById(R.id.mainTableMap));
+                int[] coords = color_finder.findDestination(dest, (ImageView) activity.findViewById(R.id.mainTableMap));
                 if(coords==null) {
                     System.err.println("Unable to find coordinates.");
                 }

@@ -83,6 +83,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         settingsButton.setOnClickListener(this);
         rollButton.setOnClickListener(this);
 
+
         /*
         User chooses chip by clicking on one of the icons in the chip tray.
          */
@@ -257,35 +258,12 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         else {
             pointOn.setVisibility(View.VISIBLE);
             pointOff.setVisibility(View.INVISIBLE);
-            int color;
-            switch (point) {
-                case 4:
-                    color = R.color.p_4;
-                    break;
-                case 5:
-                    color = R.color.p_5;
-                    break;
-                case 6:
-                    color = R.color.p_6;
-                    break;
-                case 8:
-                    color = R.color.p_8;
-                    break;
-                case 9:
-                    color = R.color.p_9;
-                    break;
-                case 10:
-                    color = R.color.p_10;
-                    break;
-                default:
-                    return;
-            }
-            int[] coords = Color_Finder.findColor(getResources().getColor(color), (ImageView) MainTable);
+            int[] coords = color_finder.findDestination(point, (ImageView) findViewById(R.id.mainTableMap));
             if(coords==null) {
                 //pointOn.setX(MainTable.getWidth());
                 System.err.println("Could not move point.");
             }else {
-                pointOn.setX(coords[0]);
+                pointOn.setX(coords[0]+(pointOff.getWidth()/2));
             }
         }
 

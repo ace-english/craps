@@ -56,18 +56,35 @@
             style="@style/GradientWrapper"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/gradient_box"
             android:contentDescription="@string/buyButton"
             android:scaleType="fitCenter"
             android:text="@string/buyButton"
-            app:layout_constraintBottom_toTopOf="@+id/mainTableFrame"
+            app:layout_constraintBottom_toBottomOf="@+id/buyTextWrapper"
             app:layout_constraintStart_toEndOf="@+id/buyTextWrapper"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <ImageView
+            android:id="@+id/pointOff"
+            style="@style/Chip"
+            android:layout_marginStart="8dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/pointOn"
+            app:layout_constraintTop_toBottomOf="@+id/buyTextWrapper"
+            app:srcCompat="@drawable/point_off" />
+
+        <ImageView
+            android:id="@+id/pointOn"
+            style="@style/Chip"
+            android:layout_marginStart="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/pointOff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pointOff"
+            app:srcCompat="@drawable/point_on" />
 
         <FrameLayout
             android:id="@+id/mainTableFrame"
@@ -75,14 +92,11 @@
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/chipTrayWrapper"
             app:layout_constraintEnd_toStartOf="@+id/infoPanel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyTextWrapper">
+            app:layout_constraintTop_toBottomOf="@+id/pointOff">
 
             <ImageView
                 android:id="@+id/mainTableMap"
@@ -91,6 +105,7 @@
                 android:adjustViewBounds="true"
                 android:clickable="true"
                 android:contentDescription="@string/mainTableDescription"
+                android:cropToPadding="true"
                 android:focusable="true"
                 android:scaleType="fitCenter"
                 android:visibility="invisible"
@@ -99,23 +114,12 @@
             <ImageView
                 android:id="@+id/mainTable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/mainTableDescription"
-                android:scaleType="fitCenter"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/main_table" />
-
-            <ImageView
-                android:id="@+id/pointOff"
-                style="@style/Chip"
-                android:visibility="visible"
-                app:srcCompat="@drawable/point_off" />
-
-            <ImageView
-                android:id="@+id/pointOn"
-                style="@style/Chip"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/point_on" />
 
         </FrameLayout>
 
@@ -228,8 +232,6 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="2dp"
                 android:visibility="visible"
