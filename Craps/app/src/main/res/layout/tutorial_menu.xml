@@ -40,25 +40,13 @@
             android:text="Learn Layout" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/tipsandtricks"
             style="@style/MenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="onClick"
+            android:text="Tips and Tricks" />
 
-        <Button
-            android:id="@+id/button4"
-            style="@style/MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button5"
-            style="@style/MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
     </LinearLayout>
 
     <ImageButton
