@@ -12,7 +12,7 @@ import android.widget.ImageView;
 public class Color_Finder {
     
     private Context context;
-    private static int tolerance=50;
+    private static int tolerance=10;
 
     public Color_Finder(Context context){
         this.context=context;

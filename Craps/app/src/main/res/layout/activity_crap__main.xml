@@ -121,6 +121,7 @@
                 android:contentDescription="@string/mainTableDescription"
                 android:cropToPadding="true"
                 android:scaleType="centerCrop"
+                android:visibility="visible"
                 app:srcCompat="@drawable/main_table" />
 
         </FrameLayout>
@@ -316,7 +317,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/rollButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/infoPanel"
+            app:layout_constraintStart_toEndOf="@+id/mainTableFrame"
             app:layout_constraintTop_toBottomOf="@+id/infoPanel">
 
             <ImageView
