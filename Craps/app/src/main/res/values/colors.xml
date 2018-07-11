@@ -21,11 +21,11 @@
     <color name="t_dontcome">#50556c</color>
     <color name="t_come">#000000</color>
 
-    <color name="t_four">#ffff00</color>
+    <color name="t_four">#ff00bf</color>
     <color name="t_fourLay">#f97af1</color>
     <color name="t_fourBuy">#37290e</color>
     <color name="t_five">#ffffff</color>
-    <color name="t_fiveLay">#ffbf00</color>
+    <color name="t_fiveLay">#ffff00</color>
     <color name="t_fiveBuy">#b996fc</color>
     <color name="t_six">#d76f6f</color>
     <color name="t_sixLay">#9c003f</color>
@@ -63,14 +63,6 @@
     <color name="c_100">#7e7e7e</color>
     <color name="c_500">#ffff00</color>
     <!--End colors used in the chips map-->
-    
-    <!--point position indicators-->
-    <color name="p_4">#c28553</color>
-    <color name="p_5">#7e7e7e</color>
-    <color name="p_6">#216c29</color>
-    <color name="p_8">#70a3de</color>
-    <color name="p_9">#ff9a9a</color>
-    <color name="p_10">#80691b</color>
 
 </resources>
 

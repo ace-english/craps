@@ -99,7 +99,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                         touchColor = getHotspotColor(R.id.chipsMap, x, y);
                         selectedChip = color_finder.findChip(touchColor);
                     }
-                Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
                 return true;
             }
         });
@@ -184,14 +184,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             }
             if(dest!=null){
                 String text=model.placeBet(dest, selectedChip, x, y);
-                if (text==null) {
-                    text= selectedChip + " placed at " + dest.toString();
+                if (text!=null) {
+                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
-
-            }
-            else{
-                Toast.makeText(getApplicationContext(), "Not a valid position",Toast.LENGTH_LONG).show();
             }
 
         }
