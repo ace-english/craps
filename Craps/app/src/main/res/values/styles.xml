@@ -34,10 +34,6 @@
 
     </style>
 
-    <style name="TitleCard">
-        <item name="android:padding">32dp</item>
-    </style>
-
 
     <style name="Chip">
         <item name="android:adjustViewBounds">true</item>
