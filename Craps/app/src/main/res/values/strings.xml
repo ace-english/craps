@@ -1,11 +1,14 @@
 <resources>
 
     <string name="app_name">Craps</string>
-    <string name="Background">table</string>
     <string name="defaultMoney">$0.00</string>
     <string name="buyButton">BUY</string>
     <string name="rollButton">ROLL</string>
     <string name="homeButton">HOME</string>
+    <!--Constants-->
+    <string name="saveFileName">craps_save.dat</string>
+    <!--Content descriptors-->
+    <!--<string name="Background">table</string>-->
     <string name="totalBetLabel">Total bet</string>
     <string name="totalWinsLabel">Total Wins</string>
     <string name="mainTableDescription">A craps table</string>
@@ -19,5 +22,34 @@
     <string name="chip500description">A chip worth $500</string>
     <string name="oddsTableDescription">A table for mincraps</string>
     <string name="dicedesc">The result of the last dice roll</string>
-    <string name="saveFileName">craps_save.dat</string>
+
+    <!--Strings for tutorial-->
+    <string name="t_dice">Dice\n\n
+        This is where dice rolls will be displayed after clicking the "Roll" button.</string>
+    <string name="t_passline">Passline\n\n
+        This is the main Craps bet. You bet on the passline before the point comes out. \nIf the point gets rolled again, you win your bet here.</string>
+    <string name="t_dontPass">Don\'t Pass\n\n
+        A bet can be placed on Don\'t Pass before the point comes out. If a 7 is rolled before the point is rolled again, you win your bet here.</string>
+    <string name="t_sidebet">Side Bet\n\n
+        At any point you can bet that one of these numbers gets rolled before a 7 next comes up. If the number comes up, you win your bet.</string>
+    <string name="t_buy">Buy Bets\n\n
+        Here you bet that the bought value will turn up before a seven. This bet gives true odds, minus a 5% \'vigorish\' that goes to the house.
+        \nThe odds of rolling any of these bets is displayed on the board.</string>
+    <string name="t_lay">Lay Bets\n\n
+        Where you are betting that a 7 will come up before this number. This bet pays true odds, minus a 5% \'vigorish\' for the house.
+        \nThe odds of rolling any of these bets is displayed on the board.</string>
+    <string name="t_come">Come\n\n
+        After the point comes out, you can have a second bet going at the same time.\n
+        The next point that gets rolled, your come bet moves to that point. This bet will be paid out if that number comes up before a 7.</string>
+    <string name="t_dontCome">Don\'t Come\n\n
+        Your bet on this region gets moved to the next point that gets rolled. \n
+        If a 7 gets rolled before this point, you win your bet. If the number comes up again before a 7, you lose your bet.</string>
+    <string name="t_big6">Big 6\n\n
+        When you bet here, the next time a 6 gets rolled, you get your bet doubled. If a 7 comes up before that, you lose your bet.</string>
+    <string name="t_big8">Big 8\n\n
+        When you bet here, the next time a 8 gets rolled, you get your bet doubled. If a 7 comes up before that, you lose your bet.</string>
+    <string name="t_field">Field\n\n
+        At any time you can bet on the field. If any of the numbers shown gets rolled (2,3,4,9,10,11,12) before a 7, you win your bet.
+        \nIn the case of a 2, your profit is doubled. In the case of a 12, your profit is tripled.</string>
+
 </resources>

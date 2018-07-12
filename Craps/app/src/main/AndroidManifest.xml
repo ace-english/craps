@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Tutorial"
+            android:name=".Tutorial_Menu"
             android:screenOrientation="landscape" />
         <activity android:name=".Tips_and_Tricks" android:screenOrientation="portrait">
 

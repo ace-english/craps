@@ -32,7 +32,7 @@ public class Homescreen extends AppCompatActivity implements OnClickListener
         }
         if (v.getId() == R.id.tutorial)
         {
-            Intent intent = new Intent (this, Tutorial.class);
+            Intent intent = new Intent (this, Tutorial_Menu.class);
             startActivity (intent);
         }
     }

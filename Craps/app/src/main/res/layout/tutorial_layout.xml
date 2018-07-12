@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:background="@drawable/background">
 
-
         <android.support.constraint.ConstraintLayout
             android:id="@+id/buyTextWrapper"
             style="@style/GradientWrapper"
@@ -32,8 +31,6 @@
                 android:layout_height="31dp"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
                 android:layout_marginStart="2dp"
 
                 android:layout_marginTop="2dp"
@@ -42,6 +39,7 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingStart="16dp"
+                android:text="$500.00"
                 android:textAlignment="viewStart"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +130,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/totalBox"
+                android:id="@+id/diceBox"
                 style="@style/BlackTextBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
