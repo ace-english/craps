@@ -36,7 +36,7 @@
         Here you bet that the bought value will turn up before a seven. This bet gives true odds, minus a 5% \'vigorish\' that goes to the house.
         \nThe odds of rolling any of these bets is displayed on the board.</string>
     <string name="t_lay">Lay Bets\n\n
-        Where you are betting that a 7 will come up before this number. This bet pays true odds, minus a 5% \'vigorish\' for the house.
+        Here you are betting that a 7 will come up before this number. This bet pays true odds, minus a 5% \'vigorish\' for the house.
         \nThe odds of rolling any of these bets is displayed on the board.</string>
     <string name="t_come">Come\n\n
         After the point comes out, you can have a second bet going at the same time.\n
