@@ -89,6 +89,13 @@ public class Craps_Model implements Craps_Interface{
 					return "That is not allowed on the come out roll.";
 			}
 		}
+		else{
+			switch (betDestination){
+				case passLine:
+				case dontPassBar:
+					return "That is only allowed on the come out roll.";
+			}
+		}
 		if((betDestination==BetDestination.come)&&chipPiles.contains(BetDestination.dontCome)) {
 			return "Cannot bet on Come and Don't Come at the same time.";
 		}
@@ -340,6 +347,7 @@ public class Craps_Model implements Craps_Interface{
 		chipPiles.remove(BetDestination.mini11);
 		chipPiles.remove(BetDestination.mini12);
 		chipPiles.remove(BetDestination.mini_any);
+		chipPiles.remove(BetDestination.field);
 		payoutMap.put(BetDestination.mini2, 0.0);
 		payoutMap.put(BetDestination.mini3, 0.0);
 		payoutMap.put(BetDestination.mini7, 0.0);

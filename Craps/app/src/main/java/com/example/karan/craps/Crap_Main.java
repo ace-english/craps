@@ -242,7 +242,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 //pointOn.setX(MainTable.getWidth());
                 System.err.println("Could not move point.");
             }else {
-                pointOn.setX(coords[0]+(pointOff.getWidth()/2));
+                pointOn.setX(coords[0]+(pointOff.getWidth()));
             }
         }
 

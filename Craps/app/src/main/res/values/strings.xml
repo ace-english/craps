@@ -49,7 +49,8 @@
     <string name="t_big8">Big 8\n\n
         When you bet here, the next time a 8 gets rolled, you get your bet doubled. If a 7 comes up before that, you lose your bet.</string>
     <string name="t_field">Field\n\n
-        At any time you can bet on the field. If any of the numbers shown gets rolled (2,3,4,9,10,11,12) before a 7, you win your bet.
-        \nIn the case of a 2, your profit is doubled. In the case of a 12, your profit is tripled.</string>
+        At any time you can bet on the field. If any of the numbers shown gets rolled (2,3,4,9,10,11,12) before a 7, you win your bet.\n
+        In the case of a 2, your profit is doubled. In the case of a 12, your profit is tripled.\n
+        If you do not win your field bet on the next roll, then it is lost.</string>
 
 </resources>
