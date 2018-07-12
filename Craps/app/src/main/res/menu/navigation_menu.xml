@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/Tip1"
+        android:title="First Tip"/>
+    <item android:id="@+id/Tip2"
+        android:title="Seconed Tip"/>
+    <item android:id="@+id/tip3"
+        android:title="Third Tip"/>
+</menu>

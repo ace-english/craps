@@ -21,6 +21,9 @@
         <activity
             android:name=".Tutorial"
             android:screenOrientation="landscape" />
+        <activity android:name=".Tips_and_Tricks" android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".Layout_Tutorial" android:screenOrientation="landscape">
         </activity>
     </application>

@@ -59,7 +59,8 @@ public class Tutorial extends AppCompatActivity implements OnClickListener
 
         if (v.getId()==R.id.tipsandtricks)
         {
-            //Create XML and Java Class Layout for Tips and Tricks
+            Intent intent = new Intent(this, Tips_and_Tricks.class);
+            startActivity(intent);
         }
 
         if (v.getId()==R.id.backButton)
