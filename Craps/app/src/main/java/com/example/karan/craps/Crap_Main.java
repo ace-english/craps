@@ -1,8 +1,5 @@
 package com.example.karan.craps;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -64,7 +61,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Home = findViewById(R.id.homeButton);
 
         Buy = findViewById(R.id.buyButton);
-        settingsButton = findViewById(R.id.backButton);
+        settingsButton = findViewById(R.id.homeButton);
         MainTable = findViewById(R.id.mainTable);
         MiniTable = findViewById(R.id.oddsTable);
         BuyTextView = findViewById(R.id.buyTextView);
@@ -95,7 +92,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                     int touchColor=getChipColor((int)event.getX(), (int) event.getY());
                     selectedChip = color_finder.findChip(touchColor);
                 }
-                Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
                 return true;
             }
         });
@@ -144,7 +141,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             //save();
 
         }
-        if (v.getId()==R.id.backButton)
+        if (v.getId()==R.id.homeButton)
         {
             //settings button, a radio button or drawer
         }

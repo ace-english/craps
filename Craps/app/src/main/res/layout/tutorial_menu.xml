@@ -32,6 +32,14 @@
             app:srcCompat="@drawable/tutorial_titlecard" />
 
         <Button
+            android:id="@+id/basics"
+            style="@style/MenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="The Basics" />
+
+        <Button
             android:id="@+id/learnLayout"
             style="@style/MenuButton"
             android:layout_width="match_parent"
@@ -50,7 +58,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/homeButton"
         style="@style/GradientWrapper"
         android:layout_width="0dp"
         android:layout_height="50dp"
