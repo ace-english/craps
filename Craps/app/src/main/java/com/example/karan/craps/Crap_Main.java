@@ -1,7 +1,5 @@
 package com.example.karan.craps;
 
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -63,7 +61,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Home = findViewById(R.id.homeButton);
 
         Buy = findViewById(R.id.buyButton);
-        settingsButton = findViewById(R.id.backButton);
+        settingsButton = findViewById(R.id.homeButton);
         MainTable = findViewById(R.id.mainTable);
         MiniTable = findViewById(R.id.oddsTable);
         BuyTextView = findViewById(R.id.buyTextView);
@@ -91,14 +89,9 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    int x, y;
-                    x = (int) event.getX();
-                    y = (int) event.getY();
-                    int touchColor;
-
-                        touchColor = getHotspotColor(R.id.chipsMap, x, y);
-                        selectedChip = color_finder.findChip(touchColor);
-                    }
+                    int touchColor=getChipColor((int)event.getX(), (int) event.getY());
+                    selectedChip = color_finder.findChip(touchColor);
+                }
                 //Toast.makeText(getApplicationContext(), "Selected "+ selectedChip,Toast.LENGTH_LONG).show();
                 return true;
             }
@@ -124,6 +117,10 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
     }
 
+    private int getChipColor(int x, int y){
+        return Color_Finder.getHotspotColor(R.id.chipsMap,x,y,this);
+    }
+
     @Override
     public void onClick(View v)
     {
@@ -144,7 +141,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
             //save();
 
         }
-        if (v.getId()==R.id.backButton)
+        if (v.getId()==R.id.homeButton)
         {
             //settings button, a radio button or drawer
         }
@@ -175,11 +172,11 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
 
 
             if (mainTable){
-                touchColor = getHotspotColor(R.id.mainTableMap, x, y);
+                touchColor = Color_Finder.getHotspotColor(R.id.mainTableMap, x, y, this);
                 dest = color_finder.findColorMainTable(touchColor);
             }
             else{
-                touchColor = getHotspotColor(R.id.oddsTableMap, x, y);
+                touchColor = Color_Finder.getHotspotColor(R.id.oddsTableMap, x, y, this);
                 dest = color_finder.findColorMiniTable(touchColor);
             }
             if(dest!=null){
@@ -216,23 +213,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
         Die2.setImageResource(diceImages[model.getDie2()-1]);
     }
 
-    private int getHotspotColor(int hotspotId, int x, int y) {
-        ImageView img = (ImageView) findViewById (hotspotId);
-        if (img == null) {
-            System.err.println("No image found.");
-            return 0;
-        } else {
-            img.setDrawingCacheEnabled(true);
-            Bitmap hotspots = Bitmap.createBitmap(img.getDrawingCache());
-            if (hotspots == null) {
-                System.err.println("Bitmap failure");
-                return 0;
-            } else {
-                img.setDrawingCacheEnabled(false);
-                return hotspots.getPixel(x, y);
-            }
-        }
-    }
+
 
     private String cashFormatter(double value){
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -258,7 +239,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
                 //pointOn.setX(MainTable.getWidth());
                 System.err.println("Could not move point.");
             }else {
-                pointOn.setX(coords[0]+(pointOff.getWidth()/2));
+                pointOn.setX(coords[0]+(pointOff.getWidth()));
             }
         }
 

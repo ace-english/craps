@@ -1,11 +1,16 @@
 <resources>
 
     <string name="app_name">Craps</string>
-    <string name="Background">table</string>
     <string name="defaultMoney">$0.00</string>
     <string name="buyButton">BUY</string>
     <string name="rollButton">ROLL</string>
     <string name="homeButton">HOME</string>
+    <string name="next">Next-&gt;</string>
+    <string name="prev">&lt;-Back</string>
+    <!--Constants-->
+    <string name="saveFileName">craps_save.dat</string>
+    <!--Content descriptors-->
+    <!--<string name="Background">table</string>-->
     <string name="totalBetLabel">Total bet</string>
     <string name="totalWinsLabel">Total Wins</string>
     <string name="mainTableDescription">A craps table</string>
@@ -19,5 +24,96 @@
     <string name="chip500description">A chip worth $500</string>
     <string name="oddsTableDescription">A table for mincraps</string>
     <string name="dicedesc">The result of the last dice roll</string>
-    <string name="saveFileName">craps_save.dat</string>
+
+    <!--Strings for layout tutorial-->
+    <string name="l_dice">Dice\n\n
+        This is where dice rolls will be displayed after clicking the "Roll" button.</string>
+    <string name="l_passline">Passline\n\n
+        This is the main Craps bet. You bet on the passline before the point comes out. \nIf the point gets rolled again, you win your bet here.</string>
+    <string name="l_dontPass">Don\'t Pass\n\n
+        A bet can be placed on Don\'t Pass before the point comes out. If a 7 is rolled before the point is rolled again, you win your bet here.</string>
+    <string name="l_sidebet">Side Bet\n\n
+        At any point you can bet that one of these numbers gets rolled before a 7 next comes up. If the number comes up, you win your bet.</string>
+    <string name="l_buy">Buy Bets\n\n
+        Here you bet that the bought value will turn up before a seven. This bet gives true odds, minus a 5% \'vigorish\' that goes to the house.
+        \nThe odds of rolling any of these bets is displayed on the board.</string>
+    <string name="l_lay">Lay Bets\n\n
+        Here you are betting that a 7 will come up before this number. This bet pays true odds, minus a 5% \'vigorish\' for the house.
+        \nThe odds of rolling any of these bets is displayed on the board.</string>
+    <string name="l_come">Come\n\n
+        After the point comes out, you can have a second bet going at the same time.\n
+        The next point that gets rolled, your come bet moves to that point. This bet will be paid out if that number comes up before a 7.</string>
+    <string name="l_dontCome">Don\'t Come\n\n
+        Your bet on this region gets moved to the next point that gets rolled. \n
+        If a 7 gets rolled before this point, you win your bet. If the number comes up again before a 7, you lose your bet.</string>
+    <string name="l_big6">Big 6\n\n
+        When you bet here, the next time a 6 gets rolled, you get your bet doubled. If a 7 comes up before that, you lose your bet.</string>
+    <string name="l_big8">Big 8\n\n
+        When you bet here, the next time a 8 gets rolled, you get your bet doubled. If a 7 comes up before that, you lose your bet.</string>
+    <string name="l_field">Field\n\n
+        At any time you can bet on the field. If any of the numbers shown gets rolled (2,3,4,9,10,11,12) before a 7, you win your bet.\n
+        In the case of a 2, your profit is doubled. In the case of a 12, your profit is tripled.\n
+        If you do not win your field bet on the next roll, then it is lost.</string>
+    <string name="l_hard">Hard 6,10,8, and 4\n\n
+        These bets on the mini craps table are betting on doubles (double 2s, double 3s, etc.)\n
+        If that number comes up, you win. If a seven comes up first, you lose. The payout odds for these is written on the table.</string>
+    <string name="l_mini">Mini Craps 7, 3, 2, 12, 11, or any \n\n
+        These bets apply to the very next value rolled. If the next dice roll matches, you win the payout displayed on the table.\n
+        After the next roll, these bets are cleared.</string>
+    <string name="l_chips">Chips\n\n
+        Before choosing a region to bet on, you must select a value to bet on. Mix and match chips to bet a specific amount.</string>
+    <string name="l_wallet">Wallet\n\n
+        This is where your cash is displayed. If you need more, you can always hit the buy button.</string>
+    <string name="l_wins">Total Wins\n\n
+        This is where your winnings from the last roll are displayed.</string>
+    <string name="l_bet">Total Bet\n\n
+        This is how much in chips you currently have on the table.</string>
+    <string name="l_point">Point\n\n
+        This puck shows you what the current point is.\n
+        After the come out roll, this puck gets flipped to the \'On\' position and moves above the current point.
+        When the point is rolled again, you get your passline bet.</string>
+    <!--Strings for basic tutorial-->
+    <string name="t_passline"><![CDATA[The most basic bet is the Pass Line bet. This bet pays out 1:1.<br>
+        First, put your bet on the \"Pass Line\" mark.<br>
+        Types of rolls:<br>
+            &emsp;<b>7 or 11:</b> Win<br>
+            &emsp;<b>2, 3, or 12 (\"craps\"):</b> Lose<br>
+            &emsp;<b>Any other number (4, 5, 6, 8, 9, 10):</b> Point<br>
+        <br> If the point is set, the puck will move to keep track of where the point is.]]></string>
+    <string name="t_point"><![CDATA[One the point is set, roll again. <br>
+        &emsp;<b>Roll the point again:</b> you win.<br>
+        &emsp;<b>Roll a 7:</b> lose. (When you roll a 7 on anything besides the come out roll, it is called \"sevening out\")<br>
+        &emsp;<b>Any other number:</b> Roll again.<br> <br>
+        When a player is making lots of throws without hitting the 7, it\'s called \"throwing numbers\". If you\'re playing with other players, they\'re probably betting on some of those numbers and are happy about winning.<br>
+        <b>If your point is rolled, the table wins. If a 7 is rolled and you lose, the bets are completely wiped off the table.</b> <br>
+        House Edge = 1.41%]]></string>
+    <string name="t_dontpass"><![CDATA[The Don\'t Pass Bar plays like the opposite of the Pass Line.<br>
+        Put your chips on the \"Don’t Pass\" Line.<br>
+        Types of rolls:<br>
+            &emsp;<b>2 or 3 (push on a 12):</b> Win <br>
+            &emsp;<b>7 or 11:</b> Lose <br>
+            &emsp;<b>4, 5, 6, 8, 9, 10:</b> Point <br>
+        <br> Once the point is set, you <i>want</i> to roll a 7. You want to actually <b>avoid</b> getting your point number. <br>
+            &emsp;<b>7:</b> Win. <br>
+            &emsp;<b>Your point number:</b> Lose. <br>
+        <br> House Edge: 1.36%]]></string>
+    <string name="t_odds"><![CDATA[An odds bet is a special additional bet. It can only be placed after a point has been made.<br>
+        This bet is made by placing chips on the line of numbers near the top of the Craps table.<br>
+        &emsp;4 or 10 -> 2:1 odds. (e.g. $10 bet pays $20)<br>
+        &emsp;5 or 9 -> 3:2 (e.g. $10 bet pays $15)<br>
+        &emsp;6 or 8 -> 6:5 (e.g. $10 bet pays $12)<br>
+        <br>House edge: 0%]]></string>
+    <string name="t_come"><![CDATA[Come bets can be placed only <b>after</b> a point is made on the Come out Roll (Pass Line Bet). <br>
+        The Come Bet is very similar to the Pass Line Bet and Point Bet in that you can have an automatic win if you roll a 7 or 11, or an automatic loss if you roll a 2, 3, or 12. <br>
+        Then the numbers 4,5,6,8,9,10 will establish the Come Point. <br>
+        Establishing a come point means you will have two points: the point from your Pass Line bet and the point from your Come bet.<br>
+        After establishing the come point, the Come Point is won just like a point made on a Pass Line bet is won.<br>
+            &emsp;<b>Roll the point again:</b> Win.<br>
+            &emsp;<b>7:</b> Lose.<br>
+            &emsp;<b>Any other number:</b> Irrelevant, roll again. <br>
+        <br> Come bet + odds bet ; Low house edge. <br>
+        House edge: 1.36%]]></string>
+    <!--End strings for basic tutorial-->
+
+
 </resources>

@@ -17,7 +17,7 @@ public class Homescreen extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.main_menu);
         Intent intent = getIntent();
 
-        Play = findViewById(R.id.c_Table);
+        Play = findViewById(R.id.playGame);
 
         Play.setOnClickListener(this);
 
@@ -26,13 +26,13 @@ public class Homescreen extends AppCompatActivity implements OnClickListener
     @Override
     public void onClick(View v)
     {
-        if (v.getId() == R.id.c_Table) {
+        if (v.getId() == R.id.playGame) {
             Intent intent = new Intent(this, Crap_Main.class);
             startActivity(intent);
         }
-        if (v.getId() == R.id.Home)
+        if (v.getId() == R.id.tutorial)
         {
-            Intent intent = new Intent (this, Tutorial.class);
+            Intent intent = new Intent (this, Tutorial_Menu.class);
             startActivity (intent);
         }
     }

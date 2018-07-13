@@ -1,6 +1,7 @@
 package com.example.karan.craps;
 
 import android.R.color;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -184,5 +185,23 @@ public class Color_Finder {
 
         }
         return Color_Finder.findColor(color, IV);
+    }
+
+    static int getHotspotColor(int hotspotId, int x, int y, Activity activity) {
+        ImageView img = (ImageView) activity.findViewById (hotspotId);
+        if (img == null) {
+            System.err.println("No image found.");
+            return 0;
+        } else {
+            img.setDrawingCacheEnabled(true);
+            Bitmap hotspots = Bitmap.createBitmap(img.getDrawingCache());
+            if (hotspots == null) {
+                System.err.println("Bitmap failure");
+                return 0;
+            } else {
+                img.setDrawingCacheEnabled(false);
+                return hotspots.getPixel(x, y);
+            }
+        }
     }
 }

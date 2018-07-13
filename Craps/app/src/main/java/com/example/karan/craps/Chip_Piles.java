@@ -21,7 +21,6 @@ import java.util.TreeMap;
 
 public class Chip_Piles {
     public static int yshift =5;
-    public static int width =40;
 
     private class Chip_Pile{
         int betValue;
@@ -34,8 +33,6 @@ public class Chip_Piles {
         int chipSize;
 
         Chip_Pile(int x, int y, int value, BetDestination bd, Context context, Activity activity){
-            xpos=x-(width/2);
-            ypos=y-(width/2);
             betValue=value;
             betDest=bd;
             this.context=context;
@@ -58,7 +55,9 @@ public class Chip_Piles {
                     default:
                         layout = (FrameLayout) activity.findViewById(R.id.mainTableFrame);
                 }
-                chipSize=activity.findViewById(R.id.mainTableFrame).getHeight()/12;
+                chipSize=activity.findViewById(R.id.mainTableFrame).getHeight()/11;
+                xpos=x-(chipSize/2);
+                ypos=y-(chipSize/2);
                 System.out.println("Chip size: "+chipSize);
             }
             render();
