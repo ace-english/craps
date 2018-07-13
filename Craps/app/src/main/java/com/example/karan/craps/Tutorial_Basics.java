@@ -66,5 +66,13 @@ public class Tutorial_Basics extends AppCompatActivity implements View.OnClickLi
         Title.setText(titles[index]);
         MainText.setText(Html.fromHtml(getResources().getString(texts[index])));
         Counter.setText((index+1)+" of "+texts.length);
+        if(index==0)
+            Prev.setVisibility(View.INVISIBLE);
+        else
+            Prev.setVisibility(View.VISIBLE);
+        if(index==texts.length-1)
+            Next.setVisibility(View.INVISIBLE);
+        else
+            Next.setVisibility(View.VISIBLE);
     }
 }

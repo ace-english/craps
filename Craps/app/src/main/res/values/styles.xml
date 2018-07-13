@@ -46,13 +46,13 @@
 
     <style name="paragraph">
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="header">
         <item name="android:textColor">#ffff00</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">24dp</item>
     </style>
 
 </resources>

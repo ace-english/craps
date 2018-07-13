@@ -50,8 +50,7 @@ public class Tips_and_Tricks extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int id=v.getId();
         if(id==R.id.homeButton){
-            Intent intent = new Intent(this, Tutorial_Menu.class);
-            startActivity(intent);
+            finish();
         }
         if(id==R.id.next){
             if(index<texts.length-1)
@@ -69,5 +68,13 @@ public class Tips_and_Tricks extends AppCompatActivity implements View.OnClickLi
         Title.setText(titles[index]);
         MainText.setText(Html.fromHtml(getResources().getString(texts[index])));
         Counter.setText((index+1)+" of "+texts.length);
+        if(index==0)
+            Prev.setVisibility(View.INVISIBLE);
+        else
+            Prev.setVisibility(View.VISIBLE);
+        if(index==texts.length-1)
+            Next.setVisibility(View.INVISIBLE);
+        else
+            Next.setVisibility(View.VISIBLE);
     }
 }
