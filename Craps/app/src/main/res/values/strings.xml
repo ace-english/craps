@@ -72,6 +72,7 @@
         This puck shows you what the current point is.\n
         After the come out roll, this puck gets flipped to the \'On\' position and moves above the current point.
         When the point is rolled again, you get your passline bet.</string>
+
     <!--Strings for basic tutorial-->
     <string name="t_passline"><![CDATA[The most basic bet is the Pass Line bet. This bet pays out 1:1.<br>
         First, put your bet on the \"Pass Line\" mark.<br>
@@ -115,5 +116,27 @@
         House edge: 1.36%]]></string>
     <!--End strings for basic tutorial-->
 
+    <!--Start strings for tips and tricks-->
+    <string name="t_tip1"><![CDATA[Field bets are great options for those players who can’t resist the temptation of a one-roll bet, but want slightly better odds and a lower house edge.<br>
+        Field bets have a house edge of 5.56%, higher than some other bets but lower than all proposition bets.<br>
+        This is an easy bet to remember as well. You can place a bet on the 2,3,4,9,10,11, and 12.<br>
+        Best numbers to play are the 2 and 12 as they pay 2 to 1, and in some casinos 3 to 1.]]></string>
+    <string name="t_tip3"><![CDATA[Works in the opposite way of the Come bet, but just like the Come bet it can be made at any time after the point has been established.<br>
+        You win this bet if the 3 or 2 is rolled once the point has been made, and you tie if a 12 is rolled.<br>
+        Any other number becomes your own point number, separate from pass line bettors.<br>
+        To win a 7 has to be rolled before your point number is rolled.<br>
+        This bet pays even money and has a house edge of 1.41%.]]></string>
+    <string name="t_tip4"><![CDATA[Another superb strategy for playing online craps is placing two come bets following the initial pass line bet.<br>
+        You will this way have three numbers operating to your advantage.<br>
+        Many gambling professionals consider this number of bets ideal to have at any time.<br>
+        Place another bet once you attain a winning bet, which enables you to have in play three bets always.]]></string>
+    <string name="t_tip5"><![CDATA[The worse strategy for online craps is without contradiction placing proposition bets.<br>
+        These kinds usually get settled following just a single dice roll, which renders them appealing to certain players.<br>
+        It is advisable to avoid taking these since the house edge is normally significantly large.]]></string>
+    <string name="t_tip6"><![CDATA[Hard 4 as well as Hard 10 are seen as poor bets since the house edge is about 11%.<br>
+        Payout is 7 to 1 here, though chances of attaining numbers 2 and 5 respectively in pairs are quite low.<br>
+        You can win with the bets, Big 6 and Big 8 in case the shooter respectively rolls numbers 6 and 8 prior to a 7.<br>
+        However, it is not commendable to place these bets since the payout is just 1 to 1, with the house edge being around 9%.]]></string>
+    <!--Start strings for tips and tricks-->
 
 </resources>

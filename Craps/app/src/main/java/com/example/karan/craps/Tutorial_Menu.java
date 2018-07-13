@@ -26,11 +26,9 @@ public class Tutorial_Menu extends AppCompatActivity implements OnClickListener
         tLayout = findViewById(R.id.learnLayout);
         tLayout.setOnClickListener(this);
 
-        /*
-        disabled until presentable
         tTricks = findViewById(R.id.tipsandtricks);
         tTricks.setOnClickListener(this);
-         */
+
 
         findViewById(R.id.basics).setOnClickListener(this);
 
@@ -47,13 +45,13 @@ public class Tutorial_Menu extends AppCompatActivity implements OnClickListener
             Intent intent = new Intent(this, Layout_Tutorial.class);
             startActivity(intent);
         }
-/*
+
         if (v.getId()==R.id.tipsandtricks)
         {
             Intent intent = new Intent(this, Tips_and_Tricks.class);
             startActivity(intent);
         }
-        */
+
         if(v.getId()==R.id.basics){
             Intent intent = new Intent(this, Tutorial_Basics.class);
             startActivity(intent);
