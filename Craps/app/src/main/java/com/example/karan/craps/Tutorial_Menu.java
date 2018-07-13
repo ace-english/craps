@@ -47,13 +47,13 @@ public class Tutorial_Menu extends AppCompatActivity implements OnClickListener
             Intent intent = new Intent(this, Layout_Tutorial.class);
             startActivity(intent);
         }
-/*
+
         if (v.getId()==R.id.tipsandtricks)
         {
             Intent intent = new Intent(this, Tips_and_Tricks.class);
             startActivity(intent);
         }
-        */
+
         if(v.getId()==R.id.basics){
             Intent intent = new Intent(this, Tutorial_Basics.class);
             startActivity(intent);
