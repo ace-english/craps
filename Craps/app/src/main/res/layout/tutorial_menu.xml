@@ -23,12 +23,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:padding="32dp"
+            android:id="@+id/titlecard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:contentDescription="Tutorial"
             android:cropToPadding="true"
+            android:padding="32dp"
             app:srcCompat="@drawable/tutorial_titlecard" />
 
         <Button

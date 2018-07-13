@@ -68,14 +68,14 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnTouchLi
 
     @Override
     public boolean onTouch(View v, MotionEvent me) {
-        int id=v.getId();
+        int id = v.getId();
         if (id == R.id.homeButton) {
             finish();
         }
-        if(id==R.id.diceBox){
+        if (id == R.id.diceBox) {
             display(R.string.l_dice);
         }
-        if (id==R.id.mainTable){
+        if (id == R.id.mainTable) {
             try {
                 int color = Color_Finder.getHotspotColor(R.id.mainTableMap, (int) me.getX(), (int) me.getY(), this);
                 switch (color_finder.findColorMainTable(color)) {
@@ -127,46 +127,53 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnTouchLi
                     default:
                         break;
                 }
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 //consider it handled
             }
 
-            
+
         }
-        if(id==R.id.oddsTable){
-            int color = Color_Finder.getHotspotColor(R.id.oddsTableMap, (int)me.getX(), (int)me.getY(), this);
-            switch (color_finder.findColorMiniTable(color)){
-                case hard4:
-                case hard6:
-                case hard8:
-                case hard10:
-                    display(R.string.l_hard);
-                    break;
-                case mini2:
-                case mini3:
-                case mini7:
-                case mini11:
-                case mini12:
-                case mini_any:
-                    display(R.string.l_mini);
-                    break;
+        if (id == R.id.oddsTable) {
+            try {
+                int color = Color_Finder.getHotspotColor(R.id.oddsTableMap, (int) me.getX(), (int) me.getY(), this);
+                switch (color_finder.findColorMiniTable(color)) {
+                    case hard4:
+                    case hard6:
+                    case hard8:
+                    case hard10:
+                        display(R.string.l_hard);
+                        break;
+                    case mini2:
+                    case mini3:
+                    case mini7:
+                    case mini11:
+                    case mini12:
+                    case mini_any:
+                        display(R.string.l_mini);
+                        break;
+                }
             }
-        }
-        if(id==R.id.chips){
-            display(R.string.l_chips);
-        }
-        if(id==R.id.wallet||id==R.id.buyButton){
-            display(R.string.l_wallet);
-        }
-        if(id==R.id.totalBetBox){
-            display(R.string.l_bet);
-        }
-        if(id==R.id.totalWinsBox){
-            display(R.string.l_wins);
-        }
-        if(id==R.id.pointOff){
-            display(R.string.l_point);
+            catch(Exception e){
+                //consider it handled
+            }
+            if (id == R.id.chips) {
+                display(R.string.l_chips);
+            }
+            if (id == R.id.wallet || id == R.id.buyButton) {
+                display(R.string.l_wallet);
+            }
+            if (id == R.id.totalBetBox) {
+                display(R.string.l_bet);
+            }
+            if (id == R.id.totalWinsBox) {
+                display(R.string.l_wins);
+            }
+            if (id == R.id.pointOff) {
+                display(R.string.l_point);
+            }
+            if (id==R.id.rollButton){
+                display(R.string.l_roll);
+            }
         }
 
 

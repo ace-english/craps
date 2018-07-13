@@ -72,6 +72,8 @@
         This puck shows you what the current point is.\n
         After the come out roll, this puck gets flipped to the \'On\' position and moves above the current point.
         When the point is rolled again, you get your passline bet.</string>
+    <string name="l_roll">Roll\n\n
+        When you\'ve finished betting, click this button to roll the dice.</string>
 
     <!--Strings for basic tutorial-->
     <string name="t_passline"><![CDATA[The most basic bet is the Pass Line bet. This bet pays out 1:1.<br>
