@@ -61,8 +61,7 @@ public class Tutorial_Menu extends AppCompatActivity implements OnClickListener
 
         if (v.getId()==R.id.homeButton)
         {
-            Intent intent = new Intent(this, Homescreen.class);
-            startActivity(intent);
+            finish();
         }
     }
 

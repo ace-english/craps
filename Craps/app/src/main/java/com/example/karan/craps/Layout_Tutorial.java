@@ -70,61 +70,68 @@ public class Layout_Tutorial extends AppCompatActivity implements View.OnTouchLi
     public boolean onTouch(View v, MotionEvent me) {
         int id=v.getId();
         if (id == R.id.homeButton) {
-            Intent intent = new Intent(this, Tutorial_Menu.class);
-            startActivity(intent);
+            finish();
         }
         if(id==R.id.diceBox){
             display(R.string.l_dice);
         }
         if (id==R.id.mainTable){
-            int color = Color_Finder.getHotspotColor(R.id.mainTableMap, (int)me.getX(), (int)me.getY(), this);
-            switch (color_finder.findColorMainTable(color)){
-                case passLine:
-                    display(R.string.l_passline);
-                    break;
-                case dontPassBar:
-                    display(R.string.l_dontPass);
-                    break;
-                case sideBet4:
-                case sideBet5:
-                case sideBet6:
-                case sideBet8:
-                case sideBet9:
-                case sideBet10:
-                    display(R.string.l_sidebet);
-                    break;
-                case lay4:
-                case lay5:
-                case lay6:
-                case lay8:
-                case lay9:
-                case lay10:
-                    display(R.string.l_lay);
-                    break;
-                case buy4:
-                case buy5:
-                case buy6:
-                case buy8:
-                case buy9:
-                case buy10:
-                    display(R.string.l_buy);
-                    break;
-                case come:
-                    display(R.string.l_come);
-                    break;
-                case dontCome:
-                    display(R.string.l_dontCome);
-                    break;
-                case field:
-                    display(R.string.l_field);
-                    break;
-                case big6:
-                    display(R.string.l_big6);
-                    break;
-                case big8:
-                    display(R.string.l_big8);
-                    break;
+            try {
+                int color = Color_Finder.getHotspotColor(R.id.mainTableMap, (int) me.getX(), (int) me.getY(), this);
+                switch (color_finder.findColorMainTable(color)) {
+                    case passLine:
+                        display(R.string.l_passline);
+                        break;
+                    case dontPassBar:
+                        display(R.string.l_dontPass);
+                        break;
+                    case sideBet4:
+                    case sideBet5:
+                    case sideBet6:
+                    case sideBet8:
+                    case sideBet9:
+                    case sideBet10:
+                        display(R.string.l_sidebet);
+                        break;
+                    case lay4:
+                    case lay5:
+                    case lay6:
+                    case lay8:
+                    case lay9:
+                    case lay10:
+                        display(R.string.l_lay);
+                        break;
+                    case buy4:
+                    case buy5:
+                    case buy6:
+                    case buy8:
+                    case buy9:
+                    case buy10:
+                        display(R.string.l_buy);
+                        break;
+                    case come:
+                        display(R.string.l_come);
+                        break;
+                    case dontCome:
+                        display(R.string.l_dontCome);
+                        break;
+                    case field:
+                        display(R.string.l_field);
+                        break;
+                    case big6:
+                        display(R.string.l_big6);
+                        break;
+                    case big8:
+                        display(R.string.l_big8);
+                        break;
+                    default:
+                        break;
+                }
             }
+            catch (Exception e){
+                //consider it handled
+            }
+
             
         }
         if(id==R.id.oddsTable){

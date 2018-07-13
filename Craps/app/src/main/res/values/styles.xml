@@ -46,6 +46,7 @@
 
     <style name="paragraph">
         <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">16dp</item>
     </style>
 
     <style name="header">

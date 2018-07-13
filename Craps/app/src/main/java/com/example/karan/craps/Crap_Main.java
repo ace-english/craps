@@ -126,8 +126,7 @@ public class Crap_Main extends AppCompatActivity implements OnClickListener
     {
         if (v.getId()==R.id.homeButton)
         {
-            Intent intent = new Intent(this, Homescreen.class);
-                startActivity(intent);
+            finish();
         }
         if (v.getId()==R.id.buyButton)
         {
